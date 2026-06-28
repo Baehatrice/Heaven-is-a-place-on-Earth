@@ -1367,5 +1367,121 @@ body.mode-hell-labor .leader-frame img {
     object-fit: cover !important;
 }
 
+/* ==========================================================================
+   Responsive Mobile Overrides (Viewport <= 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden !important;
+    }
+
+    #desktop {
+        width: 100vw !important;
+        padding-bottom: 180px !important; /* Extra padding for sticky footer and winamp */
+        box-sizing: border-box !important;
+    }
+
+    .desktop-content {
+        min-height: auto !important;
+        padding: 8px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Landing Screen: Stack Windows Vertically */
+    #heaven-windows, #hell-windows {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        position: static !important;
+        padding: 0 !important;
+    }
+
+    .win98-window {
+        position: static !important; /* Disable drag absolute position */
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 15px !important;
+        top: auto !important;
+        left: auto !important;
+    }
+
+    /* Winamp Player mobile scaling */
+    .winamp-player {
+        width: 90vw !important;
+        left: 5vw !important;
+        bottom: 60px !important;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.5) !important;
+    }
+
+    /* Header & Title Adjustments */
+    .wordart-title {
+        font-size: 20px !important;
+    }
+    .wordart-text {
+        letter-spacing: 1px !important;
+    }
+    .neon-marquee {
+        font-size: 11px !important;
+    }
+
+    /* Heaven Shamanism Mobile Overrides */
+    body.mode-shamanism #heaven-shamanism-windows {
+        display: flex !important;
+        flex-direction: column !important;
+        height: auto !important;
+        gap: 15px !important;
+        padding: 4px !important;
+    }
+
+    body.mode-shamanism #heaven-shamanism-windows .win98-window {
+        height: auto !important;
+        min-height: auto !important;
+    }
+
+    body.mode-shamanism #window-shaman-portrait img {
+        max-height: 180px !important;
+        object-fit: cover !important;
+    }
+
+    /* Hell Labor Mobile Overrides */
+    body.mode-hell-labor #hell-labor-windows {
+        display: flex !important;
+        flex-direction: column !important;
+        height: auto !important;
+        gap: 15px !important;
+        padding: 4px !important;
+    }
+
+    body.mode-hell-labor #hell-labor-windows .win98-window {
+        height: auto !important;
+        min-height: auto !important;
+    }
+
+    /* Popstar portraits wrap & scale down slightly on mobile */
+    body.mode-hell-labor .leader-portraits-flex {
+        gap: 6px !important;
+        padding: 8px !important;
+    }
+
+    body.mode-hell-labor .leader-frame {
+        flex: 1 1 100px !important;
+        max-width: 120px !important;
+        padding: 4px !important;
+    }
+
+    body.mode-hell-labor .leader-frame img {
+        width: 100% !important;
+    }
+
+    /* Web badges wrap */
+    .web-badges {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 4px !important;
+    }
+}
+
+
 
 
