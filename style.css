@@ -1162,6 +1162,22 @@ body.mode-hell .counter-digit {
     color: #000 !important;
 }
 
+/* North Korean Leader Picture Frame Styling for Popstars */
+.leader-frame {
+    border: 3px double #d4af37 !important;
+    background-color: #120000 !important;
+    box-shadow: inset 0 0 15px #000, 3px 3px 6px rgba(0,0,0,0.6) !important;
+    transition: transform 0.15s ease-in-out, border-color 0.15s !important;
+}
+.leader-frame:hover {
+    transform: scale(1.04) translateY(-3px) !important;
+    border-color: #ffcc00 !important;
+    box-shadow: 0 0 15px rgba(255, 128, 0, 0.7) !important;
+}
+.leader-frame:active {
+    transform: scale(0.98) !important;
+}
+
 /* Shamanism Altar Mode window overrides */
 body.mode-shamanism .win98-window {
     border-color: #ff00ff #4a004a #4a004a #ff00ff !important;
