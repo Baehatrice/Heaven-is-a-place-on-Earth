@@ -393,6 +393,156 @@
                 </div>
             </div>
 
+            <!-- HEAVEN SHAMANISM WINDOWS (Shamanistic Pastor Page, hidden by default) -->
+            <div id="heaven-shamanism-windows" style="display: none;">
+                <!-- Window 1: Shamanic Pastor Portrait -->
+                <div class="win98-window window-draggable" id="window-shaman-portrait" style="top: 100px; left: 40px; width: 330px;">
+                    <div class="title-bar handle">
+                        <div class="title-bar-text">주의종_영적지도자_존영.png</div>
+                        <div class="title-bar-controls">
+                            <button aria-label="Minimize" class="min-btn"></button>
+                            <button aria-label="Maximize" class="max-btn"></button>
+                            <button aria-label="Close" class="close-btn" onclick="document.getElementById('window-shaman-portrait').style.display='none'"></button>
+                        </div>
+                    </div>
+                    <div class="window-body text-center">
+                        <img src="Resources/shaman_pastor.png" alt="Shaman Pastor Altar" style="width: 100%; border: 2px inset #808080; background-color: #000; image-rendering: pixelated; max-height: 250px; object-fit: cover;">
+                        <p class="font-bold yellow-text blink text-bg" style="margin-top: 8px; font-size: 11px;">"나의 주의 종을 대접함이 하늘 제단에 쌓는 복이라!"</p>
+                    </div>
+                </div>
+
+                <!-- Window 2: Blessings & Curses (Shaman Authority) -->
+                <div class="win98-window window-draggable" id="window-shaman-power" style="top: 130px; left: 390px; width: 440px;">
+                    <div class="title-bar handle">
+                        <div class="title-bar-text">주의종의_축복권과_저주권.exe</div>
+                        <div class="title-bar-controls">
+                            <button aria-label="Minimize" class="min-btn"></button>
+                            <button aria-label="Maximize" class="max-btn"></button>
+                            <button aria-label="Close" class="close-btn" onclick="document.getElementById('window-shaman-power').style.display='none'"></button>
+                        </div>
+                    </div>
+                    <div class="window-body">
+                        <fieldset class="win98-fieldset" style="border-color: #ff00ff; background-color: #1a002a; padding: 10px; color: #ff88ff;">
+                            <legend style="color: #ff00ff; font-weight: bold; padding: 0 4px;">한국형 신비의 습합 신학</legend>
+                            <h4 class="magenta-text font-bold text-center blink" style="margin-bottom: 8px; font-size: 13px;">주의 종은 신과 신도 사이의 유일한 매개자입니다.</h4>
+                            <p style="font-size: 12px; line-height: 1.6; color: #dfaaff; margin-bottom: 5px;">
+                                정통 서구 개신교의 만인사제설(모든 성도가 스스로 사제임)을 넘어, 한국 기독교는 주의 종(목사)의 특별한 영적 능력을 숭배합니다. 목사에게 순종하면 현세적인 물질의 복, 자녀의 성공, 건강의 축복을 받고, 대적하면 3대까지 영적 가난과 저주의 형벌을 면치 못하리라!
+                            </p>
+                        </fieldset>
+                        <div class="text-center button-container" style="margin-top: 10px;">
+                            <button class="win98-btn font-bold blink red-btn" id="btn-shaman-anoint" style="width: 100%; padding: 8px; font-size: 12px; color: red;">⚡ 주의 종의 신비로운 안수(축복/저주 매개) 체험하기 ⚡</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Window 3: Cross Talisman -->
+                <div class="win98-window window-draggable" id="window-shaman-charm" style="top: 330px; left: 160px; width: 380px;">
+                    <div class="title-bar handle">
+                        <div class="title-bar-text">기독교_액막이_신령부적.doc</div>
+                        <div class="title-bar-controls">
+                            <button aria-label="Minimize" class="min-btn"></button>
+                            <button aria-label="Maximize" class="max-btn"></button>
+                            <button aria-label="Close" class="close-btn" onclick="document.getElementById('window-shaman-charm').style.display='none'"></button>
+                        </div>
+                    </div>
+                    <div class="window-body" style="background-color: #ffec3d; color: #cc0000; border: 2px inset #c0c0c0; padding: 15px; font-family: 'Courier New', monospace; text-shadow: none;">
+                        <div style="border: 3px double #cc0000; padding: 10px; text-align: center; background-color: #fffbbf;">
+                            <h2 style="font-size: 18px; font-weight: bold; margin-bottom: 5px; letter-spacing: 5px;">耶穌血守護符</h2>
+                            <p class="font-bold" style="font-size: 14px; margin-bottom: 5px;">✝️ 예수보혈 액막이 부적 ✝️</p>
+                            <div style="font-size: 32px; color: red; margin: 10px 0; animation: blink 1s infinite;">✟</div>
+                            <p style="font-size: 11px; line-height: 1.5; font-weight: bold;">
+                                [가택평안 • 마귀추방 • 사업대박 • 명문대입학]<br>
+                                이 부적을 소지하고 주일 성수를 지키며 십일조를 감사 복채로 헌금할 시 모든 집안의 악귀와 살이 떠나가고 하늘의 황금 문이 열리며 30배의 물질 축복을 받을지어다.
+                            </p>
+                        </div>
+                        <button class="win98-btn font-bold" id="btn-download-charm" style="width: 100%; margin-top: 10px; background-color: #ffec3d; border-color: #cc0000; color: #cc0000;">신령한 예수피 부적 다운로드 (바탕화면 저장)</button>
+                    </div>
+                </div>
+
+                <!-- Window 4: Ecstatic Tongues screaming -->
+                <div class="win98-window window-draggable" id="window-shaman-prayer" style="top: 360px; left: 560px; width: 440px;">
+                    <div class="title-bar handle">
+                        <div class="title-bar-text">통성기도_샤머니즘_굿판.exe</div>
+                        <div class="title-bar-controls">
+                            <button aria-label="Minimize" class="min-btn"></button>
+                            <button aria-label="Maximize" class="max-btn"></button>
+                            <button aria-label="Close" class="close-btn" onclick="document.getElementById('window-shaman-prayer').style.display='none'"></button>
+                        </div>
+                    </div>
+                    <div class="window-body">
+                        <p style="font-size: 11px; line-height: 1.5; margin-bottom: 8px;">
+                            한국 개신교 특유의 부르짖는 **통성기도(합심기도)**와 감정이 폭발하는 찬양은 전통 샤머니즘의 굿(엑스타시, 한풀이 제의)과 구조적으로 동일합니다. 울부짖음으로써 내면의 한을 달래고 소망을 성취하려 하는 영적 집단 황홀경의 현장입니다.
+                        </p>
+                        <button class="win98-btn font-bold blink" id="btn-shaman-pray" style="width: 100%; padding: 12px; background: linear-gradient(135deg, #800080, #ff00ff); color: #ffff00; border-color: #ffff00; font-size: 12px;">🔥 주여 삼창하고 부르짖기 (통성기도 굿판 시작) 🔥</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HELL LABOR WINDOWS (Socialist Forced Labor Camp, hidden by default) -->
+            <div id="hell-labor-windows" style="display: none;">
+                <!-- Window 1: Hell Communist Propaganda (Chinese style) -->
+                <div class="win98-window window-draggable hell-theme" id="window-hell-propaganda" style="top: 100px; left: 40px; width: 460px;">
+                    <div class="title-bar handle" style="background: linear-gradient(90deg, #600, #c00) !important;">
+                        <div class="title-bar-text">지옥최고인민위원회_사상개조포스터.exe</div>
+                        <div class="title-bar-controls">
+                            <button aria-label="Minimize" class="min-btn"></button>
+                            <button aria-label="Maximize" class="max-btn"></button>
+                            <button aria-label="Close" class="close-btn" onclick="document.getElementById('window-hell-propaganda').style.display='none'"></button>
+                        </div>
+                    </div>
+                    <div class="window-body text-center" style="background-color: #150000; border: 2px inset red; padding: 15px;">
+                        <div style="border: 2px dashed yellow; background-color: #3b0000; color: #ffff00; padding: 15px; font-family: 'Gulim', sans-serif;">
+                            <div style="font-size: 38px; color: red; text-shadow: 0 0 5px yellow; margin-bottom: 8px;">★</div>
+                            <h2 style="font-size: 18px; font-weight: bold; color: red; text-shadow: 0 0 6px yellow; margin-bottom: 10px; letter-spacing: 2px;">"노동을 통하여 영혼을 철저히 개조하라!"</h2>
+                            <p style="font-size: 12px; line-height: 1.7; text-align: left; color: #ffcccc;">
+                                동지여! 지상의 게으름과 미신적 미련을 버리고 오직 지옥 최고영도자(염라-사탄) 동지의 령도 아래 석탄과 유황을 파내어 죗값을 씻으라. 생산 혁명만이 유일한 감형의 길이다!
+                            </p>
+                            <h3 class="red-text font-bold" style="margin-top: 12px; font-size: 13px; text-shadow: 0 0 4px yellow;">[지옥 사상수용소 위원회 선언]</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Window 2: Forced Labor Shovel Game -->
+                <div class="win98-window window-draggable hell-theme" id="window-hell-shovel" style="top: 130px; left: 520px; width: 440px;">
+                    <div class="title-bar handle" style="background: linear-gradient(90deg, #600, #c00) !important;">
+                        <div class="title-bar-text">지옥_유황광산_강제노역.xls</div>
+                        <div class="title-bar-controls">
+                            <button aria-label="Minimize" class="min-btn"></button>
+                            <button aria-label="Maximize" class="max-btn"></button>
+                            <button aria-label="Close" class="close-btn" onclick="document.getElementById('window-hell-shovel').style.display='none'"></button>
+                        </div>
+                    </div>
+                    <div class="window-body" style="background-color: #2b0808; border-color: red;">
+                        <div class="text-center" style="border: 2px inset red; background-color: #000; padding: 15px; margin-bottom: 10px; color: #ff3333; font-family: monospace;">
+                            <p style="font-size: 14px; margin-bottom: 8px;">⚒️ 동지 영혼 번호: <span class="cyan-text font-bold">#HELL-9481</span></p>
+                            <p style="font-size: 18px; margin-bottom: 8px;">금일 유황 생산량: <span id="shovel-count" class="yellow-text font-bold" style="text-shadow: 0 0 5px yellow;">0</span> kg</p>
+                            <p style="font-size: 13px;">형벌 감면 예정일: <span id="shovel-reduce" class="neon-green font-bold">0</span>일</p>
+                        </div>
+                        <button class="win98-btn font-bold blink" id="btn-shovel" style="width: 100%; padding: 15px; font-size: 14px; background-color: #5a0000; color: #ffff00; border-color: red;">⚒️ 유황 구덩이 삽질하기 (생산 투쟁 돌입) ⚒️</button>
+                        <button class="win98-btn font-bold" id="btn-submit-work" style="width: 100%; margin-top: 8px; color: #ff3333; border-color: red; background-color: #2b0808;">생산량 제출하여 노동 감형 신청서 접수</button>
+                    </div>
+                </div>
+
+                <!-- Window 3: Repentance Backdoor in Shamanic Hell -->
+                <div class="win98-window window-draggable hell-theme" id="window-hell-shaman-repent" style="top: 360px; left: 240px; width: 480px;">
+                    <div class="title-bar handle" style="background: linear-gradient(90deg, #600, #c00) !important;">
+                        <div class="title-bar-text">지옥탈출_신령굿판_회개문.doc</div>
+                        <div class="title-bar-controls">
+                            <button aria-label="Minimize" class="min-btn"></button>
+                            <button aria-label="Maximize" class="max-btn"></button>
+                            <button aria-label="Close" class="close-btn" onclick="document.getElementById('window-hell-shaman-repent').style.display='none'"></button>
+                        </div>
+                    </div>
+                    <div class="window-body">
+                        <div style="background-color: #110000; border: 2px inset red; padding: 12px; color: #ffa3a3; font-size: 11px; line-height: 1.5; margin-bottom: 10px;">
+                            <p class="neon-yellow font-bold text-center" style="margin-bottom: 5px;">🕯️ 자본주의적 노동 굴레를 씻고 천국으로 탈출하는 유일한 길 🕯️</p>
+                            공산당 강제노동 같은 지옥 수용소에서 벗어나는 방법은 오직 하나, 모든 부귀와 자만을 버리고 십자가 보혈의 대속을 전심으로 인정하며 애통해 하는 것뿐입니다. 유황 광산의 삽을 내려놓고 회개하십시오.
+                        </div>
+                        <button class="win98-btn font-bold blink" id="btn-repent-back-labor" style="width: 100%; padding: 10px; color: blue; border-color: #0080ff; font-size: 12px;">🕯️ 유황 삽을 내려놓고 예수님께 납작 엎드려 회개하기</button>
+                    </div>
+                </div>
+            </div>
+
             <!-- Floating Weird Decorative Web Elements -->
             <div class="floating-gifs">
                 <!-- Under Construction Banner -->

@@ -928,7 +928,23 @@ body.shake {
    ========================================================================== */
 
 body.mode-hell {
-    background-image: url('Reference/ab49074e5709cd99be969ee8035edd6a.jpg') !important;
+    background-image: url('Resources/hell_background_retro.png') !important;
+    background-size: 100% 100% !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    color: #ff3333 !important;
+}
+
+body.mode-shamanism {
+    background-image: url('Reference/shamanism3.jpg') !important;
+    background-size: 100% 100% !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    color: #000 !important;
+}
+
+body.mode-hell-labor {
+    background-image: url('Reference/chinese2.jpg') !important;
     background-size: 100% 100% !important;
     background-repeat: no-repeat !important;
     background-attachment: fixed !important;
