@@ -1227,4 +1227,145 @@ body.mode-shamanism .badge {
     text-shadow: 0 0 3px #ff00ff !important;
 }
 
+/* ==========================================================================
+   Worlds Chat Style: Split-Screen Fixed Application Layout Overrides
+   ========================================================================== */
+
+/* Shamanism Mode (Heaven Spam Factory) Grid Layout */
+body.mode-shamanism .desktop-content {
+    min-height: calc(100vh - 150px) !important;
+    display: block !important;
+    position: relative !important;
+    box-sizing: border-box;
+}
+
+body.mode-shamanism #heaven-shamanism-windows {
+    display: grid !important;
+    grid-template-columns: 4fr 6fr !important; /* Left 40%, Right 60% */
+    grid-template-rows: 6fr 4fr !important; /* Top 60%, Bottom 40% */
+    gap: 12px !important;
+    padding: 12px !important;
+    height: calc(100vh - 160px) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+body.mode-shamanism #heaven-shamanism-windows .win98-window {
+    position: static !important; /* Disable drag-and-drop floating coordinates */
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    margin: 0 !important;
+}
+
+body.mode-shamanism #heaven-shamanism-windows .window-body {
+    flex: 1 !important;
+    overflow-y: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+body.mode-shamanism #window-shaman-portrait {
+    grid-column: 1 / 2 !important;
+    grid-row: 1 / 2 !important;
+}
+
+body.mode-shamanism #window-heaven-negligence {
+    grid-column: 1 / 2 !important;
+    grid-row: 2 / 3 !important;
+}
+
+body.mode-shamanism #window-heaven-spam {
+    grid-column: 2 / 3 !important;
+    grid-row: 1 / 2 !important;
+}
+
+body.mode-shamanism #window-heaven-damned-list {
+    grid-column: 2 / 3 !important;
+    grid-row: 2 / 3 !important;
+}
+
+body.mode-shamanism #window-shaman-portrait img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 80% !important;
+    object-fit: cover !important;
+}
+
+/* Hell Labor Mode (Illuminati Pop-Star Rave Hell) Grid Layout */
+body.mode-hell-labor .desktop-content {
+    min-height: calc(100vh - 150px) !important;
+    display: block !important;
+    position: relative !important;
+    box-sizing: border-box;
+}
+
+body.mode-hell-labor #hell-labor-windows {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important; /* 50/50 split screen */
+    grid-template-rows: 5.5fr 4.5fr !important; /* Top 55%, Bottom 45% */
+    gap: 12px !important;
+    padding: 12px !important;
+    height: calc(100vh - 160px) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+body.mode-hell-labor #hell-labor-windows .win98-window {
+    position: static !important; /* Disable drag-and-drop floating coordinates */
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    margin: 0 !important;
+}
+
+body.mode-hell-labor #hell-labor-windows .window-body {
+    flex: 1 !important;
+    overflow-y: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+body.mode-hell-labor #window-hell-propaganda {
+    grid-column: 1 / 2 !important;
+    grid-row: 1 / 3 !important; /* Span full height on the left half! */
+}
+
+body.mode-hell-labor #window-hell-shovel {
+    grid-column: 2 / 3 !important;
+    grid-row: 1 / 2 !important;
+}
+
+body.mode-hell-labor #window-hell-shaman-repent {
+    grid-column: 2 / 3 !important;
+    grid-row: 2 / 3 !important;
+}
+
+/* Gilded Portraits styling inside the left grid column */
+body.mode-hell-labor .leader-portraits-flex {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-content: center !important;
+    gap: 12px !important;
+    flex: 1 !important;
+    height: auto !important;
+    overflow-y: auto !important;
+}
+
+body.mode-hell-labor .leader-frame {
+    flex: 1 1 150px !important;
+    max-width: 220px !important;
+    padding: 8px !important;
+}
+
+body.mode-hell-labor .leader-frame img {
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    object-fit: cover !important;
+}
+
+
 
