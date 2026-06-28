@@ -1152,3 +1152,63 @@ body.mode-hell .counter-digit {
     background-color: #050000 !important;
 }
 
+/* Pop Star list items interactive styles */
+.pop-star-item:hover {
+    background-color: #600000 !important;
+    color: #ffff00 !important;
+}
+.pop-star-item:active {
+    background-color: #c00000 !important;
+    color: #000 !important;
+}
+
+/* Shamanism Altar Mode window overrides */
+body.mode-shamanism .win98-window {
+    border-color: #ff00ff #4a004a #4a004a #ff00ff !important;
+    background-color: #1a002a !important;
+    color: #ff88ff !important;
+    box-shadow: 5px 5px 0px rgba(0,0,0,0.5) !important;
+}
+
+body.mode-shamanism .win98-window .title-bar {
+    background: linear-gradient(90deg, #800080, #ff00ff) !important;
+    color: #ffff00 !important;
+    text-shadow: 0 0 4px #ff00ff !important;
+}
+
+body.mode-shamanism .win98-window .title-bar-controls button {
+    background-color: #4a004a !important;
+    border-color: #ff00ff #200020 #200020 #ff00ff !important;
+    color: #ff00ff !important;
+}
+
+body.mode-shamanism .win98-btn {
+    background-color: #4a004a !important;
+    border-color: #ff00ff #200020 #200020 #ff00ff !important;
+    color: #ffff00 !important;
+}
+
+body.mode-shamanism .win98-btn:disabled {
+    background-color: #200020 !important;
+    color: #555 !important;
+    border-color: #333 !important;
+}
+
+body.mode-shamanism .main-footer {
+    background-color: #3b003b !important;
+    border-top-color: #ff00ff !important;
+    box-shadow: 0px -2px 0px #1a002a !important;
+}
+
+body.mode-shamanism .footer-copyright {
+    color: #ff88ff !important;
+}
+
+body.mode-shamanism .badge {
+    background-color: #000 !important;
+    color: #ff00ff !important;
+    border-color: #800080 !important;
+    text-shadow: 0 0 3px #ff00ff !important;
+}
+
+

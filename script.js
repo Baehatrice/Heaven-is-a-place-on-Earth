@@ -141,8 +141,11 @@ const noteFrequencies = {
     'F#3': 185.00, 'G3': 196.00, 'Ab3': 207.65, 'A3': 220.00, 'Bb3': 233.08, 'B3': 246.94,
     'C#4': 277.18, 'D#4': 311.13,
     
-    // Shamanic High Bells
-    'A5': 880.00, 'C6': 1046.50, 'D6': 1174.66, 'E6': 1318.51, 'G6': 1567.98,
+    // Shamanic High Bells / Popstar Riffs
+    'A5': 880.00, 'B5': 987.77, 'C6': 1046.50, 'C#6': 1109.73, 'D6': 1174.66, 'D#6': 1244.51, 'E6': 1318.51, 'F#6': 1479.98, 'G6': 1567.98,
+    
+    // Low Bass
+    'E2': 82.41, 'G2': 98.00, 'A2': 110.00,
     
     'rest': 0
 };
@@ -354,29 +357,63 @@ function playHeavenlyChime() {
     });
 }
 
-// Play a high pitch shamanic bell effect (for the anointing button)
-function playShamanBell() {
+// Play custom popstar tracks (cheesy 8-bit versions)
+function playPopstarTrack(starId) {
     initAudio();
     if (audioCtx.state === 'suspended') audioCtx.resume();
     
-    const bellFreqs = [1200, 1500, 1800, 2200];
-    bellFreqs.forEach((freq, index) => {
+    stopMusic();
+    
+    let notes = [];
+    let oscType = 'square';
+    
+    if (starId === 'gaga') {
+        // Bad Romance intro hook: A5 B5 C6 A5 C6 A5 G5 F5
+        notes = [880.00, 987.77, 1046.50, 880.00, 1046.50, 880.00, 783.99, 698.46];
+        oscType = 'triangle';
+    } else if (starId === 'manson') {
+        // Rock Is Dead chunky riff: E2 G2 E2 A2 G2 E2 rest E2
+        notes = [82.41, 98.00, 82.41, 110.00, 98.00, 82.41, 0, 82.41];
+        oscType = 'sawtooth';
+    } else if (starId === 'nasx') {
+        // Montero riff: C#4 D#4 E4 C#4 B3 C#4 D#4
+        notes = [277.18, 311.13, 329.63, 277.18, 246.94, 277.18, 311.13];
+        oscType = 'sawtooth';
+    } else if (starId === 'madonna') {
+        // Like A Virgin intro: E5 G5 A5 G5 A5 E5
+        notes = [659.25, 783.99, 880.00, 783.99, 880.00, 659.25];
+        oscType = 'sine';
+    } else if (starId === 'britney') {
+        // Toxic high hook: F#6 G6 F#6 D#6 C#6
+        notes = [1479.98, 1567.98, 1479.98, 1244.51, 1109.73];
+        oscType = 'square';
+    }
+    
+    notes.forEach((freq, index) => {
+        if (freq === 0) return;
         const osc = audioCtx.createOscillator();
         const gain = audioCtx.createGain();
         
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(freq + Math.random() * 50, audioCtx.currentTime + index * 0.05);
+        osc.type = oscType;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime + index * 0.15);
         
-        gain.gain.setValueAtTime(0, audioCtx.currentTime + index * 0.05);
-        gain.gain.linearRampToValueAtTime(0.1, audioCtx.currentTime + index * 0.05 + 0.02);
-        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + index * 0.05 + 0.25);
+        gain.gain.setValueAtTime(0, audioCtx.currentTime + index * 0.15);
+        gain.gain.linearRampToValueAtTime(0.2, audioCtx.currentTime + index * 0.15 + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + index * 0.15 + 0.35);
         
         osc.connect(gain);
         gain.connect(synthVolumeNode);
         
-        osc.start(audioCtx.currentTime + index * 0.05);
-        osc.stop(audioCtx.currentTime + index * 0.05 + 0.25);
+        osc.start(audioCtx.currentTime + index * 0.15);
+        osc.stop(audioCtx.currentTime + index * 0.15 + 0.4);
     });
+    
+    // Resume loop after playing hook
+    setTimeout(() => {
+        isPlaying = true;
+        currentNoteIndex = 0;
+        playHymnSequence();
+    }, notes.length * 150 + 200);
 }
 
 // --- Winamp Time & Visualizer ---
@@ -497,20 +534,23 @@ function setupSoulForm() {
             guestbook.appendChild(entry);
         }
 
-        alert(`✍️ [하늘 생명책 시스템 알림] ✍️\n\n축하합니다! ${name} 성도의 영혼 서약서가 생명책 데이터베이스에 완전히 등재되었습니다.\n\n당신은 오늘 지옥 대열에서 임시 탈출하여 목사님의 특별 영적 제단으로 호송됩니다!`);
+        alert(`✍️ [하늘 생명책 시스템 알림] ✍️\n\n축하합니다! ${name} 성도의 영혼 서약서가 생명책 데이터베이스에 완전히 등재되었습니다.\n\n당신은 오늘 지옥 대열에서 임시 탈출하여 복음 전도 사업 전도사로 임명되었습니다. 행정실로 이동합니다!`);
 
-        // Navigate to Shamanic Altar page
+        // Navigate to Shamanic Altar / Evangelism Spam Factory page
         isShamanismMode = true;
         document.getElementById('heaven-windows').style.display = 'none';
         document.getElementById('heaven-shamanism-windows').style.display = 'block';
         document.body.className = '';
         document.body.classList.add('mode-shamanism');
         
-        document.getElementById('main-title-text').innerText = 'SHAMAN CHRISTIAN ALTAR';
+        document.getElementById('main-title-text').innerText = 'HEAVEN SPAM FACTORY';
         document.getElementById('winamp-marquee').innerText = 'Now Playing: OOO 목사의 신비의 안수 기복성회 실황.mid';
         
         stopMusic();
         startMusic();
+        
+        // Start Heaven game loops (Spam system & negligence timer)
+        initHeavenSpamGame();
 
         // Increment visitor counter
         let count = localStorage.getItem('visitorCount');
@@ -524,7 +564,7 @@ function setupSoulForm() {
     });
 }
 
-// --- Hell Registration Form Logic (Transition to Socialist labor hell) ---
+// --- Hell Registration Form Logic (Transition to Socialist popstar rave hell) ---
 function setupHellForm() {
     const form = document.getElementById('hell-form');
     if (!form) return;
@@ -551,9 +591,9 @@ function setupHellForm() {
             guestbook.appendChild(entry);
         }
 
-        alert(`💀 [지옥 형벌 대법관 판결 통보] 💀\n\n정죄된 영혼 "${name}"의 지옥 동의가 완전히 접수되었습니다.\n\n귀하는 사상개조 지옥 최고인민위원회 판결에 따라 즉시 유황 광산 강제노역 수용소로 압송됩니다!`);
+        alert(`💀 [지옥 형벌 대법관 판결 통보] 💀\n\n정죄된 영혼 "${name}"의 지옥 동의가 완전히 접수되었습니다.\n\n귀하는 사상개조 지옥 최고인민위원회 판결에 따라 즉시 일루미나티 팝스타 레이브 수용소로 압송됩니다!`);
 
-        // Navigate to Socialist labor camp hell
+        // Navigate to Popstar rave hell
         isHellLaborMode = true;
         isHellMode = false;
         document.getElementById('hell-windows').style.display = 'none';
@@ -561,75 +601,252 @@ function setupHellForm() {
         document.body.className = '';
         document.body.classList.add('mode-hell-labor');
         
-        document.getElementById('main-title-text').innerText = 'SOCIALIST HELL FORCED LABOR';
+        document.getElementById('main-title-text').innerText = 'ILLUMINATI POP-STAR RAVE HELL';
         document.getElementById('winamp-marquee').innerText = 'Now Playing: 지옥 사상개조위원회 강제노역 노동가.mid';
         
         stopMusic();
         startMusic();
+        
+        // Start labor loops
+        initLaborGame();
 
         nameInput.value = '';
         form.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
     });
 }
 
+// --- Heaven Mode: Evangelism Spam-Mail Game Logic ---
+let uSouls = [
+    { name: "세종대왕 (King Sejong)", email: "sejong@chosun.gov" },
+    { name: "이순신 (Admiral Yi)", email: "sunshin@turtle.mil" },
+    { name: "아마존 야노마미 부족민", email: "yano@forest.org" },
+    { name: "강원도 정선 심마니", email: "ginseng@mountain.kr" },
+    { name: "조선 옹기장수 장씨", email: "potter@market.co.kr" },
+    { name: "태평양 무인도 원주민", email: "island@coral.net" },
+    { name: "신라 화랑 김유신", email: "hwarang@silla.net" }
+];
+let eSouls = [];
+let selectedSoulIndex = -1;
+let negligenceRate = 0;
+let negligenceInterval = null;
+let timersInterval = null;
+
+function initHeavenSpamGame() {
+    selectedSoulIndex = -1;
+    negligenceRate = 0;
+    eSouls = [];
+    
+    // Clear and render lists
+    renderUnEvangelizedList();
+    document.getElementById('evangelized-soul-list').innerHTML = '<div style="padding: 4px; color: #888;">(전도 스팸 전송 시 여기에 정죄 타이머가 축적됩니다...)</div>';
+    document.getElementById('mail-target-email').innerText = "(선택 대기)";
+    document.getElementById('btn-send-spam').disabled = true;
+    
+    // Stop any previous intervals
+    clearInterval(negligenceInterval);
+    clearInterval(timersInterval);
+    
+    // Start Negligence Timer: Increases rate by +5% every 3.5 seconds
+    negligenceInterval = setInterval(() => {
+        if (!isShamanismMode) return;
+        
+        negligenceRate += 5;
+        if (negligenceRate >= 100) {
+            negligenceRate = 100;
+            updateNegligenceBar();
+            clearInterval(negligenceInterval);
+            clearInterval(timersInterval);
+            
+            // Automatic descent to hell!
+            alert(`🚨 [하늘 행명국 긴급 경보] 🚨\n\n귀하의 행정 태만율이 100%에 달하여 하늘 영도자로부터 '직무 유기죄'로 즉시 파면 및 지옥 레이브 수용소로의 강제 송환 판결이 떨어졌습니다!`);
+            triggerHellTransition();
+            setTimeout(() => {
+                enterGatesOfHell();
+            }, 3000);
+        } else {
+            updateNegligenceBar();
+        }
+    }, 3500);
+
+    // Start Damnation timers ticking for evangelized souls
+    timersInterval = setInterval(() => {
+        if (!isShamanismMode) return;
+        eSouls.forEach(soul => {
+            soul.time++;
+        });
+        renderEvangelizedList();
+    }, 1000);
+}
+
+function renderUnEvangelizedList() {
+    const listDiv = document.getElementById('spam-soul-list');
+    if (!listDiv) return;
+    listDiv.innerHTML = '';
+    
+    if (uSouls.length === 0) {
+        listDiv.innerHTML = '<div style="padding:4px; color:#555; font-style:italic;">미전도자 풀 고갈 (모든 이가 지옥 적격자가 되었습니다!)</div>';
+        return;
+    }
+    
+    uSouls.forEach((soul, index) => {
+        const item = document.createElement('div');
+        item.style.padding = '4px';
+        item.style.borderBottom = '1px solid #eee';
+        item.style.cursor = 'pointer';
+        item.style.fontSize = '11px';
+        item.innerHTML = `👤 <strong>${soul.name}</strong><br><span style="color:#666;font-size:9px;">${soul.email}</span>`;
+        
+        item.addEventListener('click', () => {
+            // Highlight item
+            Array.from(listDiv.children).forEach(c => c.style.backgroundColor = '');
+            item.style.backgroundColor = '#000080';
+            item.style.color = '#fff';
+            
+            selectedSoulIndex = index;
+            document.getElementById('mail-target-email').innerText = soul.email;
+            document.getElementById('btn-send-spam').disabled = false;
+        });
+        
+        listDiv.appendChild(item);
+    });
+}
+
+function renderEvangelizedList() {
+    const listDiv = document.getElementById('evangelized-soul-list');
+    if (!listDiv) return;
+    
+    if (eSouls.length === 0) {
+        listDiv.innerHTML = '<div style="padding: 4px; color: #888;">(전도 스팸 전송 시 여기에 정죄 타이머가 축적됩니다...)</div>';
+        return;
+    }
+    
+    listDiv.innerHTML = '';
+    eSouls.forEach(soul => {
+        const item = document.createElement('div');
+        item.style.padding = '4px';
+        item.style.borderBottom = '1px dashed #330000';
+        item.style.display = 'flex';
+        item.style.justifyContent = 'space-between';
+        
+        // Format seconds to mm:ss
+        const mins = Math.floor(soul.time / 60).toString().padStart(2, '0');
+        const secs = (soul.time % 60).toString().padStart(2, '0');
+        
+        item.innerHTML = `<span>⚡ [${soul.name}] 복음 접촉 완료</span> <span style="font-weight:bold; color:yellow;">업보 축적: ${mins}:${secs}</span>`;
+        listDiv.appendChild(item);
+    });
+}
+
+function updateNegligenceBar() {
+    const bar = document.getElementById('negligence-progress-bar');
+    const txt = document.getElementById('negligence-text');
+    if (bar && txt) {
+        bar.style.width = `${negligenceRate}%`;
+        txt.innerText = `태만 지수: ${negligenceRate}%`;
+        
+        if (negligenceRate > 70) {
+            txt.style.color = '#fff';
+        } else {
+            txt.style.color = '#000';
+        }
+    }
+}
+
 // --- Shamanic Altar Page Specific Interaction Handlers ---
 function setupShamanInteractions() {
-    // 1. Shamanic healing anointing clicker
-    const anointBtn = document.getElementById('btn-shaman-anoint');
-    if (anointBtn) {
-        anointBtn.addEventListener('click', () => {
+    const sendSpamBtn = document.getElementById('btn-send-spam');
+    
+    if (sendSpamBtn) {
+        sendSpamBtn.addEventListener('click', () => {
+            if (selectedSoulIndex === -1) return;
+            
+            const soul = uSouls[selectedSoulIndex];
+            
+            // Move soul from uneventful to damned
+            uSouls.splice(selectedSoulIndex, 1);
+            eSouls.push({ name: soul.name, email: soul.email, time: 0 });
+            
+            selectedSoulIndex = -1;
+            document.getElementById('mail-target-email').innerText = "(선택 대기)";
+            sendSpamBtn.disabled = true;
+            
+            // Reset Negligence Index
+            negligenceRate = 0;
+            updateNegligenceBar();
+            
+            // Play a nice beep/chime
             playShamanBell();
-            alert(`⚡ [기복주의 안수성령 대성취] ⚡\n\n목사님의 영적 안수 파동이 당신의 정수리를 뚫었습니다!\n\n- 기복 축원: 사업체의 3년 내 매출 300% 상승\n- 질병 퇴치: 가슴 속 한과 정욕의 질병이 떠남\n\n※ 주의: 목사님의 절대 영적 권위에 불순종하거나 물질을 대접하는 손길이 부실할 경우, 이 축복은 3대까지 이어지는 저주와 가난의 살로 즉시 치환됩니다.\n(예배 후 감사 헌금 10만원 감사 복채로 납부 권장)`);
+            
+            // Re-render
+            renderUnEvangelizedList();
+            renderEvangelizedList();
+            
+            // Floating notification alert
+            alert(`📨 [전도 메일 전송 성공] 📨\n\n수신자: ${soul.name}\n\n결과:\n대상자가 전도 메일을 전송받았습니다. 이 순간부터 예수를 믿지 않을 시 지옥으로 떨어지는 '불신 죄인 카르마 타이머'가 영원히 정지하지 않고 구동됩니다!\n\n(나의 행정 태만율이 0%로 초기화되었습니다.)`);
         });
     }
+}
 
-    // 2. Charm download
-    const downloadCharmBtn = document.getElementById('btn-download-charm');
-    if (downloadCharmBtn) {
-        downloadCharmBtn.addEventListener('click', () => {
-            alert(`💾 [다운로드 완료] 💾\n\n'예수보혈_액막이_수호부적.png'이 컴퓨터 바탕화면에 다운로드되었습니다.\n\n이 신령한 기독교 부적을 스마트폰 배경화면으로 설정하거나 문앞에 붙여두시면, 집안에 악귀와 귀신이 절대 침입하지 못하고, 사업체에 마귀가 틈타지 못합니다. 십일조를 감사 복채처럼 정직히 바치는 성도는 100배의 현세적 축복을 약속받습니다.`);
-        });
+// --- Hell Mode: Illuminati Pop-Star Rave Party Game Logic ---
+let feverLevel = 0;
+let feverDecayInterval = null;
+
+function initLaborGame() {
+    feverLevel = 0;
+    shovelScore = 0;
+    
+    document.getElementById('shovel-count').innerText = 0;
+    updateFeverBar();
+    
+    clearInterval(feverDecayInterval);
+    
+    // Decay fever by 5% every 1.5 seconds
+    feverDecayInterval = setInterval(() => {
+        if (!isHellLaborMode) return;
+        if (feverLevel > 0) {
+            feverLevel -= 4;
+            if (feverLevel < 0) feverLevel = 0;
+            updateFeverBar();
+        }
+    }, 1500);
+}
+
+function updateFeverBar() {
+    const bar = document.getElementById('party-fever-bar');
+    const txt = document.getElementById('party-fever-text');
+    if (bar && txt) {
+        bar.style.width = `${feverLevel}%`;
+        txt.innerText = feverLevel;
     }
+}
 
-    // 3. Tongsung ecstatic prayer (Tongues)
-    const prayBtn = document.getElementById('btn-shaman-pray');
-    const prayWindow = document.getElementById('window-shaman-prayer');
-    if (prayBtn && prayWindow) {
-        prayBtn.addEventListener('click', () => {
-            // Rapid chaotic beep sound loop for 4 seconds
-            let tongueCounter = 0;
-            const tongueInterval = setInterval(() => {
-                if (tongueCounter > 15) {
-                    clearInterval(tongueInterval);
-                    prayWindow.classList.remove('shake');
-                    document.getElementById('winamp-marquee').innerText = 'Now Playing: OOO 목사의 신비의 안수 기복성회 실황.mid';
-                    return;
-                }
-                // Play random high frequencies
-                const randomFreq = 400 + Math.random() * 800;
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                
-                osc.type = 'square';
-                osc.frequency.setValueAtTime(randomFreq, audioCtx.currentTime);
-                
-                gain.gain.setValueAtTime(0, audioCtx.currentTime);
-                gain.gain.linearRampToValueAtTime(0.15, audioCtx.currentTime + 0.01);
-                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
-                
-                osc.connect(gain);
-                gain.connect(synthVolumeNode);
-                
-                osc.start();
-                osc.stop(audioCtx.currentTime + 0.2);
-                tongueCounter++;
-            }, 180);
-
-            // Shake the tongues window
-            prayWindow.classList.add('shake');
-            document.getElementById('winamp-marquee').innerText = '🔊 랄랄라 따따따 방언 폭발! 통성기도 엑스타시 가동 중!';
-        });
-    }
+// Spark colorful floating text inside the party area
+function triggerPartyFloatText(text, color = 'yellow') {
+    const area = document.getElementById('party-feedback-area');
+    if (!area) return;
+    
+    const span = document.createElement('div');
+    span.innerText = text;
+    span.style.color = color;
+    span.style.fontSize = `${14 + Math.random() * 8}px`;
+    span.style.textShadow = `0 0 5px ${color}`;
+    span.style.position = 'absolute';
+    span.style.left = `${20 + Math.random() * 60}%`;
+    span.style.top = '10px';
+    span.style.opacity = '1';
+    span.style.transition = 'all 0.8s ease-out';
+    span.style.pointerEvents = 'none';
+    
+    area.appendChild(span);
+    
+    setTimeout(() => {
+        span.style.transform = 'translateY(-30px) scale(1.3)';
+        span.style.opacity = '0';
+    }, 50);
+    
+    setTimeout(() => {
+        span.remove();
+    }, 900);
 }
 
 // --- Communist Labor Hell Interaction Handlers ---
@@ -643,17 +860,28 @@ function setupLaborInteractions() {
             shovelScore++;
             document.getElementById('shovel-count').innerText = shovelScore;
             
-            // 5 minutes reduced per shovel
-            const reduceDays = (shovelScore * 5);
-            document.getElementById('shovel-reduce').innerText = reduceDays;
+            // Rhythm increments fever
+            feverLevel += 12;
+            if (feverLevel >= 100) {
+                feverLevel = 100;
+                triggerPartyFloatText("🔥 RAVE FEVER MAX!! ★", '#ffff00');
+            } else {
+                const twerkSounds = ["*TWERK!*", "*SHAKE IT!*", "*SATELLITE BEAT!*", "*ILLUMINATI EYE!*", "*SO HOT!*", "*MORE SULFUR!*"];
+                const colors = ["#ff00ff", "#00ffff", "#ffff00", "#ff0055", "#00ff00"];
+                triggerPartyFloatText(
+                    twerkSounds[Math.floor(Math.random() * twerkSounds.length)],
+                    colors[Math.floor(Math.random() * colors.length)]
+                );
+            }
+            updateFeverBar();
             
-            // Play a metallic shovel clink beep
+            // Play a rhythmic retro click sound
             if (audioCtx) {
                 const osc = audioCtx.createOscillator();
                 const gain = audioCtx.createGain();
                 osc.type = 'sawtooth';
-                osc.frequency.setValueAtTime(120, audioCtx.currentTime);
-                osc.frequency.linearRampToValueAtTime(60, audioCtx.currentTime + 0.1);
+                osc.frequency.setValueAtTime(140 + Math.random() * 40, audioCtx.currentTime);
+                osc.frequency.linearRampToValueAtTime(70, audioCtx.currentTime + 0.1);
                 
                 gain.gain.setValueAtTime(0, audioCtx.currentTime);
                 gain.gain.linearRampToValueAtTime(0.2, audioCtx.currentTime + 0.01);
@@ -671,17 +899,44 @@ function setupLaborInteractions() {
     if (submitBtn) {
         submitBtn.addEventListener('click', () => {
             if (shovelScore === 0) {
-                alert("⚒️ 동지여! 빈 손으로 신청서를 접수할 순 없소! 유황 삽질을 하시오!");
+                alert("⚒️ 동지여! 빈 손으로 신청서를 제출할 수 없소! 유황 삽질과 댄스를 더 하시오!");
                 return;
             }
             
-            alert(`⚠️ [지옥 사상개조위원회 재판소 기각 판결] ⚠️\n\n신청인 영혼번호 #HELL-9481의 노동 감형 신청을 각하함!\n\n이유:\n제출된 유황 생산품에 '부르주아식 불평주의'와 '미신에 대한 미련'이 다량 묻어 있음이 성분 검사로 확인되었음. 국가 생산물 가치를 훼손했으므로 전량 몰수 처분하며, 사상 개조 상태가 태만하므로 오히려 형벌 기간을 500년 추가로 연장함.`);
+            alert(`⚠️ [지옥 사상수용소 행정위원회 기결 판결] ⚠️\n\n귀하가 제출한 유황 생산품에 부르주아적 기만이 발견되어 전량 압수 처분합니다.\n\n하지만 뜨거운 트월킹 춤사위와 파티 열정(Rave Fever)을 높이 사 사탄 동지의 서명이 담긴 시원한 맥주 1잔 쿠폰이 배급되었습니다!\n\n(형벌 기간은 500년 늘려놓았으니 밤새 춤이나 추십시오!)`);
             
             shovelScore = 0;
+            feverLevel = 0;
             document.getElementById('shovel-count').innerText = 0;
-            document.getElementById('shovel-reduce').innerText = 0;
+            updateFeverBar();
         });
     }
+    
+    // Add pop-star selector hooks
+    const popstars = [
+        { id: 'star-gaga', name: 'Lady Gaga', quote: "Gaga 동지: '우리는 지옥을 런웨이로 만들 것입니다! 궁둥이를 더 흔드시오!'" },
+        { id: 'star-manson', name: 'Marilyn Manson', quote: "Manson 동지: '종교 보수주의 꼰대들이 지옥을 설계해 놨더군! 개꿀 댄스 클럽이다!'" },
+        { id: 'star-nasx', name: 'Lil Nas X', quote: "Lil Nas 동지: '사탄 동지에게 바치는 랩 댄스 속도를 높이시오!'" },
+        { id: 'star-madonna', name: 'Madonna', quote: "Madonna 동지: '순결한 척하는 내숭은 집어치우고 비트에 몸을 던져라!'" },
+        { id: 'star-britney', name: 'Britney Spears', quote: "Britney 동지: '비트에 맞춰 엉덩이를 흔들며 유황을 캐는 노역이 가장 아름답다!'" }
+    ];
+    
+    popstars.forEach(star => {
+        const item = document.getElementById(star.id);
+        if (item) {
+            item.addEventListener('click', () => {
+                // Play custom 8-bit theme melody of the popstar
+                playPopstarTrack(star.id.replace('star-', ''));
+                
+                // Show quote in feedback area
+                triggerPartyFloatText(star.name + " SELECT!", '#00ffff');
+                alert(`🎶 [일루미나티 팝스타 동지 교신] 🎶\n\n${star.quote}`);
+                
+                // Change Winamp title text
+                document.getElementById('winamp-marquee').innerText = `Now Playing: [Lover Party] ${star.name} - ${item.querySelector('.cyan-text').innerText}.mid`;
+            });
+        }
+    });
 }
 
 // --- Hell Mode Transition Animations ---
@@ -698,6 +953,10 @@ function enterGatesOfHell() {
     isHellMode = true;
     isShamanismMode = false;
     isHellLaborMode = false;
+    
+    // Clear intervals
+    clearInterval(negligenceInterval);
+    clearInterval(timersInterval);
     
     // Stop shake
     document.body.classList.remove('shake');
@@ -730,6 +989,11 @@ function repentAndBackToHeaven() {
     isHellMode = false;
     isShamanismMode = false;
     isHellLaborMode = false;
+    
+    // Clear intervals
+    clearInterval(negligenceInterval);
+    clearInterval(timersInterval);
+    clearInterval(feverDecayInterval);
     
     // Revert body styling
     document.body.className = '';
