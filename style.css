@@ -1329,18 +1329,18 @@ body.mode-hell-labor #hell-labor-windows .window-body {
 }
 
 body.mode-hell-labor #window-hell-propaganda {
-    grid-column: 1 / 2 !important;
-    grid-row: 1 / 3 !important; /* Span full height on the left half! */
+    grid-column: 1 / 3 !important; /* Span full width across both columns */
+    grid-row: 1 / 2 !important;    /* Place on the top row */
 }
 
 body.mode-hell-labor #window-hell-shovel {
-    grid-column: 2 / 3 !important;
-    grid-row: 1 / 2 !important;
+    grid-column: 1 / 2 !important; /* Place in the left column */
+    grid-row: 2 / 3 !important;    /* Place on the bottom row */
 }
 
 body.mode-hell-labor #window-hell-shaman-repent {
-    grid-column: 2 / 3 !important;
-    grid-row: 2 / 3 !important;
+    grid-column: 2 / 3 !important; /* Place in the right column */
+    grid-row: 2 / 3 !important;    /* Place on the bottom row */
 }
 
 /* Gilded Portraits styling inside the left grid column */
