@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heaven is a Place on Earth - 천국과 지옥의 비밀</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for Retro Style -->
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Splash Screen (Win98 Warning Dialog) -->
+    <div id="splash-overlay">
+        <div class="win98-window splash-window">
+            <div class="title-bar">
+                <div class="title-bar-text">SYSTEM WARNING (시스템 경고)</div>
+                <div class="title-bar-controls">
+                    <button aria-label="Close" class="close-btn" disabled></button>
+                </div>
+            </div>
+            <div class="window-body text-center">
+                <div class="warning-icon-container">
+                    <span class="warning-icon">⚠️</span>
+                </div>
+                <div class="warning-text">
+                    <p class="font-bold red-text blink">!!! 천국과 지옥의 실제 경고 !!!</p>
+                    <p>본 사이트는 1987년 임사체험으로 천국과 지옥을 직접 방문한 OOO 목사의 실화를 바탕으로 지옥에 가지 않고 천국에 들어갈 수 있는 생명의 길을 제시하기 위해 개설되었습니다.</p>
+                    <p class="yellow-text font-bold">천국의 나팔 소리와 8비트 찬송을 들으시겠습니까?</p>
+                </div>
+                <div class="warning-buttons">
+                    <button id="btn-enter" class="win98-btn">예(Yes)</button>
+                    <button id="btn-enter-mute" class="win98-btn">아니오(No, 음소거)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Music Player Widget (Winamp Style) -->
+    <div class="win98-window winamp-player" id="winamp-player">
+        <div class="title-bar handle">
+            <div class="title-bar-text">WINAMP 2.80 - Heaven MIDI</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize" class="min-btn"></button>
+                <button aria-label="Close" class="close-btn" onclick="document.getElementById('winamp-player').style.display='none'"></button>
+            </div>
+        </div>
+        <div class="window-body winamp-body">
+            <div class="winamp-top">
+                <div class="winamp-display">
+                    <div class="winamp-time" id="winamp-time">00:00</div>
+                    <div class="winamp-track-info">
+                        <marquee scrollamount="2" direction="left" id="winamp-marquee">Now Playing: OOO 목사의 천국 찬송가 - 내 주를 가까이 하게 함은.mid</marquee>
+                    </div>
+                </div>
+            </div>
+            <div class="winamp-visualizer">
+                <canvas id="visualizer-canvas"></canvas>
+            </div>
+            <div class="winamp-controls">
+                <button class="winamp-btn" id="play-btn" title="Play">▶</button>
+                <button class="winamp-btn" id="pause-btn" title="Pause">Ⅱ</button>
+                <button class="winamp-btn" id="stop-btn" title="Stop">■</button>
+                <div class="winamp-volume-container">
+                    <span class="vol-label">VOL</span>
+                    <input type="range" min="0" max="100" value="50" class="winamp-volume" id="volume-slider">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div id="desktop">
+
+        <!-- Banner & Header Zone -->
+        <header class="main-header">
+            <div class="wordart-title">
+                <span class="wordart-text">Heaven is a place on Earth</span>
+            </div>
+            <div class="warning-marquee-container">
+                <marquee scrollamount="6" class="neon-marquee">
+                    ☠️ 경고: 당신은 지옥에 가선 안 됩니다! ☠️ 낮과 밤이 존재하듯 천국과 지옥은 반드시 존재합니다. ☠️ 회개하라! 천국이 가까이 왔느니라! ☠️ 지옥 가는 것은 너무나 쉽고 천국 들어가는 문은 너무 좁습니다. ☠️ 
+                </marquee>
+            </div>
+        </header>
+
+        <!-- Main Desktop Content -->
+        <div class="desktop-content">
+
+            <!-- Window 1: Introduction & Biography -->
+            <div class="win98-window window-draggable" id="window-bio" style="top: 120px; left: 20px; width: 450px;">
+                <div class="title-bar handle">
+                    <div class="title-bar-text">임사체험_기록(OOO목사).txt</div>
+                    <div class="title-bar-controls">
+                        <button aria-label="Minimize" class="min-btn"></button>
+                        <button aria-label="Maximize" class="max-btn"></button>
+                        <button aria-label="Close" class="close-btn" onclick="document.getElementById('window-bio').style.display='none'"></button>
+                    </div>
+                </div>
+                <div class="window-body">
+                    <div class="biography-header">
+                        <h2 class="neon-cyan blink text-center">OOO 목사의 천국 지옥 체험담</h2>
+                        <div class="biography-profile">
+                            <p class="font-bold yellow-text">약력:</p>
+                            <ul>
+                                <li>신학박사, 총회신학 대학원, 고려대학교 경영대학원 졸업.</li>
+                                <li>성남제일교회 창립목회자 (교인 5,000명 부흥)</li>
+                                <li>송림중·고등학교 교장 및 이사장 역임.</li>
+                                <li>총회선교 100주년 사료분과 위원장(한국교회사가)</li>
+                                <li>총회신학대학 이사, "저 높은 곳을 향하여" 외 57권 저서 저술</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr class="win98-hr">
+                    <div class="scrollable-content" style="max-height: 250px; overflow-y: scroll;">
+                        <h3 class="red-text font-bold">1. 죽음에 이르는 병에서</h3>
+                        <p>저는 "저 높은 곳을 향하여" 라는 책이 수십만 권 팔려 그 돈으로 성남에 중·고등학교 셋을 설립하였으며, 교회도 5,000명 교세로 부흥시켰습니다. 박정희 대통령이 문교부 장관을 추천하였었고, 김영삼 대통령은 국회의원으로 출마하라고 할 정도로 성공가도를 달렸습니다.</p>
+                        <p class="font-bold blink magenta-text">교만할 대로 교만해졌던 저는 1987년 12월 19일 오후 2시 반 고혈압으로 쓰러져 의식을 잃고 몸은 구운 오징어같이 뒤틀어졌습니다.</p>
+                        <p>병원에서도 살 가망이 없다고 하여 10일 만에 퇴원했습니다. 여전히 의식불명 상태에서 1987년 12월 30일 10시경 내 육신의 심장은 멎었고 가족들은 임종 찬송을 불렀습니다.</p>
+
+                        <h3 class="cyan-text font-bold">2. 두 천사를 따라 천국에서 예수님의 음성을</h3>
+                        <p>그러나 나는 그 시간 두 천사의 방문을 받았는데 그들이 온 목적은 <span class="yellow-text font-bold">천국과 지옥을 보여주어 세상 사람들에게 알려서 지옥 오는 수를 줄이고 천국 갈 자를 더 많게 하시려는 예수님의 뜻</span>을 이루기 위함이었습니다.</p>
+                        <p>두 천사가 나에게 천국에서 가져온 통옷으로 갈아입히고 내 양쪽 어깨와 팔을 잡자 번개같이 하늘로 솟아올라 천국 가는 황금길로 가게 되었습니다.</p>
+                        <p>그 길을 가는 수많은 흰옷 입은 무리들은 땅에서 예수 믿고, 하나님 잘 섬기며 충성하다가 죽어 육체를 벗고 가는 영혼들이라 했습니다. 천사가 가르쳐준 찬송을 부르자 천국 남쪽문을 통과하여 예수님의 음성을 듣게 되었습니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Window 2: Hell Details (Saturated & Chaotic Theme) -->
+            <div class="win98-window window-draggable hell-theme" id="window-hell" style="top: 150px; left: 500px; width: 420px;">
+                <div class="title-bar handle">
+                    <div class="title-bar-text">WARNING_HELL_VISUALIZER.exe</div>
+                    <div class="title-bar-controls">
+                        <button aria-label="Minimize" class="min-btn"></button>
+                        <button aria-label="Maximize" class="max-btn"></button>
+                        <button aria-label="Close" class="close-btn" onclick="document.getElementById('window-hell').style.display='none'"></button>
+                    </div>
+                </div>
+                <div class="window-body">
+                    <div class="hell-alert">
+                        <h2 class="red-text font-bold text-center blink">펄펄 끓는 지옥의 실상</h2>
+                        <marquee direction="up" scrollamount="1" class="hell-scroller" style="height: 120px;">
+                            <p class="neon-yellow font-bold">🔥 죄목: 폭행, 폭력, 강탈, 노동 착취, 독재 🔥</p>
+                            <p>땅에서 남을 구타하고, 폭행하며 폭력을 써서 돈을 빼앗고, 목숨을 빼앗는 천인공노할 죄를 지은 자들...</p>
+                            <p class="neon-green">부하 직원들의 노동력을 착취한 부자들의 영혼은 펄펄 끓는 더러운 물속에서 고통을 당하고 있습니다!</p>
+                            <p class="neon-cyan">권력을 가지고 남을 희생시킨 독재자들의 영혼은 높은 곳에서 한없이 뛰어내리며 계속해서 죽음을 맛보고 있었습니다!</p>
+                            <p class="red-text font-bold">사람을 많이 죽인 흥선대원군과 조대비는 유황불못 중앙에서 "물! 물! 물!" 하며 처절하게 울부짖고 있었습니다!</p>
+                            <p class="neon-magenta">각 나라의 독재자들과 우리나라의 역대 왕들도 보였습니다!</p>
+                        </marquee>
+                    </div>
+                    <hr class="win98-hr">
+                    <div class="hell-footer-text">
+                        <p class="text-center font-bold yellow-text blink">"지옥 가는 것은 너무나 쉽고,<br>천국 들어가는 문은 너무 좁습니다!"</p>
+                        <div class="text-center">
+                            <span class="cross-icon">✟</span>
+                            <span class="hell-fire-text">회개하지 않으면 당신의 미래는 이 불못입니다.</span>
+                            <span class="cross-icon">✟</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Window 3: Heaven's Rewards (Kitsch Painting Embedded) -->
+            <div class="win98-window window-draggable heaven-theme" id="window-heaven" style="top: 320px; left: 180px; width: 480px;">
+                <div class="title-bar handle">
+                    <div class="title-bar-text">HEAVEN_HOUSE_SPECS.doc</div>
+                    <div class="title-bar-controls">
+                        <button aria-label="Minimize" class="min-btn"></button>
+                        <button aria-label="Maximize" class="max-btn"></button>
+                        <button aria-label="Close" class="close-btn" onclick="document.getElementById('window-heaven').style.display='none'"></button>
+                    </div>
+                </div>
+                <div class="window-body">
+                    <div class="heaven-layout">
+                        <div class="heaven-illustration">
+                            <img src="heaven_kitsch.png" alt="천국의 영광" class="kitsch-img">
+                            <div class="img-caption">천국 남쪽문과 황금길의 영광</div>
+                        </div>
+                        <div class="heaven-text scrollable-content" style="max-height: 200px; overflow-y: scroll;">
+                            <h3 class="cyan-text font-bold text-center">4. 천국에서의 내 집</h3>
+                            <p>저는 천사에게 졸라서 천국에 있는 내 집을 보여 달라고 했지만 거절당했습니다. 계속 애원하자 주님의 허락을 받아 집을 보게 됐는데, 짓다가 중단된 <span class="yellow-text font-bold">작은 3층집</span>을 보고 너무나 실망했습니다.</p>
+                            <p>3층 방안에는 <span class="magenta-text font-bold">상장 단 2개</span>만 벽에 붙어있었는데:</p>
+                            <ol>
+                                <li>18세 때 고아원에서 성탄절을 지키고 오다 추위에 떨고 있는 거지 할아버지에게 잠바를 벗어 준 것.</li>
+                                <li>헌금할 돈으로 다 식은 붕어빵 2개를 사서 드린 것.</li>
+                            </ol>
+                            <p class="font-bold red-text text-bg">⚠️ 충격! 목사로서 땅에서 행한 5,000명 교회 부흥, 아파트 50세대 건축, 39명 목사 안수, 400명 장학금 지원은 상으로 기록되지 않았습니다!</p>
+                            <p class="yellow-text">이유는: "땅에서 국민훈장 받았고, 문교부장관상 받았으며, 사람들에게 대접과 감사를 다 받았으니 천국에서는 더이상 상이 되지 못하느니라."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Window 4: Soul Registration Guestbook -->
+            <div class="win98-window window-draggable" id="window-register" style="top: 480px; left: 680px; width: 440px;">
+                <div class="title-bar handle">
+                    <div class="title-bar-text">SOUL_REGISTRATION_SYSTEM.exe</div>
+                    <div class="title-bar-controls">
+                        <button aria-label="Minimize" class="min-btn"></button>
+                        <button aria-label="Maximize" class="max-btn"></button>
+                        <button aria-label="Close" class="close-btn" onclick="document.getElementById('window-register').style.display='none'"></button>
+                    </div>
+                </div>
+                <div class="window-body">
+                    <p class="text-center font-bold red-text blink">✍️ 영혼 구원 생명책 등록 원서 ✍️</p>
+                    <form id="soul-form" onsubmit="return false;">
+                        <table class="win98-table">
+                            <tr>
+                                <td><label for="reg-name">영혼 명칭:</label></td>
+                                <td><input type="text" id="reg-name" required placeholder="예: 박회개"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="reg-faith">신앙 상태:</label></td>
+                                <td>
+                                    <select id="reg-faith">
+                                        <option value="sinful">회개 필요한 죄인 (지옥 직행 가능)</option>
+                                        <option value="faithful">천국 황금길 갈망자</option>
+                                        <option value="pastor">목사, 장로, 권사, 집사 (교만 주의)</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <fieldset class="win98-fieldset">
+                                        <legend>천국 상급을 위한 헌신 서약</legend>
+                                        <label><input type="checkbox" name="pledge" value="jacket" required> 거지가 보이면 즉시 잠바를 벗어주겠습니다.</label><br>
+                                        <label><input type="checkbox" name="pledge" value="fishbread" required> 식어가는 붕어빵 2개로 영혼을 섬기겠습니다.</label><br>
+                                        <label><input type="checkbox" name="pledge" value="no-honor" required> 지상의 국민훈장 및 모든 명예를 거부합니다.</label><br>
+                                        <label><input type="checkbox" name="pledge" value="repent-always" required> 매일 밤 몸이 뒤틀리는 심정으로 회개하겠습니다.</label>
+                                    </fieldset>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="text-center button-container">
+                            <button type="submit" class="win98-btn red-btn blink font-bold">생명책에 영혼 서약서 제출</button>
+                        </div>
+                    </form>
+
+                    <div class="guestbook-log">
+                        <p class="font-bold cyan-text">📖 최근 생명책 서약 완료 명단:</p>
+                        <div class="guestbook-scroll" id="guestbook-list">
+                            <div class="guestbook-entry">박회개 - [천국 황금길 갈망자] 서약 완료 (1998-05-12)</div>
+                            <div class="guestbook-entry">김거지 - [회개 필요한 죄인] 서약 완료 (1999-12-30)</div>
+                            <div class="guestbook-entry">최장로 - [목사, 장로, 권사, 집사] 서약 완료 (2001-08-15)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating Weird Decorative Web Elements -->
+            <div class="floating-gifs">
+                <!-- Under Construction Banner -->
+                <div class="retro-element under-construction-box">
+                    <img src="https://web.archive.org/web/20090830050417im_/http://geocities.com/sunsetstrip/backstage/6620/construct.gif" alt="Under Construction" class="retro-gif-img">
+                    <div>구원 열차 공사중</div>
+                </div>
+
+                <!-- Spinning Cross or Angel Gif (We will simulate with CSS animation or custom emojis) -->
+                <div class="retro-element spinning-cross-box">
+                    <div class="spinning-cross">✟</div>
+                    <div class="cyan-text text-center font-bold">회개하라!</div>
+                </div>
+
+                <!-- Web Ring or Counter -->
+                <div class="retro-element visitor-counter-box">
+                    <div class="counter-title">생명책 방문자 수</div>
+                    <div class="counter-display" id="visitor-counter">
+                        <span class="counter-digit">0</span>
+                        <span class="counter-digit">7</span>
+                        <span class="counter-digit">4</span>
+                        <span class="counter-digit">2</span>
+                        <span class="counter-digit">9</span>
+                        <span class="counter-digit">1</span>
+                        <span class="counter-digit">3</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer containing Web Badges -->
+        <footer class="main-footer">
+            <div class="web-badges">
+                <div class="badge">IE_5.0_OK</div>
+                <div class="badge badge-netscape">Netscape_Now!</div>
+                <div class="badge badge-notepad">MADE_WITH_NOTEPAD</div>
+                <div class="badge badge-warning">REPENT_OR_BURN</div>
+                <div class="badge badge-geocities">GEOCITIES</div>
+            </div>
+            <div class="footer-copyright">
+                COPYRIGHT © 1998-2002 HEAVEN IS A PLACE ON EARTH. ALL RIGHTS RESERVED.
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Script connection -->
+    <script src="script.js"></script>
+</body>
+</html>

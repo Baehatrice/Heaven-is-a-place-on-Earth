@@ -1,0 +1,846 @@
+/* ==========================================================================
+   Heaven is a place on Earth - 90s/2000s Web 1.0 Retro Stylesheet
+   ========================================================================== */
+
+/* Reset & Root Setup */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('Resources/Background.png');
+    background-repeat: repeat;
+    font-family: "MS Sans Serif", "Tahoma", "Courier New", Gulim, Dotum, sans-serif;
+    color: #000;
+    font-size: 13px;
+    overflow-x: hidden;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill:red"><path d="M7 0h2v16H7zm-7 7h16v2H0z"/></svg>') 8 8, auto; /* Red cross cursor default */
+}
+
+/* Splash Screen (Windows 98 Dialogue) */
+#splash-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.splash-window {
+    width: 450px !important;
+    position: relative !important;
+    box-shadow: 10px 10px 0px rgba(0,0,0,0.5);
+}
+
+.warning-icon-container {
+    margin-bottom: 15px;
+}
+
+.warning-icon {
+    font-size: 48px;
+    display: block;
+}
+
+.warning-text {
+    background-color: #000;
+    color: #00ff00;
+    border: 2px inset #808080;
+    padding: 15px;
+    text-align: left;
+    margin-bottom: 15px;
+    font-family: "Courier New", monospace;
+    font-size: 12px;
+    line-height: 1.5;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.warning-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Windows 98 Frame Styling */
+.win98-window {
+    background-color: #c0c0c0;
+    border: 2px solid;
+    border-color: #dfdfdf #0a0a0a #0a0a0a #dfdfdf;
+    box-shadow: inset 1px 1px 0px #fff, inset -1px -1px 0px #808080;
+    padding: 3px;
+    position: absolute;
+    z-index: 10;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+/* Active window state (focused) */
+.win98-window.focused {
+    z-index: 100 !important;
+}
+
+.title-bar {
+    background: linear-gradient(90deg, #000080, #1080d0);
+    color: #fff;
+    padding: 3px 5px 3px 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-family: "Trebuchet MS", "Tahoma", sans-serif;
+    font-size: 12px;
+    cursor: move;
+}
+
+.title-bar-text {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.title-bar-controls {
+    display: flex;
+    gap: 2px;
+}
+
+.title-bar-controls button {
+    width: 16px;
+    height: 14px;
+    background-color: #c0c0c0;
+    border: 1px solid;
+    border-color: #fff #808080 #808080 #fff;
+    box-shadow: inset 1px 1px 0px #dfdfdf;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 9px;
+    font-weight: bold;
+    color: #000;
+}
+
+.title-bar-controls button:active {
+    border-color: #808080 #fff #fff #808080;
+    box-shadow: none;
+    padding-top: 1px;
+    padding-left: 1px;
+}
+
+.title-bar-controls button:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.close-btn::after {
+    content: "×";
+    font-size: 14px;
+    line-height: 10px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+.min-btn::after {
+    content: "";
+    width: 6px;
+    height: 2px;
+    background-color: #000;
+    margin-top: 6px;
+}
+
+.max-btn::after {
+    content: "";
+    width: 8px;
+    height: 7px;
+    border: 1px solid #000;
+    border-top: 2px solid #000;
+}
+
+.window-body {
+    padding: 10px;
+    overflow: hidden;
+    user-select: text;
+}
+
+/* Win98 Button styling */
+.win98-btn {
+    background-color: #c0c0c0;
+    border: 2px solid;
+    border-color: #dfdfdf #0a0a0a #0a0a0a #dfdfdf;
+    box-shadow: inset 1px 1px 0px #fff;
+    padding: 4px 14px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: "Tahoma", sans-serif;
+    color: #000;
+    outline: none;
+}
+
+.win98-btn:active {
+    border-color: #0a0a0a #dfdfdf #dfdfdf #0a0a0a;
+    box-shadow: none;
+    padding-top: 5px;
+    padding-left: 15px;
+    padding-bottom: 3px;
+    padding-right: 13px;
+}
+
+.win98-btn:focus {
+    outline: 1px dotted #000;
+    outline-offset: -4px;
+}
+
+.win98-hr {
+    border: none;
+    border-top: 1px solid #808080;
+    border-bottom: 1px solid #fff;
+    margin: 10px 0;
+    height: 2px;
+}
+
+/* Header & Banner styling */
+.main-header {
+    text-align: center;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+/* WordArt Title Styling */
+.wordart-title {
+    font-family: "Impact", "Comic Sans MS", "Arial Black", sans-serif;
+    font-size: 5.5vw;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #f1c40f;
+    letter-spacing: 2px;
+    display: inline-block;
+    margin: 25px auto 10px auto;
+    /* Chaotic Rainbow Gradient and 3D Text Shadow */
+    background: linear-gradient(to right, #ff007f, #ff00ff, #7f00ff, #0000ff, #00ffff, #00ff00, #ffff00, #ff7f00, #ff0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(4px 4px 0px #000) drop-shadow(6px 6px 0px #7f00ff);
+    transform: perspective(300px) rotateX(10deg) rotateY(-5deg) rotateZ(-2deg) skewX(-4deg);
+    animation: text-pulsate 1.5s infinite alternate;
+}
+
+@keyframes text-pulsate {
+    0% { transform: perspective(300px) rotateX(10deg) rotateY(-5deg) rotateZ(-2deg) skewX(-4deg) scale(1); }
+    100% { transform: perspective(300px) rotateX(12deg) rotateY(-3deg) rotateZ(-1deg) skewX(-3deg) scale(1.03); }
+}
+
+.warning-marquee-container {
+    background-color: red;
+    border-top: 3px double #ffff00;
+    border-bottom: 3px double #ffff00;
+    padding: 3px 0;
+    margin-bottom: 15px;
+}
+
+.neon-marquee {
+    color: #ffff00;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "Comic Sans MS", Gulim, sans-serif;
+    text-shadow: 0px 0px 5px #ff0000;
+}
+
+/* Desktop container */
+#desktop {
+    width: 100vw;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 80px; /* Space for footer */
+}
+
+.desktop-content {
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 180px);
+}
+
+/* Scrollable window body contents */
+.scrollable-content {
+    background-color: #000;
+    color: #00ff00;
+    border: 2px inset #808080;
+    padding: 8px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* Custom Scrollbar for scrollable content */
+.scrollable-content::-webkit-scrollbar,
+.hell-scroller::-webkit-scrollbar,
+.guestbook-scroll::-webkit-scrollbar {
+    width: 16px;
+    background-color: #c0c0c0;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb,
+.hell-scroller::-webkit-scrollbar-thumb,
+.guestbook-scroll::-webkit-scrollbar-thumb {
+    background-color: #c0c0c0;
+    border: 2px solid;
+    border-color: #dfdfdf #0a0a0a #0a0a0a #dfdfdf;
+    box-shadow: inset 1px 1px 0px #fff;
+}
+
+.scrollable-content::-webkit-scrollbar-button,
+.hell-scroller::-webkit-scrollbar-button,
+.guestbook-scroll::-webkit-scrollbar-button {
+    display: block;
+    height: 16px;
+    background-color: #c0c0c0;
+    border: 1px solid;
+    border-color: #dfdfdf #0a0a0a #0a0a0a #dfdfdf;
+}
+
+/* Saturated colors inside lists */
+.scrollable-content h3 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    border-bottom: 1px dashed #fff;
+    padding-bottom: 2px;
+}
+
+.scrollable-content p {
+    margin-bottom: 10px;
+}
+
+/* Biography profile list */
+.biography-profile {
+    background-color: #000080;
+    border: 2px dashed #ffff00;
+    padding: 8px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.biography-profile ul {
+    list-style-type: square;
+    margin-left: 18px;
+}
+
+/* Hell theme specific window overrides */
+.hell-theme {
+    background-color: #3b0000 !important;
+    border-color: #ff3333 #440000 #440000 #ff3333 !important;
+}
+
+.hell-theme .title-bar {
+    background: linear-gradient(90deg, #8b0000, #ff0000) !important;
+}
+
+.hell-alert {
+    background-color: #000;
+    border: 3px double #ff0000;
+    padding: 8px;
+}
+
+.hell-scroller {
+    background-color: #110000;
+    border: 1px solid #ff3333;
+    padding: 5px;
+    color: #ff3333;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.hell-scroller p {
+    margin-bottom: 15px;
+}
+
+.hell-footer-text {
+    background-color: #000;
+    border: 2px inset #ff0000;
+    padding: 8px;
+    margin-top: 8px;
+    color: #ff0000;
+    font-family: "Gulim", sans-serif;
+}
+
+.hell-fire-text {
+    font-size: 11px;
+    color: #ffff00;
+    text-shadow: 0 0 3px #ff0000;
+}
+
+.cross-icon {
+    font-size: 18px;
+    color: red;
+    animation: rotate-cross 2s infinite linear;
+    display: inline-block;
+}
+
+@keyframes rotate-cross {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Heaven theme specific window overrides */
+.heaven-theme {
+    background-color: #d8f3ff !important;
+    border-color: #ffffff #53a3cc #53a3cc #ffffff !important;
+}
+
+.heaven-theme .title-bar {
+    background: linear-gradient(90deg, #0080ff, #a2d7ff) !important;
+    color: #000;
+}
+
+.heaven-theme .title-bar-text {
+    font-weight: 900;
+}
+
+.heaven-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.heaven-illustration {
+    border: 3px double #000080;
+    background-color: #000;
+    padding: 4px;
+    text-align: center;
+}
+
+.kitsch-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    image-rendering: pixelated;
+    border: 1px solid #fff;
+}
+
+.img-caption {
+    color: #ffff00;
+    font-size: 11px;
+    margin-top: 4px;
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+}
+
+.heaven-text {
+    background-color: #000;
+    color: #a2d7ff;
+    border: 2px inset #808080;
+}
+
+/* Form Styles inside Windows */
+.win98-table {
+    width: 100%;
+    margin-bottom: 10px;
+    border-collapse: collapse;
+}
+
+.win98-table td {
+    padding: 4px;
+}
+
+.win98-table label {
+    font-weight: bold;
+    color: #000;
+}
+
+.win98-table input[type="text"],
+.win98-table select {
+    width: 100%;
+    background-color: #fff;
+    border: 2px inset #808080;
+    padding: 3px;
+    font-family: inherit;
+    font-size: 12px;
+    color: #000;
+}
+
+.win98-fieldset {
+    border: 2px solid;
+    border-color: #dfdfdf #0a0a0a #0a0a0a #dfdfdf;
+    padding: 8px;
+    margin-top: 8px;
+}
+
+.win98-fieldset legend {
+    font-weight: bold;
+    color: #000080;
+    padding: 0 4px;
+}
+
+.win98-fieldset label {
+    font-weight: normal;
+    color: #000;
+    display: inline-block;
+    margin-bottom: 4px;
+    font-size: 11px;
+}
+
+.button-container {
+    margin-top: 10px;
+}
+
+.red-btn {
+    border-color: #ff5555 #330000 #330000 #ff5555;
+    background-color: #aa0000;
+    color: #fff !important;
+    text-shadow: 1px 1px 0px #000;
+}
+
+.red-btn:active {
+    border-color: #330000 #ff5555 #ff5555 #330000;
+}
+
+/* Guestbook Log scroll box */
+.guestbook-log {
+    margin-top: 15px;
+    border-top: 2px double #808080;
+    padding-top: 8px;
+}
+
+.guestbook-scroll {
+    height: 80px;
+    background-color: #000;
+    border: 2px inset #808080;
+    overflow-y: scroll;
+    padding: 4px;
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+}
+
+.guestbook-entry {
+    color: #ff00ff;
+    border-bottom: 1px dashed #333;
+    padding: 2px 0;
+    white-space: nowrap;
+}
+
+/* Floating Retro Elements */
+.floating-gifs {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 1;
+}
+
+.retro-element {
+    background-color: #c0c0c0;
+    border: 2px solid;
+    border-color: #dfdfdf #0a0a0a #0a0a0a #dfdfdf;
+    box-shadow: inset 1px 1px 0px #fff;
+    padding: 5px;
+    text-align: center;
+    width: 130px;
+    font-weight: bold;
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+}
+
+.under-construction-box {
+    border-color: #ffff00 #000 #000 #ffff00;
+    background-color: #ffe000;
+    color: #000;
+}
+
+.retro-gif-img {
+    width: 100px;
+    image-rendering: pixelated;
+    margin-bottom: 5px;
+}
+
+.spinning-cross-box {
+    background-color: #000080;
+    border-color: #ffff00;
+    color: #fff;
+}
+
+.spinning-cross {
+    font-size: 40px;
+    color: #ffff00;
+    animation: rotate-cross 1s infinite linear;
+    text-shadow: 0 0 10px #00ffff;
+}
+
+/* Visitor Counter Widget */
+.visitor-counter-box {
+    width: 160px;
+    background-color: #000;
+    border: 2px dashed red;
+    color: #fff;
+    padding: 8px 4px;
+}
+
+.counter-title {
+    color: #ffff00;
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+.counter-display {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+}
+
+.counter-digit {
+    background-color: #222;
+    border: 1px solid #444;
+    color: #00ff00;
+    font-family: "VT323", monospace;
+    font-size: 24px;
+    font-weight: bold;
+    width: 16px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 5px #000;
+    text-shadow: 0 0 4px #00ff00;
+}
+
+/* Winamp Music Player Styling */
+.winamp-player {
+    width: 275px;
+    position: fixed;
+    bottom: 55px;
+    left: 20px;
+    z-index: 999;
+    box-shadow: 5px 5px 0px rgba(0,0,0,0.5);
+    background-color: #222228 !important;
+    border-color: #444 #111 #111 #444 !important;
+}
+
+.winamp-player .title-bar {
+    background: linear-gradient(90deg, #3a3b45, #14151a) !important;
+    font-size: 10px;
+}
+
+.winamp-body {
+    background-color: #111;
+    border: 2px inset #555;
+    padding: 5px;
+}
+
+.winamp-top {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.winamp-display {
+    width: 100%;
+    background-color: #000;
+    border: 1px solid #333;
+    padding: 4px;
+    font-family: "VT323", monospace;
+    color: #00ff00;
+    text-shadow: 0 0 4px #00ff00;
+}
+
+.winamp-time {
+    font-size: 22px;
+    float: left;
+    margin-right: 10px;
+}
+
+.winamp-track-info {
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 12px;
+    line-height: 22px;
+}
+
+.winamp-visualizer {
+    width: 100%;
+    height: 35px;
+    background-color: #000;
+    border: 1px solid #333;
+    margin-bottom: 5px;
+}
+
+#visualizer-canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.winamp-controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.winamp-btn {
+    width: 25px;
+    height: 18px;
+    background-color: #3a3b45;
+    color: #fff;
+    border: 1px solid;
+    border-color: #666 #111 #111 #666;
+    font-size: 9px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.winamp-btn:active {
+    border-color: #111 #666 #666 #111;
+}
+
+.winamp-volume-container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: 5px;
+    flex-grow: 1;
+}
+
+.vol-label {
+    color: #aaa;
+    font-size: 9px;
+    font-family: Arial, sans-serif;
+}
+
+.winamp-volume {
+    width: 100%;
+    height: 6px;
+    background-color: #222;
+    outline: none;
+    -webkit-appearance: none;
+    border: 1px solid #444;
+}
+
+.winamp-volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 10px;
+    height: 12px;
+    background-color: #888;
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+
+/* Footer & Web Badges */
+.main-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #c0c0c0;
+    border-top: 2px solid #dfdfdf;
+    box-shadow: 0px -2px 0px #808080;
+    padding: 6px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 998;
+}
+
+.web-badges {
+    display: flex;
+    gap: 8px;
+}
+
+.badge {
+    width: 88px;
+    height: 31px;
+    background-color: #000;
+    color: #00ff00;
+    border: 2px solid #555;
+    font-family: "VT323", monospace;
+    font-size: 11px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1;
+    text-shadow: 0 0 3px #00ff00;
+    user-select: none;
+}
+
+.badge-netscape {
+    background-color: #000080;
+    color: #fff;
+    border-color: #00ffff;
+    text-shadow: 0 0 3px #00ffff;
+}
+
+.badge-notepad {
+    background-color: #fff;
+    color: #000;
+    border-color: #808080;
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    text-shadow: none;
+}
+
+.badge-warning {
+    background-color: red;
+    color: yellow;
+    border-color: yellow;
+    text-shadow: 0 0 3px red;
+    animation: blink 0.5s infinite;
+}
+
+.badge-geocities {
+    background-color: #ff8800;
+    color: #fff;
+    border-color: #fff;
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    text-shadow: none;
+}
+
+.footer-copyright {
+    font-size: 10px;
+    color: #555;
+    font-family: Arial, sans-serif;
+}
+
+/* Cursor trail helper */
+.cursor-trail {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    pointer-events: none;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 10000;
+    animation: fade-trail 0.6s forwards linear;
+}
+
+@keyframes fade-trail {
+    0% { opacity: 1; transform: scale(1.2) translateY(0); }
+    100% { opacity: 0; transform: scale(0.5) translateY(15px); }
+}
+
+/* Helpers & Utilities */
+.text-center { text-align: center; }
+.font-bold { font-weight: bold; }
+.red-text { color: red !important; }
+.yellow-text { color: #ffff00 !important; }
+.cyan-text { color: #00ffff !important; }
+.magenta-text { color: #ff00ff !important; }
+.neon-cyan { color: #00ffff; text-shadow: 0 0 5px #00ffff; }
+.neon-yellow { color: #ffff00; text-shadow: 0 0 5px #ffff00; }
+.neon-green { color: #00ff00; text-shadow: 0 0 5px #00ff00; }
+.text-bg { background-color: #000; padding: 2px 5px; }
+
+/* Responsive adjustments (Force desktop horizontal view layout) */
+@media (max-width: 800px) {
+    #desktop {
+        width: 1024px; /* Force minimum desktop size so it remains horizontal scrollable */
+    }
+}
