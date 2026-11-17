@@ -1,0 +1,18 @@
+{
+  "version": "economy-qa-6",
+  "humanLogSha256": "d61a453cd22f382e8cb230009764ac24cb6ae7e8ec9e19ab6ec6ab4697528143",
+  "gameSha256": "c670249555ce7437c28ee3f7becc159b0e7bf142c04510c0f070360f7fe29c26",
+  "baselineRuns": 1200,
+  "finalRuns": 3000,
+  "sensitivityRuns": 300,
+  "regressionAssertions": 199,
+  "note": "Headless actual game core; presentation stubbed; behavioral timing estimates, not 4500 human/browser sessions.",
+  "browserSuites": 4,
+  "endgameSmoke": {
+    "seconds": 12.666,
+    "score": 1528,
+    "grace": 32520,
+    "roster": 5,
+    "pageErrors": 0
+  }
+}

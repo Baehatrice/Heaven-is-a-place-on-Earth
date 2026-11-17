@@ -1,0 +1,874 @@
+/* HEAVEN 98 — shared design tokens, chrome and celebration states. */
+:root{--heaven-sky:#a5d9f2;--heaven-paper:#f4faff;--heaven-chrome:#c0c0c0;--heaven-light:#fff;--heaven-shadow:#404040;--heaven-navy:#000080;--heaven-blue:#1084d0;--heaven-purple:#682491;--heaven-gold:#ffff00;--heaven-mint:#00ff00;--heaven-font:Gulim,'굴림',Dotum,'돋움','MS Sans Serif',sans-serif;--heaven-display:Impact,'Arial Black',Gulim,sans-serif;--heaven-counter:'Courier New',monospace;--heaven-clouds:url('Resources/heaven-clouds-98.png');--heaven-bevel:3px outset #eee}
+body:not(.mode-hell):not(.mode-shamanism):not(.mode-hell-labor){background-color:var(--heaven-sky);font-family:var(--heaven-font)}
+body.mail-mode{background-image:var(--heaven-clouds)}
+body:not(.mode-hell):not(.mode-shamanism):not(.mode-hell-labor) .win98-window{border-radius:0;border:var(--heaven-bevel);background-color:var(--heaven-chrome)}
+body:not(.mode-hell):not(.mode-shamanism):not(.mode-hell-labor) .title-bar{font-family:var(--heaven-font);background:linear-gradient(90deg,var(--heaven-navy),var(--heaven-blue))}
+#mail-game{font-family:var(--heaven-font)}
+#mail-game .mg-work,#mail-game .mg-side,#mail-game dialog{border:var(--heaven-bevel);background-color:var(--heaven-chrome);border-radius:0}
+#mail-game .mg-window-title,#mail-game .mg-dialog-head{background:linear-gradient(90deg,var(--heaven-navy),var(--heaven-blue))}
+#mail-game .mg-tree-scroll{background:var(--heaven-sky) var(--heaven-clouds) repeat;background-size:420px;border:3px inset #eee}
+#mg-tree-map{background:linear-gradient(90deg,transparent 24.8%,#00008055 25%,transparent 25.2%,transparent 49.8%,#00008055 50%,transparent 50.2%,transparent 74.8%,#00008055 75%,transparent 75.2%)}
+#mg-tree-map>h3{background:#c0c0c0;border:2px outset #fff;color:#000080!important;text-shadow:1px 1px white;padding:7px 0}
+#mg-tree-map path{stroke:#62649b;stroke-width:3;filter:drop-shadow(1px 1px white)}
+#mg-tree-map path.lit{stroke:#9900bb;stroke-width:4;filter:drop-shadow(1px 1px #fff) drop-shadow(0 0 3px yellow)}
+#mail-game .mg-node>span{background:linear-gradient(135deg,#fff,#b6ddf5 40%,#7777b7);border:3px outset #ddd;color:#000080;text-shadow:1px 1px white;box-shadow:2px 2px #0005;font-size:29px}
+#mail-game .mg-node>b{background:#eff8ff;color:#000080;text-shadow:none;border:1px solid #7777a4}
+#mail-game .mg-node.locked{opacity:.7}#mail-game .mg-node.locked>span{filter:grayscale(1)}
+#mail-game .mg-node.owned>span{background:linear-gradient(135deg,#fffac0,#ffff00 45%,#c48e1b)!important;color:#800080!important;text-shadow:1px 1px white!important;border-color:#fff #805000 #805000 #fff!important}
+#mail-game .mg-node.owned>b{background:#ffffb0;color:#800080}
+#mail-game .mg-node.available>span{box-shadow:0 0 0 2px #000080,0 0 0 4px #fff,0 0 14px yellow!important}
+#mail-game .mg-node.chosen>span{outline:2px dashed #800080}
+#mg-skill-detail{border:3px inset #fff;background:#000080;color:white}
+#mg-training{width:640px!important;background:#c0c0c0!important;border:4px outset #eee!important;box-shadow:5px 5px #0007!important;padding:12px 22px 20px!important;overflow:hidden!important}
+#mg-training::before{content:'✟ HEAVEN_SKILL_INSTALLER.EXE — 영적 능력 설치';display:block;position:relative;z-index:1;text-align:left;font:bold 12px var(--heaven-font);background:linear-gradient(90deg,#000080,#1084d0);color:#fff;padding:6px;margin:-9px -19px 12px}
+#mg-training .mg-training-rays{inset:32px 8px 90px;background:repeating-conic-gradient(#ffffff80 0 8deg,transparent 8deg 24deg),var(--heaven-clouds) center/450px;animation:none;border:3px inset white}
+#mg-training>p{color:#000080;text-shadow:1px 1px white;font-size:12px}
+#mg-training .mg-training-symbol{font-size:60px;margin:8px 0;color:#fff800;text-shadow:2px 2px #800080,0 0 8px #fff}
+#mg-training>h2{font:bold 29px var(--heaven-font);color:#682491;text-shadow:2px 2px white,3px 3px #444;margin:10px 0}
+#mg-training-count{font:bold 32px var(--heaven-counter);background:#000;color:#00ff00;border:3px inset #eee;display:table;margin:12px auto;padding:3px 18px}
+#mg-training .mg-progress{height:22px;margin:14px 0 10px;background:#000}
+#mg-training .mg-progress i{background:repeating-linear-gradient(90deg,#00ff00 0 10px,#007700 10px 12px)}
+.mg-training-reels{position:relative;display:flex;justify-content:center;gap:8px;margin:10px auto 0;background:#000080;border:5px ridge #f5df78;padding:10px;width:max-content;max-width:100%;box-shadow:0 0 0 2px #000080}
+.mg-training-reels span{display:grid;place-items:center;width:83px;height:88px;background:linear-gradient(#aaa,#fff 30%,#fff 70%,#aaa);border:3px inset #fff;font:bold 60px var(--heaven-counter);color:#800080;text-shadow:2px 2px #ffcc00}
+#mg-training-phase{position:relative;font:bold 14px var(--heaven-font);color:#ffff00;background:#000080;padding:7px;border:2px outset white;margin-top:10px}
+#mg-training[data-stage='2'] .mg-training-reels{box-shadow:0 0 0 3px #ff00ff,0 0 25px yellow}
+#mg-training[data-stage='3'] .mg-training-reels{animation:heaven-rattle .16s steps(2) infinite;border-color:#ffff00}
+@keyframes heaven-rattle{0%,100%{transform:translateX(-2px)}50%{transform:translateX(2px)}}
+#mail-fx[popover]{border:0;background:transparent;padding:0;margin:0;max-width:100vw;max-height:100vh;overflow:hidden;pointer-events:none}
+#mg-payout[popover]{position:fixed;inset:auto 16px 24px auto;margin:0;padding:10px 18px;border:5px ridge #fff06b;background:#000080;color:white;box-shadow:4px 4px #0008;pointer-events:none;text-align:center;width:min(370px,90vw);font-family:var(--heaven-font);overflow:hidden}
+#mg-payout small{color:#0ff;font:bold 12px var(--heaven-counter)}#mg-payout strong{display:block;color:yellow;font:bold italic 40px var(--heaven-display);text-shadow:3px 3px #ff00ff;line-height:1.1;margin:5px 0}
+#mg-payout .mg-payout-count{font:bold 48px var(--heaven-counter);background:#000;color:#00ff00;border:3px inset #ddd;margin:7px 0;text-shadow:0 0 6px #00ff00}
+#mg-payout em{font:bold 12px var(--heaven-font);color:yellow;font-style:normal}
+#mg-payout.big{border-color:#ffff00;animation:heaven-win .3s steps(2) 3}
+@keyframes heaven-win{50%{box-shadow:0 0 0 5px #ff00ff,0 0 40px yellow}}
+#mail-game .mg-work.impact{animation:heaven-impact .25s steps(3)}
+@keyframes heaven-impact{0%{transform:translate(-4px,2px)}25%{transform:translate(4px,-2px)}65%{transform:translate(-2px,1px)}100%{transform:none}}
+#mg-burst{z-index:40}.mg-training-orbit{font-size:45px;color:#ffff00}
+.reduced #mg-training .mg-training-reels,.reduced #mg-payout,.reduced .mg-work{animation:none!important}
+@media(prefers-reduced-motion:reduce){#mg-payout,.mg-training-reels{animation:none!important}}
+@media(max-width:700px){#mg-training{padding:12px!important}.mg-training-reels span{width:60px;height:65px;font-size:46px}#mg-training::before{margin:-9px -9px 10px;font-size:10px}#mg-training>h2{font-size:23px}.mg-training-reels{padding:6px}#mg-payout[popover]{bottom:12px;right:12px;width:260px}#mg-payout strong{font-size:28px}#mg-payout .mg-payout-count{font-size:34px}}
+
+/* Icon-launched desktop: muted 1990s address book / messenger windows. */
+#mail-game .mg-work{background:#d0d0cf}
+#mail-game .mg-desktop-icons{padding:16px;gap:18px;background:#d9dce1;border-bottom:2px groove #fff}
+#mail-game .mg-desktop-icons button{display:flex;flex-direction:column;align-items:center;gap:5px;width:100px;margin:0!important;padding:7px!important;border:1px solid transparent!important;background:transparent!important;box-shadow:none!important;color:#242653!important;font-size:12px!important}
+#mail-game .mg-desktop-icons img{width:40px;height:40px;image-rendering:pixelated}
+#mail-game .mg-desktop-icons small{font:9px 'Courier New',monospace;color:#606474}
+#mail-game .mg-desktop-icons button.active,#mail-game .mg-desktop-icons button:focus-visible{border:1px dotted #36365d!important;background:#c1cada!important}
+#mail-game #mg-panes{position:relative;min-height:410px;padding:16px;background:#dce3eb url('Resources/HeavenSoft/winding-white-path.png') center/cover}
+#mail-game #mg-panes.split{gap:12px;align-items:start}
+#mail-game #mg-list-pane,#mail-game #mg-mail-pane{min-width:0;background:#deded8;border:3px outset #eee;box-shadow:3px 3px #5558;padding:10px;color:#252946}
+#mail-game .mg-app-title{display:flex;align-items:center;justify-content:space-between;background:#666b91;color:#fff;margin:-10px -10px 0;padding:3px 4px 3px 7px;font:12px 'Courier New',Gulim,monospace}
+#mail-game .mg-app-title button{font:bold 14px monospace;padding:0 4px;line-height:16px;min-width:20px;color:#222;background:#ccc;border:2px outset #eee;border-radius:0;box-shadow:none}
+#mail-game .mg-app-menu{font:11px Gulim,sans-serif;padding:6px 0;border-bottom:2px groove #eee;margin-bottom:12px;color:#444}
+#mail-game #mg-mail-pane textarea{background:#edf3e7;color:#25342a;font-family:'Courier New',Gulim,monospace;border:2px inset #eee;border-radius:0}
+#mail-game .mg-recipient{background:#f2f1e8;border:1px solid #aaa;padding:7px}
+#mail-game .mg-recipient.selected{background:#d1dfdb;border-color:#758c8f}
+#mail-game #mg-desktop-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#5a6c8a;text-shadow:1px 1px white;font:bold 28px 'Times New Roman',serif;pointer-events:none;letter-spacing:2px}
+#mail-game #mg-desktop-empty small{font:12px Gulim,sans-serif;margin-top:12px;letter-spacing:0;color:#34455d}
+@media(max-width:700px){#mail-game .mg-desktop-icons{gap:5px;padding:10px}#mail-game #mg-panes.split{grid-template-columns:1fr}#mail-game #mg-panes{padding:9px}#mail-game .mg-desktop-icons button{width:90px}}
+
+/* Landing: central registration, with a light halo marking the first action. */
+#window-register{isolation:isolate;box-shadow:0 0 22px 8px #fff,0 0 65px 28px #ffffc0b3,0 0 110px 45px #ffffff70}
+#window-register::before{content:'';position:absolute;inset:-65px;z-index:-1;pointer-events:none;background:radial-gradient(ellipse,#fff9d9a0 20%,#ffffff65 48%,transparent 72%);filter:blur(10px)}
+#window-register .title-bar{background:linear-gradient(90deg,#000080,#237fc0)}
+#window-register .window-body{position:relative;background:#c0c0c0}
+#window-register #reg-name{outline:1px solid #b5a574}
+@media(min-width:769px) and (max-width:1200px){#window-heaven{width:400px!important}#window-hell{width:350px!important}}
+@media(max-width:768px){#heaven-windows #window-register{order:-1;position:relative!important;margin-top:20px;margin-bottom:30px!important}#window-register::before{inset:-15px}#window-register{box-shadow:0 0 22px 8px #fff,0 0 40px 12px #ffffc0a0}}
+
+/* Compact desktop office — picture icons and paper status, 16:9 workspace. */
+#mail-game .mg-stats{width:100%;max-width:1440px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;padding:4px 8px;margin:0 auto;background:#e9e8df;border:2px outset #fff;box-shadow:1px 1px #555}
+#mail-game .mg-stats>div{display:flex;align-items:center;justify-content:center;gap:12px;background:transparent;border:0!important;border-right:1px solid #b4b3ab!important;padding:5px 10px;text-align:left;min-width:0}
+#mail-game .mg-stats>div:last-child{border-right:0!important}
+#mail-game .mg-stats img{width:40px;height:42px;object-fit:contain;image-rendering:pixelated;flex-shrink:0}
+#mail-game .mg-stats small{font:11px Gulim,sans-serif;color:#4b4e61;margin:0 0 4px}
+#mail-game .mg-stats strong,#mail-game .mg-stats>div:nth-child(n) strong{font:bold 23px/1 'Times New Roman',serif;letter-spacing:0;color:#151552;text-shadow:none}
+#mail-game .mg-stats em{font:9px 'Courier New';color:#666}
+#mail-game .mg-fever{max-width:1440px;width:100%;justify-content:flex-end;background:#e9e8df;border:0;border-bottom:1px solid #95969f;padding:4px 10px;margin:0 auto;gap:12px}
+#mail-game .mg-fever>span{font:11px Gulim,sans-serif;color:#303558;min-width:0}
+#mail-game .mg-fever>div{flex:0 0 130px;height:10px;background:#fff;border:1px inset #aaa}
+#mail-game .mg-fever i{background:repeating-linear-gradient(90deg,#778aa8 0 5px,#e9e8df 5px 6px)}
+#mail-game .mg-side h2{background:none;border:0;color:#000080;text-shadow:none;font:bold 18px/1.3 'Times New Roman',Gulim,serif;padding:4px;margin:10px}
+#mail-game .mg-side>p::before{height:74px;width:95px;margin:0 auto 8px;background:url('Resources/HeavenComponents/icons/angel-wings.png') center/contain no-repeat;border:0}
+#mail-game .mg-side>.mg-primary{background:#e8e8dd!important;color:#000080!important;padding:6px!important}
+#mail-game .mg-live{background:#eff1e7;border:2px inset white}
+#mail-game .mg-live>small{color:#000080}#mail-game #mg-log{color:#384747}
+@media(min-width:901px){
+ #mail-game{height:100dvh;min-height:650px;display:grid;grid-template-rows:32px 85px 22px 66px 25px minmax(0,1fr) 29px;row-gap:5px;padding:0 20px 5px;overflow:hidden}
+ #mail-game .mg-header{height:32px;margin:0 -20px;padding:2px 8px}
+ #mail-game .mg-hero{padding:3px 0;overflow:hidden}
+ #mail-game .mg-hero>p{font-size:11px;margin:0}
+ #mail-game .mg-hero h1{font-size:clamp(30px,3vw,45px);line-height:1.05;margin:4px auto;transform:none}
+ #mail-game .mg-hero>div{display:none}
+ #mail-game .mg-hero>span{font-size:10px;margin:0;padding:2px 7px}
+ #mail-game .mg-ticker{margin:0 -20px;font-size:11px;line-height:18px;height:22px}
+ #mail-game .mg-layout{width:100%;max-width:1440px;grid-template-columns:minmax(0,1fr) 230px;gap:12px;min-height:0;height:100%;align-items:stretch}
+ #mail-game .mg-work{margin:0;min-height:0;display:flex;flex-direction:column}
+ #mail-game .mg-side{margin:0;min-height:0;overflow:auto}
+ #mail-game .mg-desktop-icons{padding:3px 9px;gap:8px;flex-shrink:0;align-items:center}
+ #mail-game .mg-desktop-icons button{width:135px;flex-direction:row;gap:7px;padding:3px!important}
+ #mail-game .mg-desktop-icons img{width:28px;height:28px;object-fit:contain}
+ #mail-game .mg-desktop-icons small{display:none}
+ #mail-game .mg-guide{margin:3px 7px;padding:3px 7px;line-height:1.4;flex-shrink:0}
+ #mail-game #mg-panes{flex:1;min-height:0;padding:7px;overflow:auto}
+ #mail-game #mg-panes.split{grid-template-columns:1fr 1fr;align-items:start}
+ #mail-game #mg-list-pane,#mail-game #mg-mail-pane{padding:7px}
+ #mail-game .mg-app-title{margin:-7px -7px 0}
+ #mail-game .mg-app-menu{padding:3px 0;margin-bottom:4px}
+ #mail-game #mg-panes h2{font-size:12px;margin:3px 0;padding:3px 0}
+ #mail-game #mg-mail-pane>label{margin:5px 0 3px}
+ #mail-game #mg-address{min-height:38px;height:38px;padding:4px 6px}
+ #mail-game #mg-body{min-height:60px;height:60px;padding:4px 6px}
+ #mail-game .mg-send{padding:7px!important;font-size:13px!important}
+ #mail-game .mg-send-meta{margin:5px 0}
+ #mail-game #mg-message{min-height:24px;margin:3px;padding:3px 7px;flex-shrink:0}
+ #mail-game #mg-list{max-height:145px;margin:5px 0}
+ #mail-game .mg-recipient{padding:4px}
+ #mail-game .mg-script{margin:5px 0;padding:5px}
+ #mail-game .mg-script p{margin:3px 0;font-size:12px}
+ #mail-game .mg-muted{margin:4px 0}
+ #mail-game .mg-footer{width:100%;max-width:1440px;display:flex;align-items:center;justify-content:space-between;margin:0 auto;padding:0;border-top:1px groove white;font-size:10px}
+ #mail-game .mg-footer b{padding:3px 6px;margin:0;min-width:0;font-size:8px}
+ #mail-game .mg-footer p{margin:0;font-size:9px}
+}
+@media(max-width:900px){#mail-game .mg-layout{grid-template-columns:1fr}#mail-game .mg-stats{grid-template-columns:1fr 1fr}#mail-game .mg-stats>div{justify-content:flex-start}#mail-game .mg-fever{display:flex}#mail-game .mg-fever>div{margin:0;flex-basis:80px}#mail-game .mg-stats img{width:30px;height:34px}#mail-game .mg-stats strong,#mail-game .mg-stats>div:nth-child(n) strong{font-size:20px}#mail-game .mg-stats em{display:none}}
+
+#mg-deliveries{position:fixed;right:28px;bottom:45px;z-index:130;display:flex;flex-direction:column;gap:8px;pointer-events:none;width:270px}
+.mg-delivery{border:3px outset #fff;background:#e9e8d9;box-shadow:3px 4px #0005;animation:mail-delivery-arrive 2.3s both;transform-origin:right center}
+.mg-delivery-title{background:#254d84;color:white;padding:3px 6px;font:bold 10px Gulim,sans-serif}
+.mg-delivery-body{display:flex;align-items:center;position:relative;padding:9px;gap:12px;color:#151553;overflow:hidden}
+.mg-delivery-body img{width:51px;height:48px;object-fit:contain;image-rendering:pixelated;animation:mail-envelope-zip .5s ease-out}
+.mg-delivery-body b{font:bold 20px 'Times New Roman',Gulim,serif;display:block}.mg-delivery-body small{display:block;margin-top:5px;color:#32643d;font:12px Gulim,sans-serif}
+.mg-delivery-body em{position:absolute;right:5px;bottom:7px;font:bold 10px 'Courier New';color:#a22;border:2px solid #a22;transform:rotate(-13deg);opacity:.7}
+@keyframes mail-delivery-arrive{0%{opacity:0;transform:translateX(160px) scale(.65) rotate(7deg)}16%{opacity:1;transform:translateX(-9px) scale(1.04) rotate(-2deg)}25%,80%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-30px) scale(.94)}}
+@keyframes mail-envelope-zip{from{transform:translateX(-75px) rotate(-20deg)}to{transform:none}}
+.reduced .mg-delivery{animation:none!important}
+@media(prefers-reduced-motion:reduce){.mg-delivery,.mg-delivery-body img{animation:none!important}}
+@media(max-width:700px){#mg-deliveries{right:10px;bottom:12px;width:240px}}
+
+/* Landing window order is managed by focusWindow, never a fixed focused z-index. */
+.win98-window.focused{outline:1px solid #fff}
+.floating-gifs{top:215px!important;right:18px!important;display:flex;flex-direction:column;align-items:center;gap:12px;z-index:5}
+.floating-gifs .retro-element{position:relative!important;inset:auto!important;margin:0!important;box-sizing:border-box}
+.floating-gifs .under-construction-box{width:145px;padding:7px 4px}
+.construction-label{display:block;font:bold 12px/1.15 'Courier New';color:#000;margin-bottom:4px}
+.floating-gifs .spinning-cross-box{width:105px;height:88px}
+.floating-gifs .visitor-counter-box{width:160px}
+.main-footer .web-badges{align-items:center;gap:7px;flex-wrap:wrap}
+.main-footer .badge{width:auto;min-width:82px;max-width:145px;height:auto;min-height:27px;box-sizing:border-box;padding:5px 8px;white-space:normal;overflow-wrap:anywhere;overflow:hidden;font:bold 10px/1.2 'Courier New',Gulim,sans-serif;text-align:center}
+.main-footer .badge:nth-child(2){min-width:111px;font-style:italic;font-size:11px}
+.main-footer .badge:nth-child(3){min-width:92px;font-family:Gungsuh,serif;font-size:12px}
+.main-footer .badge:nth-child(4){min-height:32px;font-family:Impact,sans-serif;font-size:12px;letter-spacing:1px}
+@media(max-width:768px){.floating-gifs{position:relative!important;top:auto!important;right:auto!important;flex-direction:row;flex-wrap:wrap;justify-content:center;margin:15px 0}.main-footer .badge{min-width:70px}}
+
+/* The salvation form briefly reveals the labor contract beneath it. */
+#window-register.contract-reveal {animation:contract-slip 180ms steps(2,end) 1}
+#window-register.contract-reveal .blink {animation:none!important}
+#window-register.contract-reveal input:disabled,
+#window-register.contract-reveal select:disabled {color:#111;opacity:1;-webkit-text-fill-color:#111}
+#window-register.contract-reveal .win98-fieldset label {color:#111}
+@keyframes contract-slip {0%{translate:0 0}35%{translate:3px 0}70%{translate:-2px 1px}100%{translate:0 0}}
+@media(prefers-reduced-motion:reduce){#window-register.contract-reveal{animation:none}}
+
+/* Personal-homepage welcome portal, circa 1998. */
+#mail-game #mg-intro{width:660px;padding:3px!important;background:#c0c0c0;box-sizing:border-box;text-align:center}
+#mg-intro::before{display:none}
+#mg-intro .welcome-chrome{display:flex;justify-content:space-between;gap:8px;background:#000080;color:#fff;padding:5px 7px;font:12px 'Times New Roman',serif;text-align:left}
+#mg-intro .welcome-chrome span{white-space:nowrap;color:#ddd}
+#mg-intro .welcome-menu{text-align:left;padding:4px 8px;font:11px Arial,sans-serif;border-bottom:2px groove #fff}
+#mg-intro .welcome-page{padding:13px 24px 10px;background:#a3c9e4 url('Resources/heaven-clouds-98.png') repeat;background-size:340px;color:#000}
+#mg-intro .welcome-kicker{font:bold 10px 'Courier New',monospace;letter-spacing:1px;color:#16397b}
+#mg-intro .welcome-kicker span{display:inline-block;background:#ffff00;color:#b00000;padding:2px 4px;transform:rotate(-7deg);margin-left:7px;letter-spacing:0}
+#mg-intro h2{margin:7px 0 5px;text-shadow:2px 2px #fff;font-family:'Times New Roman',serif}
+#mg-intro h2 em{display:block;font:bold italic 22px 'Times New Roman',serif;color:#000080}
+#mg-intro h2 strong{display:block;font:bold 49px/.98 Arial,sans-serif;letter-spacing:-3px;color:#07184e}
+#mg-intro h2 strong span{color:#004cac}#mg-intro h2 sup{font:italic 21px 'Times New Roman';vertical-align:top;letter-spacing:-1px;color:#af0000}
+#mg-intro .welcome-receipt{font:12px/1.5 Gulim,sans-serif;margin:10px 0;background:#ffffffb8;display:inline-block;padding:3px 8px}
+#mg-intro .welcome-programs{border:3px outset #ddd;background:#eee;box-shadow:2px 2px #35475d;text-align:left}
+#mg-intro .welcome-program-title{background:#000080;color:#fff;padding:4px 5px;font:bold 11px Gulim,sans-serif}
+#mg-intro .welcome-programs ol{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;list-style:none;margin:0;padding:12px 5px 10px}
+#mg-intro .welcome-programs li{text-align:center;min-width:0;display:flex;align-items:center;flex-direction:column;gap:5px}
+#mg-intro .welcome-programs img{width:42px;height:42px;object-fit:contain;image-rendering:pixelated}
+#mg-intro .welcome-programs li b{font:bold 12px Gulim,sans-serif;color:#000080;text-decoration:underline}
+#mg-intro .welcome-programs li span{font:10px/1.4 Gulim,sans-serif}
+#mg-intro .welcome-status{border-top:2px groove #fff;padding:3px 5px;font:10px 'Times New Roman';display:flex;justify-content:space-between}
+#mg-intro .welcome-ads{display:flex;gap:10px;align-items:center;justify-content:center;margin:14px 0}
+#mg-intro .welcome-ad-work{position:relative;background:#800080;border:2px outset #eee;padding:6px 17px;color:#fff;transform:rotate(-1deg)}
+#mg-intro .welcome-ad-work b{display:block;color:#bfff00;font:italic bold 26px/.95 Impact,'Arial Narrow',sans-serif;letter-spacing:-.5px;text-shadow:2px 2px #232300}
+#mg-intro .welcome-ad-work small{display:block;font:bold 10px Gulim,sans-serif;margin-top:5px}
+#mg-intro .welcome-ad-work i{position:absolute;left:-12px;top:-8px;background:#ff0;color:#c00;font:bold 10px 'Courier New';transform:rotate(-15deg);padding:3px}
+#mg-intro .welcome-ad-grace{display:flex;gap:6px;align-items:center;border:2px solid #d00000;background:#fffde8;padding:7px;color:#c00;transform:rotate(2deg)}
+#mg-intro .welcome-ad-grace strong{font:bold italic 30px 'Times New Roman';letter-spacing:-2px}
+#mg-intro .welcome-ad-grace span{font:12px Gungsuh,serif}#mg-intro .welcome-ad-grace b{font:bold 8px Arial;color:#000080}
+#mg-intro .welcome-entry{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;border-top:2px groove #fff;padding-top:12px}
+#mg-intro .welcome-entry label{font:bold 12px Gulim,sans-serif;margin:0}
+#mg-intro .welcome-entry select{margin:0;background:#fff;color:#000;font:12px Gulim,sans-serif;max-width:100%}
+#mg-intro #mg-begin{display:block;width:100%;margin-top:3px;padding:10px!important;background:#000080!important;color:#fff!important;border:3px outset #aab5ef;font:bold 19px Gungsuh,serif!important;text-shadow:1px 1px #000}
+#mg-intro #mg-begin span{font:bold italic 15px 'Times New Roman';color:#ff0;margin-left:14px}
+#mg-intro #mg-begin:active{border-style:inset;transform:translateY(1px)}
+#mg-intro .welcome-bottom{margin-top:9px;display:flex;align-items:center;justify-content:space-between;gap:5px;flex-wrap:wrap;font:9px Gulim,sans-serif}
+#mg-intro .welcome-bottom small{font:9px Gulim,sans-serif}#mg-intro .welcome-bottom i{font:italic 10px 'Times New Roman'}
+@media(max-width:540px){#mg-intro .welcome-page{padding:12px 9px}#mg-intro h2 strong{font-size:38px}#mg-intro .welcome-programs ol{grid-template-columns:repeat(2,1fr)}#mg-intro .welcome-ads{gap:7px}#mg-intro .welcome-ad-work{padding:7px}#mg-intro .welcome-ad-work b{font-size:20px}#mg-intro .welcome-ad-grace{padding:5px}#mg-intro .welcome-ad-grace strong{font-size:24px}#mg-intro .welcome-bottom{justify-content:center}}
+
+/* Compact work desktop and mismatched blessing advertisement. */
+#mail-game #mg-panes{background-image:url('Resources/HeavenSoft/floating-palace-v2.png');background-size:100% 100%;background-position:center}
+#mail-game .mg-brand small{margin-left:12px;font:10px 'Courier New',Gulim,sans-serif}
+#mail-game .grace-ad{position:relative;overflow:hidden;margin:8px 7px 12px;padding:8px 9px 11px;background:linear-gradient(155deg,#f4f0d4 0 46%,#cbd7df 47% 100%);border:3px double #15154e;box-shadow:3px 3px #6e7091;text-align:center;color:#14143b}
+#mail-game .grace-ad-top{font:11px Gungsuh,serif;text-align:left;border-bottom:1px solid #15154e;padding-bottom:5px}
+#mail-game .grace-ad-top b{float:right;background:#d00000;color:#ffed00;font:italic bold 17px Impact,sans-serif;transform:rotate(8deg);padding:1px 5px}
+#mail-game .grace-orbit{height:104px;position:relative;margin-top:7px;isolation:isolate}
+#mail-game .grace-orbit:before{content:'';position:absolute;border:3px solid #393c88;border-radius:50%;inset:25px -5px;transform:rotate(-24deg);z-index:-1}
+#mail-game .grace-orbit img{height:93px;width:110px;object-fit:contain;image-rendering:pixelated;position:absolute;left:0;top:4px;transform:rotate(-12deg)}
+#mail-game .grace-orbit span{position:absolute;right:0;top:23px;font:italic bold 30px/.8 Impact,'Arial Narrow',sans-serif;letter-spacing:-1px;color:#181856;text-shadow:2px 2px #fff;transform:rotate(8deg) scaleY(1.4)}
+#mail-game .grace-ad h2{font:bold 19px/1.3 Gungsuh,serif;color:#10104e;margin:5px -5px 12px;padding:0;letter-spacing:-1px}
+#mail-game .grace-ad h2 em{font-style:normal;color:#a30000;text-decoration:underline;text-underline-offset:4px}
+#mail-game .grace-sticker{display:inline-block;background:#ffff7a;border:1px solid #15154e;box-shadow:3px 3px #15154e;padding:6px 12px;transform:rotate(-5deg);font:bold 11px Gulim,sans-serif}
+#mail-game .grace-sticker strong{display:block;font:italic bold 24px/.95 'Times New Roman',serif;letter-spacing:-1px}
+#mail-game .grace-ad p{font:11px/1.7 Gulim,sans-serif;margin:15px 0 9px;color:#212149}
+#mail-game #mg-tree-open2{width:100%;background:#000080!important;color:#fff!important;border:3px outset #b9bada;padding:9px 3px!important;font:bold 14px Gungsuh,serif!important}
+#mail-game #mg-tree-open2 span{display:block;font:italic bold 17px 'Times New Roman';color:#ffec00;margin-top:4px}
+#mail-game .grace-fine{display:block;font:9px Gulim,sans-serif;margin-top:8px}
+#mail-game .mg-side #mg-build{padding:0 9px}
+@media(min-width:901px){#mail-game{grid-template-rows:32px 66px 25px minmax(0,1fr) 29px;padding-top:8px;height:100dvh}.mg-header{margin-top:0!important}#mail-game .mg-layout{grid-template-columns:minmax(0,1fr) 245px}}
+@media(max-width:900px){#mail-game .mg-header{margin-bottom:10px}#mail-game .mg-brand small{display:block;margin:3px 0}#mail-game .grace-ad{max-width:320px;margin:10px auto}#mail-game #mg-panes{min-height:340px}}
+
+#mail-game .grace-ad h2 br{display:block}#mail-game .grace-ad h2 em{display:block;font-size:18px;word-break:keep-all}#mail-game .grace-orbit span{right:3px;font-size:28px}
+
+/* CRT interruption, contract hold, then darkness outside the document. */
+.contract-stage{position:fixed!important;inset:0!important;width:100vw!important;height:100dvh!important;max-width:none!important;max-height:none!important;margin:0!important;padding:0!important;border:0!important;background:transparent!important;overflow:auto;color:#000}
+.contract-stage::backdrop{background:rgba(0,0,0,0);transition:background 1.7s ease-in}
+.contract-stage.contract-darkening::backdrop{background:rgba(0,0,0,.96)}
+.contract-stage #window-register{pointer-events:none}
+.contract-stage #window-register.contract-reveal{animation:none;box-shadow:0 0 22px #d6e8f044}
+.contract-stage .contract-reveal .window-body>p{font-weight:bold;color:#8b0000;background:#eee6c9;border:1px solid #800000;padding:7px 3px;animation:none!important}
+.contract-stage #window-register.contract-glitch{animation:contract-crt-offset .9s steps(1,end) 1;text-shadow:2px 0 #f006,-2px 0 #0ff8}
+.contract-stage #window-register.contract-glitch::after{content:'SIGNAL LOST _ / CONTRACT SYNC';position:absolute;inset:0;z-index:9999;pointer-events:none;background:repeating-linear-gradient(0deg,#00132455 0 1px,transparent 1px 4px);border-top:12px solid #b5c6c177;color:#fff;font:bold 11px 'Courier New';text-align:right;padding:5px;animation:contract-tracking .9s steps(3,end) 1}
+@keyframes contract-crt-offset{0%{translate:0 0}12%{translate:-6px 0;filter:grayscale(.8)}24%{translate:4px 2px}40%{translate:-3px -1px}56%{translate:7px 0;filter:grayscale(1)}70%{translate:-2px 1px}85%,100%{translate:0 0;filter:none}}
+@keyframes contract-tracking{0%{clip-path:inset(0 0 0 0)}30%{clip-path:inset(23% 0 10% 0)}65%{clip-path:inset(4% 0 45% 0)}100%{clip-path:inset(0 0 0 0)}}
+@media(prefers-reduced-motion:reduce){.contract-stage #window-register.contract-glitch,.contract-stage #window-register.contract-glitch::after{animation:none;text-shadow:none}.contract-stage #window-register.contract-glitch::after{background:repeating-linear-gradient(0deg,#00132422 0 1px,transparent 1px 4px)}}
+
+#mg-intro .welcome-mission{text-align:left;background:#ffffe8eb;border:2px inset #ddd;padding:9px 12px;margin:0 0 12px;color:#161635}
+#mg-intro .welcome-mission>b{font:bold 14px Gungsuh,serif;color:#000080}
+#mg-intro .welcome-mission p{font:12px/1.65 Gulim,sans-serif;margin:5px 0 0;word-break:keep-all}
+#mg-intro .welcome-mission strong{color:#870000}
+
+#mail-game .mg-recipient{flex-wrap:wrap}#mail-game .mg-recipient-address{display:block;flex-basis:100%;margin:2px 0 2px 24px;user-select:text;cursor:text;font:11px 'Courier New',monospace;overflow-wrap:anywhere}
+
+/* Personal member sidebar and collectible grace feedback. */
+#mail-game .mg-profile{background:#fffbd9;border:3px ridge #eee9bc;padding:8px;color:#20204e;overflow:auto;min-height:0;text-align:center}
+.profile-heading{font:bold 11px 'Times New Roman';border-bottom:3px double #20204e;padding:3px 0 6px}
+.profile-photo{position:relative;margin:9px auto 6px;background:#91bce3 url('Resources/heaven-clouds-98.png') center/cover;border:3px inset #ddd;height:108px;max-width:160px}
+.profile-photo img{height:84px;width:100px;object-fit:contain;image-rendering:pixelated}.profile-photo span{display:block;background:#000080;color:#fff;font:8px 'Courier New';letter-spacing:1px}
+#mail-game #mg-worker{font:bold 18px Gungsuh,serif;overflow-wrap:anywhere;margin:7px 0;background:none;color:#000080;padding:0}
+.profile-rank{font:bold 13px Gulim,sans-serif;color:#a00000}.profile-rank small{display:block;font:10px 'Courier New';color:#555;margin-top:4px}
+#mail-game .profile-motto{font:11px/1.4 Gulim,sans-serif;margin:8px 0}
+.profile-meters{border-top:3px double #303064}.profile-meter{display:flex;align-items:center;text-align:left;gap:7px;padding:9px 2px;border-bottom:1px solid #cbc6a0;min-width:0}
+.profile-meter img{width:34px;height:38px;object-fit:contain;image-rendering:pixelated}.profile-meter span{min-width:0;flex:1}.profile-meter small{display:block;font:10px Gulim,sans-serif}.profile-meter strong{display:block;font:bold 24px/1.1 'Times New Roman',serif;color:#131347;text-shadow:1px 1px #fff;overflow-wrap:anywhere}.profile-meter em{display:block;font:9px/1.4 Gulim,sans-serif;color:#52525b;margin-top:3px}
+#mg-wallet{background:#fff4a5}#mg-wallet strong{color:#8a3f00}.mg-profile .mg-tools{display:flex;flex-wrap:wrap;justify-content:center;gap:3px;margin-top:10px}.mg-profile .mg-tools button{font-size:10px!important;padding:3px!important}.profile-stamp{font:bold 10px 'Courier New';color:#a00000;border:2px solid #a00000;transform:rotate(-3deg);margin:12px 0 4px;padding:3px}
+.grace-pickup{position:fixed;pointer-events:none;z-index:9999;display:flex;align-items:center;gap:5px;color:#fff4a0;font:bold 32px Impact,'Arial Black',sans-serif;text-shadow:2px 2px #421900,-1px -1px #421900,1px -1px #421900,-1px 1px #421900;will-change:transform;white-space:nowrap}.grace-pickup img{width:42px;height:42px;object-fit:contain;image-rendering:pixelated}
+@media(min-width:901px){#mail-game{grid-template-columns:210px minmax(0,1fr);grid-template-rows:25px minmax(0,1fr) 29px;gap:8px;padding:8px 12px 5px}#mail-game .mg-profile{grid-column:1;grid-row:1 / 4}#mail-game .mg-fever{grid-column:2;grid-row:1}#mail-game .mg-layout{grid-column:2;grid-row:2;grid-template-columns:minmax(0,1fr) 230px}#mail-game .mg-footer{grid-column:2;grid-row:3}}
+@media(max-width:900px){#mail-game .mg-profile{margin:8px 0}.profile-meters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 9px}.profile-photo{height:90px}.profile-photo img{height:66px}}
+
+/* A holy web advertisement, with currency and timed bonus clearly separated. */
+#mail-game .mg-fever{display:flex;align-items:center;justify-content:flex-start;gap:12px;padding:7px 12px;border:3px ridge #fff6b7;background:repeating-conic-gradient(from 12deg at 13% 50%,#fffbdc 0deg 12deg,#ffe985 12deg 24deg);box-shadow:inset 0 0 20px #fff;color:#000080;min-width:0;overflow:hidden}
+#mail-game .fever-emblem{width:46px;height:46px;object-fit:contain;image-rendering:pixelated;filter:drop-shadow(0 0 4px #fff)}
+#mail-game .mg-fever .fever-slogan{flex-shrink:0;min-width:0;color:#000080}
+.fever-slogan small{display:block;color:#bc0000;font:bold 9px Arial,sans-serif;letter-spacing:.8px}.fever-slogan b{font:bold 22px Gungsuh,serif;text-shadow:1px 1px #fff}.fever-slogan em{font:italic bold 34px/.9 'Times New Roman';color:#d00000}
+#mail-game .mg-fever .fever-info{min-width:0;flex:1;background:#ffffffe0;padding:5px 8px;border-left:2px solid #000080;color:#000080;font:12px Gulim,sans-serif}
+.fever-info strong{display:block;font:bold 13px Gulim,sans-serif}.fever-info small{display:block;font:10px/1.5 Gulim,sans-serif;margin-top:3px}
+#mail-game .mg-fever .fever-meter{flex:0 1 180px;height:20px;margin:0;border:2px inset #ddd;background:#fffffa;min-width:65px}
+#mail-game .mg-fever i{display:block;height:100%;background:repeating-linear-gradient(90deg,#000080 0 7px,#9db4e2 7px 9px);transition:width .15s linear}
+#mail-game .mg-fever .fever-seal{color:#bd0000;border:2px solid #bd0000;background:#fffceb;padding:4px;transform:rotate(-7deg);font:italic 11px 'Times New Roman';text-align:center;min-width:0}.fever-seal b{font:bold 13px Impact,sans-serif}
+#mail-game.fever .mg-fever{border-color:#ffbd00;background:#fff2a0}#mail-game.fever .fever-info strong{color:#bb0000}#mail-game.fever .mg-fever i{background:repeating-linear-gradient(90deg,#e34200 0 7px,#ffc51b 7px 9px)}
+@media(min-width:901px){#mail-game{grid-template-rows:76px minmax(0,1fr) 29px}}
+@media(max-width:1150px){#mail-game .fever-seal{display:none}#mail-game .mg-fever{gap:7px}.fever-slogan small{font-size:7px}.fever-slogan b{font-size:18px}#mail-game .mg-fever .fever-meter{flex-basis:100px}}
+@media(max-width:700px){#mail-game .mg-fever{flex-wrap:wrap;padding:8px}.fever-info{flex-basis:65%!important}#mail-game .mg-fever .fever-meter{flex:1 0 100%;height:15px}.fever-slogan b{font-size:21px}}
+
+#mg-skill-shade:not([hidden]){position:fixed;inset:0;background:#000c;z-index:500;pointer-events:auto}
+#mail-game.first-skill-tour .mg-side{position:relative;z-index:501;box-shadow:0 0 0 3px #fff6a4,0 0 28px #fff7b477}
+#mail-game.first-skill-tour #mg-tree-open2{outline:3px solid #ffe900;outline-offset:3px}
+#mail-game #mg-first-skill{width:440px;max-width:calc(100vw - 24px);padding:22px!important;text-align:center;background:#fffde4;border:4px outset #eee;color:#000080}
+#mg-first-skill::backdrop{background:transparent!important}
+#mg-first-skill small{font:bold 11px 'Courier New';color:#aa0000}#mg-first-skill h2{font:bold 23px Gungsuh,serif;margin:14px 0}#mg-first-skill p{font:13px/1.7 Gulim,sans-serif;margin:12px 0}#mg-first-skill button{width:100%;padding:10px!important;background:#000080!important;color:#fff!important;font-weight:bold!important}
+
+#mail-game #mg-send{min-height:48px;padding:11px 16px!important;background:linear-gradient(#193fae,#000075)!important;color:#fff!important;border:4px outset #aabcf3;font:bold 18px Gungsuh,serif!important;text-shadow:1px 1px #000;box-shadow:0 0 0 2px #fff2a1;margin-top:7px}
+#mail-game #mg-send:not(:disabled):hover{background:#284fbd!important;color:#fffa96!important}
+#mail-game #mg-send:disabled{background:#9298ac!important;color:#eee!important;box-shadow:none;cursor:wait}
+#mail-game .mg-single-recipient{background:transparent!important;border:1px solid transparent!important;box-shadow:none!important;padding:3px 5px!important;font:bold 12px Gulim,sans-serif!important;color:#000080!important;text-align:left}
+#mail-game .mg-single-recipient[aria-pressed=true]{background:#000080!important;color:#fff!important}
+#mail-game .mg-single-recipient:focus-visible{outline:2px dotted #000080}
+#mail-game #mg-tree-map,#mail-game #mg-tree-map svg{height:650px}
+@media(min-width:901px){#mail-game.expanded-office #mg-panes{display:flex;align-items:stretch;gap:10px}#mail-game.expanded-office #mg-list-pane:not([hidden]),#mail-game.expanded-office #mg-mail-pane:not([hidden]){display:flex;flex-direction:column;flex:1;min-height:100%;min-width:0}#mail-game.expanded-office #mg-list{flex:1;max-height:none;min-height:145px}#mail-game.expanded-office #mg-body{flex:1;min-height:90px}}
+
+#test-scene-nav{position:fixed;bottom:0;left:0;right:0;z-index:2147483000;height:34px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:7px;background:#c0c0c0;border-top:2px outset #fff;font:12px Gulim,sans-serif}
+#test-scene-nav small{font:bold 10px 'Courier New';color:#555;margin-right:6px}#test-scene-nav a{padding:4px 13px;background:#eee;border:2px outset #fff;color:#000080;text-decoration:none;font-weight:bold}#test-scene-nav a[aria-current=page]{border-style:inset;background:#000080;color:white}
+body{padding-bottom:34px}.main-footer{bottom:34px!important}#mail-game{height:calc(100dvh - 34px)!important}#mg-deliveries{bottom:46px!important}
+body.mail-mode > #test-scene-nav{display:flex!important}
+
+#mail-game .mg-window-title::after{content:'';width:32px;height:12px;pointer-events:none}
+#mg-intro .welcome-chrome .welcome-chrome-blank{display:block;flex:0 0 32px;height:12px;background:#c0c0c0;border:1px outset #eee;pointer-events:none}
+
+/* Readable annotations; keep the member card free of utility buttons. */
+#mail-game .profile-meter small{font:12px/1.45 'Malgun Gothic',Arial,sans-serif}
+#mail-game .profile-meter em{font:12px/1.5 'Malgun Gothic',Arial,sans-serif;color:#38384b;word-break:keep-all}
+#mail-game .profile-rank small,#mail-game .profile-motto{font:12px/1.5 'Malgun Gothic',Arial,sans-serif}
+#mail-game .fever-info small,#mail-game .grace-ad p,#mail-game .grace-fine,#mail-game .mg-muted{font:12px/1.5 'Malgun Gothic',Arial,sans-serif}
+#mail-game .mg-recipient-address{font:13px/1.5 Consolas,'Courier New',monospace}
+#mail-game #mg-desktop-empty{gap:12px;text-shadow:none;letter-spacing:1px;padding:18px;text-align:center;box-sizing:border-box}
+#mail-game #mg-desktop-empty strong{font:bold clamp(28px,3vw,46px)/1.15 'Times New Roman',serif;color:#c8ff38;text-shadow:2px 2px 0 #123b28,-1px -1px 0 #123b28,0 0 16px #baff7070;letter-spacing:1px}
+#mail-game #mg-desktop-empty small{margin:0;padding:7px 12px;border:1px solid #caff67;background:#153a37d9;color:#e1ff9d;font:bold 14px/1.5 'Malgun Gothic',Arial,sans-serif;letter-spacing:0}
+#mail-game .mg-footer .mg-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+#mail-game .mg-footer .mg-tools button{border:0!important;background:none!important;box-shadow:none!important;color:#000080!important;text-decoration:underline;font:12px 'Malgun Gothic',Arial,sans-serif!important;padding:2px!important}
+#mail-game .mg-footer>p{display:none}
+@media(max-width:700px){#mail-game .mg-footer{height:auto;display:flex;flex-wrap:wrap;gap:8px}}
+
+/* First blessing: an unsolicited heavenly advertisement. */
+#mail-game #mg-first-skill{width:560px;padding:4px!important;background:#c0c0c0;border:4px outset #fff;overflow:auto;box-shadow:8px 8px #0008;text-align:center}
+.blessing-wire{background:#000080;color:#fff;font:bold 11px 'Courier New';padding:5px;text-align:left}.blessing-wire span{float:right;color:#ff0}
+.blessing-chaos{position:relative;overflow:hidden;padding:17px 19px 10px;background:linear-gradient(#ffffff40,#ffffff60),url('Resources/heaven-clouds-98.png') center/260px;color:#000080}
+#mg-first-skill .blessing-transmission{display:inline-block;background:#fff;color:#bd0000;border-bottom:2px solid #bd0000;font:bold 10px 'Courier New';padding:3px 7px;transform:rotate(-3deg)}
+.blessing-new{position:absolute;left:8px;top:30px;z-index:2;background:#ffed00;color:#d00000;border:3px double #d00000;transform:rotate(-15deg);font:italic bold 20px/.95 Impact,sans-serif;padding:7px;box-shadow:3px 3px #000080}
+.blessing-wings{position:absolute;right:5px;top:15px;width:100px;height:90px;object-fit:contain;transform:rotate(17deg);image-rendering:pixelated}
+#mg-first-skill h2{position:relative;margin:20px 0 4px;font:bold 34px/.95 Gungsuh,serif;letter-spacing:-2px;transform:rotate(-4deg);color:#000080;text-shadow:2px 2px #fff}
+#mg-first-skill h2 em{display:block;font:bold italic 77px/1.08 Gungsuh,serif;color:#dc0000;letter-spacing:-6px;text-shadow:3px 3px #fff,6px 5px #000080;transform:scaleX(1.12)}
+.blessing-reward{display:flex;align-items:center;justify-content:center;gap:8px;margin:10px auto;background:#000080;color:#fffb80;border:3px ridge #fff;padding:6px;transform:rotate(1deg)}
+.blessing-reward img{width:44px;height:44px;object-fit:contain;image-rendering:pixelated}.blessing-reward span{font:12px Gulim,sans-serif}.blessing-reward b{font:bold 20px 'Malgun Gothic',sans-serif;color:white}
+.blessing-stickers{display:flex;align-items:center;justify-content:center;gap:14px;margin:14px 0 17px}.blessing-stickers b{background:#fff;color:#000;font:bold 12px Gungsuh;border:2px solid #000;padding:6px;transform:rotate(-6deg)}.blessing-stickers i{background:#bfff00;color:#000;font:italic bold 18px/.85 Impact,sans-serif;transform:rotate(7deg);border:2px outset #fff;padding:5px 10px}.blessing-stickers strong{background:#b0007b;color:#fff;font:12px/1.2 Gungsuh,serif;padding:6px 9px;transform:rotate(-4deg)}
+.blessing-instruction{display:flex;text-align:left;align-items:center;gap:12px;background:#fffde9;border:3px double #000080;padding:10px}.blessing-instruction>span{font:italic bold 38px 'Times New Roman';color:#d00000}
+#mg-first-skill .blessing-instruction p{margin:0;font:13px/1.65 'Malgun Gothic',sans-serif;color:#12123b}.blessing-instruction strong{color:#000080;text-decoration:underline}
+#mg-first-skill .blessing-clock{background:#ffffffdf;font:12px/1.5 'Malgun Gothic',sans-serif;margin:8px 0;padding:4px;color:#12123b}
+#mg-first-skill #mg-first-skill-ok{background:repeating-linear-gradient(135deg,#fff500 0 8px,#e7d800 8px 10px)!important;color:#000080!important;border:4px outset #fff!important;font:bold 21px Gungsuh,serif!important;padding:11px 6px!important;box-shadow:3px 3px #000080}
+#mg-first-skill-ok em{display:inline-block;color:#c00000;font:italic bold 23px Impact,sans-serif;margin-left:9px;transform:rotate(-5deg)}#mg-first-skill #mg-first-skill-ok small{display:block;font:11px 'Malgun Gothic';color:#252545;margin-top:4px}.blessing-fine{font:10px/1.4 'Malgun Gothic',sans-serif;color:#151545;background:#ffffffbd;margin-top:9px}
+@media(max-width:520px){.blessing-chaos{padding:14px 9px 9px}#mg-first-skill h2 em{font-size:59px}.blessing-wings{width:72px}.blessing-new{font-size:15px}.blessing-stickers{gap:5px}.blessing-stickers b,.blessing-stickers strong{font-size:10px}.blessing-reward b{font-size:16px}#mg-first-skill #mg-first-skill-ok{font-size:18px!important}}
+
+.mg-failure-toast{position:fixed;z-index:10000;left:50%;top:45%;transform:translate(-50%,-50%);width:440px;max-width:calc(100vw - 28px);box-sizing:border-box;background:#fff6d5;border:4px outset #eee;box-shadow:7px 7px #0009;pointer-events:none;color:#220000;animation:failure-arrive .18s ease-out}
+.failure-title{background:#ae0000;color:#ffff76;padding:6px 8px;font:bold 12px 'Courier New',monospace}.failure-content{display:flex;gap:15px;padding:18px}.failure-content>span{background:#d40000;color:#fff;border:3px double #fff;font:bold 48px/1 'Times New Roman';height:55px;min-width:55px;text-align:center;transform:rotate(-8deg)}
+#mail-game .failure-content h2{font:bold 30px Gungsuh,serif;color:#bd0000;margin:0 0 7px}.failure-content strong{font:bold 18px 'Malgun Gothic',sans-serif}.failure-content p{font:14px/1.65 'Malgun Gothic',sans-serif;margin:10px 0}.failure-content small{display:block;font:12px/1.5 'Malgun Gothic',sans-serif;color:#5b2424}
+@keyframes failure-arrive{from{opacity:0;translate:0 12px}to{opacity:1;translate:0 0}}
+@media(prefers-reduced-motion:reduce){.mg-failure-toast{animation:none}}
+
+#mail-game .mg-recipient{position:relative;padding-right:128px;min-height:52px;box-sizing:border-box}
+#mail-game .mg-recipient [data-copy]{position:absolute;right:7px;top:8px;font:12px 'Malgun Gothic',sans-serif!important;padding:5px 7px!important}
+#mail-game .mg-script{position:relative;padding-right:102px;min-height:65px;box-sizing:border-box}
+#mail-game #mg-copy-body{position:absolute;right:8px;top:10px;font:12px 'Malgun Gothic',sans-serif!important;padding:6px 9px!important}
+#mail-game .mg-script small{display:block;font:12px/1.5 'Malgun Gothic',sans-serif;color:#80ffff}
+#mail-game #mg-to-compose[hidden],#mail-game #mg-copy-body[hidden]{display:none!important}
+@media(max-width:600px){#mail-game .mg-recipient{padding-right:118px}#mail-game .mg-recipient [data-copy]{font-size:11px!important}#mail-game .mg-script{padding-right:92px}}
+
+#mail-game .mg-script p{font:bold 21px/1.5 'Malgun Gothic',Arial,sans-serif;margin:7px 0;color:#ffff32;word-break:keep-all}
+@media(max-width:600px){#mail-game .mg-script p{font-size:18px}}
+
+#mail-game #mg-message:empty{display:none}
+#mail-game .mg-profile{align-self:start;max-height:100%;height:auto}
+#mail-game #mg-desktop-empty{padding:20px;letter-spacing:0}
+.office-ad{position:relative;width:470px;max-width:100%;box-sizing:border-box;background:#fffde8e8;border:4px ridge #eee;padding:18px 12px 10px;box-shadow:5px 5px #000080;transform:rotate(-2deg);text-align:center}
+.office-ad>img{width:69px;height:69px;object-fit:contain;float:left;image-rendering:pixelated;transform:rotate(9deg)}
+#mail-game #mg-desktop-empty .office-ad strong{display:block;font:italic 900 clamp(27px,3vw,44px)/1 Arial,sans-serif;color:#000080;text-shadow:2px 2px #fff;letter-spacing:-2px}.office-ad strong span{color:#000;display:block}
+.office-ad>em{display:block;font:bold 24px Gungsuh,serif;color:#c00;background:#fff600;transform:rotate(2deg);margin:10px 0 5px;clear:both}
+#mail-game #mg-desktop-empty .office-ad small{display:block;border:0;background:none;color:#000;font:bold 12px Arial,sans-serif;padding:5px;}
+.office-ad>b{display:block;background:#000080;color:#fff;font:bold 13px/1.6 'Malgun Gothic',sans-serif;padding:6px}.office-ad>i{display:block;font:11px/1.6 'Malgun Gothic',sans-serif;color:#c00;margin-top:4px}
+.office-ad-new{position:absolute;right:-6px;top:-17px;background:#c00;color:#fff;border:3px double #ff0;padding:7px;font:bold 18px/1 Gungsuh;transform:rotate(13deg)}
+#mail-game .mg-input-warning{width:430px;max-width:calc(100vw - 24px);padding:15px!important;text-align:center;background:#fff8dc;border:4px outset #fff}
+.mg-input-warning h2{font:bold 25px Gungsuh,serif;color:#c00;margin:16px 0}.mg-input-warning strong,.mg-input-warning p{font:14px/1.7 'Malgun Gothic',sans-serif}.mg-input-warning small{display:block;font:12px 'Malgun Gothic';margin:10px}.mg-input-warning button{width:100%;padding:9px!important}
+
+.mg-roster-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:7px;padding:8px;background:#fff9d8;border:2px inset #ddd;margin:7px 0}.mg-roster-toolbar strong{font:bold 13px 'Malgun Gothic';color:#000080}.mg-roster-toolbar small{flex-basis:100%;font:12px 'Malgun Gothic';color:#444}.mg-roster-toolbar button{font:12px 'Malgun Gothic'!important;padding:5px!important}.mg-empty-roster{padding:18px;font:14px/1.6 'Malgun Gothic';color:#a00000}
+#mail-game #mg-search{width:420px;text-align:center;padding:22px!important;background:#fffbe3}#mg-search h2{font:24px Gungsuh;color:#000080}#mg-search>img{display:block;width:85px;height:85px;object-fit:contain;margin:15px auto}#mg-search>strong{font:bold 22px 'Times New Roman';color:#b00000}#mg-search p{font:13px/1.6 'Malgun Gothic'}#mg-search .mg-progress i{height:100%;display:block;background:#000080}
+#mail-game #mg-tree-map,#mail-game #mg-tree-map svg{height:805px}
+#mg-intro .welcome-roster-note{font:12px/1.6 'Malgun Gothic';background:#fffde5;border:1px solid #999;padding:7px;margin:9px 0}
+
+#mail-game .mg-recipient-name{display:block;font:bold 13px/1.5 'Malgun Gothic',Arial,sans-serif;color:#000080;cursor:text;user-select:text}
+#mail-game .mg-recipient.selected{background:#000080;border-color:#000050;color:#fff}
+#mail-game .mg-recipient.selected b,#mail-game .mg-recipient.selected code{color:#fff}
+#mail-game .mg-recipient label b{font:bold 13px/1.5 'Malgun Gothic',Arial,sans-serif}
+
+/* Status changes must be visible while the user is working in the mail panes. */
+#mg-message.mg-message-notice{font-family:Arial,"Malgun Gothic",sans-serif;font-size:14px;font-weight:bold;line-height:1.5;padding:9px 12px;color:#000080;background:#fff8b0;border:2px solid #ddac00;animation:mg-notice-glow 1s ease-in-out 3;}
+.mg-status-notice{position:fixed;z-index:490;top:22%;left:50%;transform:translateX(-50%);width:min(480px,calc(100vw - 32px));box-sizing:border-box;background:#fffbd5;color:#000080;border:4px ridge #eee;box-shadow:7px 7px 0 #0008;font-family:Arial,"Malgun Gothic",sans-serif;animation:mg-notice-arrive .18s ease-out;}
+.mg-status-notice-title{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#000080;color:#fff;padding:6px 9px;font-size:13px;font-weight:bold;}
+.mg-status-notice-title button{color:#000;background:#c0c0c0;font-size:18px;min-width:28px;cursor:pointer;}
+.mg-status-notice p{margin:0;padding:20px;font-size:17px;font-weight:bold;line-height:1.65;overflow-wrap:anywhere;}
+@keyframes mg-notice-glow{50%{background:#fff;color:#000080;box-shadow:inset 0 0 0 2px #e5b900;}}
+@keyframes mg-notice-arrive{from{opacity:0;transform:translate(-50%,-10px)}to{opacity:1;transform:translate(-50%,0)}}
+@media(prefers-reduced-motion:reduce){#mg-message.mg-message-notice,.mg-status-notice{animation:none;}}
+
+/* Empty desktop: the address book is the first action. */
+#mg-list-tab.mg-start-here{position:relative;isolation:isolate;z-index:1;background:#fff5a0;color:#000080;outline:2px solid #e8b800;outline-offset:-2px;box-shadow:0 0 12px 4px #ffe452;animation:mg-address-beacon 1.7s ease-in-out infinite;}
+#mg-list-tab.mg-start-here span{font-weight:900;text-decoration:underline;text-underline-offset:3px;}
+#mg-list-tab.mg-start-here::after{content:"✦";position:absolute;right:3px;top:1px;color:#c42400;font-size:15px;line-height:1;pointer-events:none;}
+@keyframes mg-address-beacon{0%,100%{background:#fff5a0;box-shadow:0 0 8px 2px #ffe452;}50%{background:#fffde6;box-shadow:0 0 20px 6px #ffe452;}}
+@media(prefers-reduced-motion:reduce){#mg-list-tab.mg-start-here{animation:none;}}
+
+/* Horizontal blessing atlas: bounded viewport and persistent inspector. */
+#mail-game #mg-tree{box-sizing:border-box;width:calc(100vw - 24px);max-width:1500px;height:calc(100dvh - 32px);max-height:900px;padding:5px!important;overflow:hidden!important;}
+#mail-game #mg-tree[open]{display:grid;grid-template-rows:58px 38px minmax(0,1fr) 142px;gap:6px;}
+#mg-tree .mg-dialog-head{min-width:0;box-sizing:border-box;}
+#mg-tree .mg-dialog-head h2{font-size:20px;margin:2px 0;}
+#mg-tree .mg-tree-note{margin:0 6px;padding:6px 9px;font:13px/1.5 Arial,"Malgun Gothic",sans-serif;}
+#mail-game #mg-tree .mg-tree-scroll{min-height:0;overflow-x:auto;overflow-y:hidden;margin:0 6px;background:#e9eff5;scrollbar-color:#000080 #c0c0c0;}
+#mail-game #mg-tree-map{width:1680px;min-width:1680px;height:100%;background:linear-gradient(90deg,#ffffffa6,#dbe7f080),url('Resources/heaven-clouds-98.png') repeat;}
+#mail-game #mg-tree-map svg{height:100%;width:1680px;z-index:2;}
+#mg-tree-map .mg-tree-lane{position:absolute;left:0;width:100%;height:25%;border-bottom:1px solid #75819a;box-sizing:border-box;pointer-events:none;}
+.mg-tree-lane>b{position:sticky;left:8px;display:inline-block;margin:3px 8px;padding:2px 8px;background:#000080;color:#fff;font: bold 12px Arial,"Malgun Gothic",sans-serif;}
+#mail-game #mg-tree .mg-node{width:160px;height:40px;display:grid;grid-template-columns:30px 1fr;grid-template-rows:21px 15px;gap:0 6px;padding:2px 5px!important;box-sizing:border-box;background:#e4e4e4!important;border:2px outset white!important;box-shadow:2px 2px #0005!important;color:#000080!important;z-index:3;opacity:1;}
+#mail-game #mg-tree .mg-node>span{grid-row:1/3;width:28px;height:28px;border:1px solid #8189a8!important;font:24px Georgia;background:#f8f7de!important;color:#000080!important;text-shadow:none!important;box-shadow:none!important;outline:none;}
+#mail-game #mg-tree .mg-node>b{font:bold 12px Arial,"Malgun Gothic",sans-serif;background:none;color:inherit;text-shadow:none;padding:0;white-space:nowrap;}
+#mail-game #mg-tree .mg-node>small{font:11px Arial,sans-serif;background:none;color:inherit;border:0;padding:0;text-align:left;}
+#mail-game #mg-tree .mg-node.locked{background:#d3d6db!important;color:#505a6d!important;}
+#mail-game #mg-tree .mg-node.available{background:#fff4a1!important;border-color:#fff8b0!important;}
+#mail-game #mg-tree .mg-node.owned{background:#ccedcf!important;color:#17441d!important;}
+#mail-game #mg-tree .mg-node.chosen{outline:3px solid #000080;outline-offset:2px;background:#fff!important;}
+#mail-game #mg-tree .mg-node.prerequisite{outline:2px dashed #c4007c;outline-offset:2px;}
+#mail-game #mg-tree-map path{display:none;stroke:#000080;stroke-width:2;filter:none;vector-effect:non-scaling-stroke;}
+#mail-game #mg-tree-map path.related{display:block;}
+#mail-game #mg-tree-map path.lit{stroke:#137735;}
+#mail-game #mg-skill-detail{margin:0 6px;padding:10px 14px;min-height:0;box-sizing:border-box;grid-template-columns:40px minmax(0,1fr) 160px;gap:12px;overflow:hidden;}
+#mg-skill-detail h3{margin:2px 0;font-size:18px;}
+#mg-skill-detail p{margin:3px 0;font:13px/1.5 Arial,"Malgun Gothic",sans-serif;}
+#mg-skill-detail small,#mg-skill-detail .mg-muted{font:12px/1.4 Arial,"Malgun Gothic",sans-serif;}
+@media(max-width:700px){#mail-game #mg-tree[open]{grid-template-rows:52px 54px minmax(0,1fr) 176px;}#mail-game #mg-skill-detail{grid-template-columns:minmax(0,1fr) 105px;gap:6px;padding:6px;}#mg-skill-detail .mg-detail-icon{display:none;}#mg-tree .mg-tree-note{font-size:12px;}#mg-tree .mg-dialog-head h2{font-size:16px;}}
+
+#mg-tree .mg-tree-note button{padding:1px 9px!important;min-height:22px;font-size:12px!important;}
+#mail-game #mg-tree .mg-node>b{border:0;}
+#mail-game #mg-tree .mg-tree-scroll{scrollbar-width:thin;}
+
+/* Windows 98 resource chips: separate counters, crisp frames and readable type. */
+#mail-game .profile-meters{display:grid;grid-template-columns:1fr;gap:7px;border:0;padding-top:5px;}
+#mail-game .profile-meter{display:grid;grid-template-columns:36px minmax(0,1fr);align-items:center;gap:6px;padding:7px;background:#d4d0c8;border:2px outset #fff;box-shadow:1px 1px 0 #565656;text-align:left;}
+#mail-game .profile-meter img{width:36px;height:36px;object-fit:contain;image-rendering:pixelated;filter:none;}
+#mail-game .profile-meter>span{display:grid;grid-template-columns:1fr;gap:3px;}
+#mail-game .profile-meter small{font:bold 12px/1.3 Arial,"Malgun Gothic",sans-serif;color:#000080;}
+#mail-game .profile-meter strong{font:bold 24px/1.1 "Courier New","Malgun Gothic",monospace;color:#000080;background:#ffffed;border:2px inset #fff;padding:3px 5px;text-shadow:none;font-variant-numeric:tabular-nums;}
+#mail-game .profile-meter em{font:12px/1.4 Arial,"Malgun Gothic",sans-serif;color:#353535;margin:0;overflow-wrap:anywhere;}
+#mail-game #mg-wallet{background:#e9dfa7;border-color:#fff7c0;}
+#mail-game #mg-wallet strong{background:#000080;color:#ffff00;border-color:#8c8c8c;}
+#mail-game #mg-clock strong{color:#950000;}
+#mail-game .profile-photo{height:76px;margin-top:6px;}
+#mail-game .profile-photo img{height:55px;width:72px;}
+#mail-game .profile-motto{margin:5px 0;font-size:12px;}
+@media(max-width:900px){#mail-game .profile-meters{grid-template-columns:repeat(2,minmax(0,1fr));}}
+
+/* Incoming dispatch ticket: Heaven(7) layered colors + Layout10 control labels. */
+#mail-game .mg-status-notice{width:min(470px,calc(100vw - 32px));top:20%;border:2px solid #19134a;background:#b7b9cf;box-shadow:7px 7px 0 #272252,10px 10px 0 #d6ff21;padding:5px;isolation:isolate;}
+.post-wire{display:flex;justify-content:space-between;align-items:center;gap:8px;background:#19134a;padding:4px 6px;color:#d9ff35;font:bold 11px "Courier New","Malgun Gothic",monospace;letter-spacing:.5px;}
+.post-wire button{flex-shrink:0;background:#dadada;color:#111;border:2px outset white;padding:3px 7px;font:bold 12px Arial,"Malgun Gothic",sans-serif;cursor:pointer;}
+.post-ticket{position:relative;margin-top:5px;padding:13px 15px 9px;background:repeating-linear-gradient(0deg,#e7eaf7 0 3px,#dce2f0 3px 4px);border:2px inset white;overflow:hidden;}
+.post-kicker{display:inline-block;max-width:78%;padding:3px 6px;background:#cfff31;color:#151346;font:bold 10px "Courier New",monospace;transform:rotate(-2deg);}
+.post-headline{position:relative;display:block;margin:10px 0 17px;padding-right:72px;font:bold 36px/1.1 Gungsuh,"Batang",serif;letter-spacing:-2px;color:#16115e;text-shadow:2px 2px white;}
+.post-headline em{display:inline-block;font-style:italic;color:#c60032;transform:rotate(-5deg);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px;}
+.post-icon{position:absolute;width:79px;height:79px;object-fit:contain;image-rendering:pixelated;right:14px;top:32px;transform:rotate(8deg);}
+.post-seal{position:absolute;right:16px;top:12px;background:#ffff65;border:2px solid #bd0034;padding:2px 5px;font:italic 900 12px Impact,"Arial Black",sans-serif;color:#bd0034;transform:rotate(9deg);z-index:1;}
+#mail-game .mg-status-notice .post-message{position:relative;margin:0;padding:12px;background:#fffef2;border:1px solid #39315e;border-left:6px solid #372499;color:#151346;font:bold 15px/1.55 Arial,"Malgun Gothic",sans-serif;box-shadow:3px 3px 0 #a2a1b5;overflow-wrap:anywhere;}
+.post-ticket-footer{display:flex;align-items:center;gap:8px;margin-top:13px;color:#29234e;font:11px/1.4 Arial,"Malgun Gothic",sans-serif;}
+.post-ticket-footer>b{margin-left:auto;border:2px solid #bd0034;padding:2px 4px;color:#bd0034;transform:rotate(-7deg);white-space:nowrap;}
+.post-barcode{width:49px;height:22px;flex-shrink:0;background:repeating-linear-gradient(90deg,#17132d 0 2px,transparent 2px 3px,#17132d 3px 4px,transparent 4px 7px);}
+.post-expiry{height:4px;margin-top:5px;background:#1a1647;overflow:hidden;}.post-expiry i{display:block;height:100%;width:100%;background:#d4ff32;transform-origin:left;animation:post-timeout 6.5s linear forwards;}
+@keyframes post-timeout{to{transform:scaleX(0)}}
+@media(prefers-reduced-motion:reduce){.post-expiry i{animation:none;}}
+@media(max-width:480px){.post-headline{font-size:29px;}.post-kicker{font-size:9px;}.post-ticket{padding:10px;}.post-ticket-footer{font-size:10px;}}
+
+/* Distinct recruitment action; matched, legible clipboard controls. */
+#mail-game #mg-seek{background:#000080!important;color:#ffff55!important;border:3px outset #b5c4ff!important;padding:9px 13px!important;font:bold 14px/1.3 Arial,"Malgun Gothic",sans-serif!important;box-shadow:3px 3px 0 #8585ab;text-shadow:none!important;min-height:40px;}
+#mail-game #mg-seek:enabled:hover{background:#2111b7!important;outline:2px solid #e0b700;outline-offset:2px;}
+#mail-game #mg-seek:disabled{background:#d4d4dc!important;color:#59596c!important;border-color:#eee!important;box-shadow:none;}
+#mail-game .mg-recipient [data-copy],#mail-game #mg-copy-body{background:#f7f7ef!important;color:#000080!important;border:2px outset #fff!important;padding:7px 9px!important;font:bold 13px/1.25 Arial,"Malgun Gothic",sans-serif!important;letter-spacing:0;text-shadow:none!important;box-shadow:1px 1px 0 #53536f;min-height:32px;white-space:nowrap;}
+#mail-game .mg-recipient [data-copy]:hover,#mail-game #mg-copy-body:hover{background:#fff2a3!important;color:#000080!important;}
+#mail-game .mg-recipient [data-copy]:focus-visible,#mail-game #mg-copy-body:focus-visible,#mail-game #mg-seek:focus-visible{outline:2px dashed #c40069;outline-offset:2px;}
+#mail-game .mg-recipient{padding-right:143px;min-height:60px;}
+#mail-game .mg-script{padding-right:110px;}
+#mail-game .mg-roster-toolbar{align-items:center;gap:12px;flex-wrap:wrap;}
+
+/* Y2K mail validation: chrome shell, acid status strip, black diagnostic screen. */
+#mail-game .mg-input-warning{box-sizing:border-box;width:550px;max-width:calc(100vw - 24px);padding:7px!important;text-align:left;border:2px solid #f5f7ff;border-right-color:#53556b;border-bottom-color:#53556b;background:linear-gradient(120deg,#f6f7fc,#b5b8ca 42%,#e9ebf3 65%,#9298ae);box-shadow:8px 8px 0 #19152e,0 0 0 2px #45445e;color:#14112c;}
+.error-wire{display:flex;justify-content:space-between;gap:8px;background:#20163c;color:#e7ff4e;padding:6px 9px;font:bold 10px/1.3 "Courier New",monospace;letter-spacing:1px;}
+.error-hero{display:flex;align-items:center;gap:22px;padding:19px 16px 15px;overflow:hidden;}
+.error-orbit{position:relative;flex-shrink:0;display:grid;place-items:center;width:72px;height:72px;border:3px solid #422578;border-radius:50%;background:radial-gradient(circle at 32% 23%,#fff,#b7bccf 42%,#60677d 72%,#eee);font:italic 900 62px/1 "Arial Black",sans-serif;color:#d0005b;text-shadow:2px 2px #fff;box-shadow:inset 2px 2px 0 white,3px 3px 0 #655875;}
+.error-orbit::after{content:"";position:absolute;inset:21px -12px;border:2px solid #d0005b;border-radius:50%;transform:rotate(-32deg);}
+.error-code{display:inline-block;background:#d9ff40;padding:2px 7px;font:bold 11px "Courier New",monospace;letter-spacing:2px;transform:rotate(-3deg);}
+.error-word{font:italic 900 clamp(30px,7vw,46px)/1.15 Impact,"Arial Black",sans-serif;letter-spacing:-1px;color:#29224c;text-shadow:1px 1px white,3px 3px #a5a5bd;}
+.error-word>span{color:#d0005b;margin-left:7px;}
+#mail-game .mg-input-warning h2{font:bold 17px/1.4 Arial,"Malgun Gothic",sans-serif;color:#30254b;margin:5px 0 0;}
+.error-readout{margin:0 9px;padding:13px 15px;background:#191329;border:2px inset #eff0ff;box-shadow:inset 0 0 0 1px #47415e;}
+.error-readout-label{font:11px/1.4 "Courier New","Malgun Gothic",monospace;color:#d9ff40;border-bottom:1px dashed #787085;padding-bottom:8px;margin-bottom:10px;}
+#mail-game .mg-input-warning .error-readout strong{display:block;color:#fff;font:bold 16px/1.5 Arial,"Malgun Gothic",sans-serif;}
+#mail-game .mg-input-warning .error-readout p{color:#e1ddeb;font:14px/1.65 Arial,"Malgun Gothic",sans-serif;margin:7px 0 0;overflow-wrap:anywhere;}
+.error-bottom{padding:12px 10px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+#mail-game .mg-input-warning small{font:12px/1.5 Arial,"Malgun Gothic",sans-serif;color:#29233f;margin:0;max-width:200px;}
+#mail-game .mg-input-warning button{width:auto;min-width:180px;padding:11px 13px!important;background:#dfff3f!important;color:#20133b!important;border:2px outset #f6ffbe;font:bold 15px Arial,"Malgun Gothic",sans-serif!important;box-shadow:3px 3px 0 #403454;text-shadow:none!important;}
+#mail-game .mg-input-warning button:hover{background:#f2ff9c!important;}
+#mail-game .mg-input-warning button:focus-visible{outline:2px dashed #9d0055;outline-offset:3px;}
+.error-footer{display:flex;justify-content:space-between;gap:8px;padding:5px 9px;background:#544665;color:#f5f1ff;font:9px "Courier New",monospace;letter-spacing:1px;}
+@media(max-width:480px){.error-hero{gap:15px;padding:17px 9px;}.error-orbit{width:52px;height:52px;font-size:44px;}.error-bottom{flex-direction:column;align-items:stretch;}#mail-game .mg-input-warning small{max-width:none;}#mail-game .mg-input-warning button{width:100%;}.error-wire,.error-footer{letter-spacing:0;font-size:9px;}}
+
+/* Transparent, non-blocking delivery nonsense; no notification window. */
+.mg-mail-parade{position:fixed;left:50%;width:min(490px,90vw);display:flex;align-items:center;gap:4px;z-index:480;pointer-events:none;transform:translateX(-50%);filter:drop-shadow(3px 4px 0 #19134988);}
+.parade-mascot{position:relative;flex:0 0 116px;height:112px;}
+.parade-actor{position:absolute;width:110px;height:110px;object-fit:contain;image-rendering:pixelated;bottom:0;left:0;}
+.parade-hat{position:absolute;width:65px;height:65px;object-fit:contain;image-rendering:pixelated;top:-28px;left:33px;transform:rotate(-14deg);}
+.parade-winged-mail .parade-hat{left:65px;top:8px;transform:rotate(-24deg);}
+.parade-trophy .parade-hat{width:155px;height:120px;left:-23px;top:-4px;z-index:-1;}
+.parade-shout{min-width:0;transform:rotate(-5deg);text-align:left;}
+.parade-shout small{display:inline-block;background:#e5ff39;color:#100b50;padding:3px 7px;font:bold 13px "Malgun Gothic",sans-serif;box-shadow:3px 3px #000080;}
+.parade-shout b{display:block;font:900 29px/1.4 "Malgun Gothic",sans-serif;letter-spacing:-1px;color:#fff44a;-webkit-text-stroke:1px #251060;text-shadow:2px 2px #251060,-1px -1px white;white-space:nowrap;}
+.parade-shout em{display:inline-block;font:bold 11px/1.4 "Malgun Gothic",sans-serif;font-style:normal;background:#000080;color:white;padding:3px 6px;}
+.parade-trail{position:absolute;left:-40px;top:50px;color:#ffff46;font-size:24px;transform:rotate(-18deg);}
+.parade-stars{font-size:35px;color:#fff82b;text-shadow:2px 2px #950085;}
+@media(max-width:600px){.parade-mascot{flex-basis:78px;height:82px;}.parade-actor{width:80px;height:80px;}.parade-hat{width:45px;height:45px;left:22px;top:-15px;}.parade-shout b{font-size:22px;}.parade-shout small{font-size:11px;}.parade-stars{display:none;}.parade-shout em{font-size:10px;}}
+
+#mail-game #mg-tree-open2.mg-skill-ready{border-color:#fff59a;outline:3px solid #e8ff38;outline-offset:3px;animation:mg-skill-ready-glow 1.8s ease-in-out infinite;}
+#mail-game #mg-tree-open2.mg-skill-ready span{font:bold 14px/1.5 Arial,"Malgun Gothic",sans-serif;color:#ffff36;}
+@keyframes mg-skill-ready-glow{0%,100%{box-shadow:0 0 8px 3px #ffe93c99;}50%{box-shadow:0 0 22px 7px #ffe93ccc;}}
+@media(prefers-reduced-motion:reduce){#mail-game #mg-tree-open2.mg-skill-ready{animation:none;box-shadow:0 0 10px #ffe93c;}}
+
+/* One-screen families: prerequisites are explicit, not ambiguous crossing lines. */
+#mail-game #mg-tree-map{width:100%;min-width:0;height:100%;display:grid;grid-template-rows:repeat(5,minmax(0,1fr));gap:5px;padding:5px;box-sizing:border-box;}
+#mail-game #mg-tree .mg-tree-scroll{overflow:hidden;}
+.skill-family{display:grid;grid-template-rows:19px minmax(0,1fr);gap:3px;min-height:0;}
+.skill-family h3{margin:0;font:bold 12px/19px Arial,"Malgun Gothic",sans-serif;background:#000080;color:white;padding:0 7px;}
+.skill-family-cards{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px;min-height:0;padding:1px 3px 3px;}
+#mail-game #mg-tree .mg-node,#mail-game #mg-tree button.mg-node:active:not(:disabled){position:relative;left:auto;top:auto;transform:none;width:100%;height:100%;min-height:0;display:grid;grid-template-columns:23px minmax(0,1fr);grid-template-rows:18px 15px minmax(0,1fr);padding:4px!important;gap:0 3px;text-align:left;}
+#mail-game #mg-tree .mg-node>span{width:21px;height:25px;font-size:21px;}
+#mail-game #mg-tree .mg-node>b{font-size:12px;white-space:nowrap;letter-spacing:-.4px;}
+#mail-game #mg-tree .mg-node>small{font-size:11px;}
+#mail-game #mg-tree .mg-node>em{grid-column:1/3;font:10px/1.2 Arial,"Malgun Gothic",sans-serif;align-self:center;overflow-wrap:anywhere;}
+@media(max-width:1050px){#mail-game #mg-tree-map{min-width:1020px;}#mail-game #mg-tree .mg-tree-scroll{overflow-x:auto;overflow-y:hidden;}}
+
+#mail-game #mg-tree .mg-node.owned>small{color:#17441d!important;}
+
+#mg-intro .welcome-programs ol{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:12px 10px;}
+#mg-intro .welcome-programs li span{font:12px/1.6 Arial,"Malgun Gothic",sans-serif;color:#14143c;}
+#mg-intro .welcome-programs li b{font:bold 13px Arial,"Malgun Gothic",sans-serif;}
+.office-start-arrow{position:absolute;top:10px;left:40px;width:clamp(130px,19vw,240px);z-index:2;pointer-events:none;animation:office-arrow-nudge 1.5s ease-in-out infinite;}
+.office-start-arrow svg{display:block;width:100%;height:auto;overflow:visible;filter:drop-shadow(3px 3px 0 #000080);}
+.office-start-arrow path{fill:#fff032;fill-opacity:.88;stroke:#fff;stroke-width:3;stroke-linejoin:round;}
+.office-start-arrow span{display:block;position:absolute;right:-8px;bottom:-16px;padding:4px 8px;background:#000080;color:#ffff37;font:bold 13px/1.3 Arial,"Malgun Gothic",sans-serif;transform:rotate(-5deg);border:2px outset white;}
+@keyframes office-arrow-nudge{50%{transform:translate(-5px,-5px);}}
+#mail-game #mg-desktop-empty[hidden]{display:none!important;}
+@media(prefers-reduced-motion:reduce){.office-start-arrow{animation:none;}}
+@media(max-width:600px){.office-start-arrow{left:24px;top:8px;width:110px;}.office-start-arrow span{font-size:11px;right:-35px;}#mg-intro .welcome-programs ol{gap:6px;}#mg-intro .welcome-programs li span{font-size:11px;}}
+
+/* Give the employee counters enough room for their value and unit together. */
+@media(min-width:901px){#mail-game{grid-template-columns:270px minmax(0,1fr);}}
+#mail-game .profile-meter>span{container-type:inline-size;}
+#mail-game .profile-meter strong{white-space:nowrap;overflow-wrap:normal;word-break:normal;font-size:clamp(16px,13cqi,24px);box-sizing:border-box;}
+#mail-game #mg-power{font-size:clamp(16px,11cqi,22px);letter-spacing:-.5px;}
+@media(max-width:600px){#mail-game .profile-meters{grid-template-columns:1fr;}}
+
+/* Compact prerequisite graph, with visible AND junctions. */
+#mail-game #mg-tree[open]{grid-template-rows:52px minmax(0,1fr) 142px;}
+#mg-tree .mg-tree-note,#mg-tree-points{display:none!important;}
+#mail-game #mg-tree-map{grid-template-rows:repeat(5,minmax(0,1fr));gap:4px;}
+#mail-game #mg-tree .skill-family{grid-template-rows:19px minmax(0,1fr);}
+#mail-game #mg-tree .skill-family-cards{display:block;position:relative;padding:0;min-height:0;}
+#mail-game #mg-tree .skill-family-cards svg{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+#mail-game #mg-tree .mg-node,#mail-game #mg-tree button.mg-node:active:not(:disabled){position:absolute;width:15%;max-width:175px;min-width:135px;height:36px;min-height:36px;transform:translate(-50%,-50%);grid-template-rows:16px 14px;grid-template-columns:23px minmax(0,1fr);padding:2px 4px!important;z-index:2;}
+#mail-game #mg-tree-map path[data-edge]{display:block;stroke:#676581;stroke-width:2;fill:none;vector-effect:non-scaling-stroke;}
+#mail-game #mg-tree-map path[data-edge].lit{stroke:#078c73;stroke-width:3;}
+#mail-game #mg-tree-map path.arrow-tip{display:block;fill:#514775;stroke:none;}
+.skill-join circle{fill:#443877;stroke:white;stroke-width:2;}.skill-join text{fill:#2f1b68;font:bold 11px Arial,"Malgun Gothic",sans-serif;paint-order:stroke;stroke:#fff;stroke-width:3px;}
+#mail-game #mg-tree .mg-node.owned{background:#006a66!important;color:#fff!important;border-color:#90fff0!important;box-shadow:2px 2px #003b44!important;}
+#mail-game #mg-tree .mg-node.owned>small{color:#e2ff3e!important;}
+#mail-game #mg-tree .mg-node.chosen{outline:3px solid #dd007b;outline-offset:2px;}
+#mail-game #mg-tree .mg-node.available{animation:skill-buy-beacon 1.6s ease-in-out infinite;outline:2px solid #b18b00;outline-offset:1px;}
+#mail-game #mg-tree .mg-node.available::after{content:'✦';position:absolute;right:-7px;top:-11px;font-size:20px;color:#a00065;text-shadow:1px 1px white;}
+@keyframes skill-buy-beacon{50%{box-shadow:0 0 12px 4px #ffe537;filter:brightness(1.15);}}
+@media(prefers-reduced-motion:reduce){#mail-game #mg-tree .mg-node.available{animation:none;box-shadow:0 0 8px #ffe537!important;}}
+@media(max-width:1050px){#mail-game #mg-tree-map{min-width:1000px;}}
+
+@media(max-height:800px){#mail-game #mg-tree .mg-node,#mail-game #mg-tree button.mg-node:active:not(:disabled){height:30px;min-height:30px;grid-template-rows:13px 13px;padding:0 4px!important;}#mail-game #mg-tree .mg-node>span{height:23px;}#mail-game #mg-tree .mg-node>b{font-size:11px;}}
+
+/* Prerequisite locks remain gray, including when selected for inspection. */
+#mail-game #mg-tree .mg-node.locked,#mail-game #mg-tree .mg-node.locked.chosen{background:#d3d6db!important;color:#50545f!important;border-color:#eee!important;animation:none!important;filter:none!important;box-shadow:1px 1px #777!important;}
+#mail-game #mg-tree .mg-node.locked>span{background:#dedee2!important;color:#656575!important;box-shadow:none!important;filter:grayscale(1);}
+#mail-game #mg-tree .mg-node.locked::after{display:none!important;}
+
+/* Delivery failures use a chrome Y2K transmission panel. */
+#mail-game .mg-failure-toast{width:480px;padding:6px;border:2px outset #eef7ff;background:linear-gradient(125deg,#e9effc,#929cb8 43%,#e4e9f6 68%,#8c92ac);box-shadow:7px 7px 0 #221d45,0 0 0 2px #3a3554;color:#1e183c;}
+.bounce-wire{display:flex;justify-content:space-between;gap:8px;background:#231b43;color:#d9ff4c;padding:6px 8px;font:bold 10px "Courier New",monospace;letter-spacing:.7px;}
+.bounce-hero{display:flex;align-items:center;justify-content:center;gap:27px;padding:16px 10px 11px;}
+.bounce-symbol{position:relative;display:grid;place-items:center;flex:0 0 77px;height:77px;border:3px double #f4f8ff;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff,#a7b1cb 45%,#5c577a 78%);color:#1b194b;font-size:48px;transform:rotate(-15deg);box-shadow:3px 3px #4b426c;}
+.bounce-symbol:before{content:"";position:absolute;inset:21px -12px;border:2px solid #d60073;border-radius:50%;transform:rotate(-25deg);}
+.bounce-symbol i{position:absolute;right:-9px;bottom:-8px;background:#dd0067;color:white;font:bold 32px/1 Arial;border:2px solid white;width:33px;height:33px;text-align:center;}
+.bounce-sticker{display:inline-block;background:#dfff43;color:#24123f;font:bold 10px "Courier New",monospace;padding:3px 7px;transform:rotate(-3deg);}
+.bounce-word{font:italic 900 38px/.95 Impact,"Arial Black",sans-serif;color:#332453;letter-spacing:-1px;text-shadow:1px 1px white,3px 3px #a4a6bd;margin-top:8px;}
+.bounce-word span{display:block;color:#ca0069;letter-spacing:4px;}
+.bounce-readout{margin:5px 9px;padding:12px 15px;background:#1d1732;border:2px inset #e6e8ff;}
+#mail-game .bounce-readout h2{font:bold 20px Arial,"Malgun Gothic",sans-serif;color:#ff77bb;margin:0 0 8px;}
+.bounce-readout strong{font:bold 20px "Courier New","Malgun Gothic",sans-serif;color:#dfff43;}
+.bounce-readout p{font:14px/1.6 Arial,"Malgun Gothic",sans-serif;color:#f5f0ff;margin:8px 0 0;}
+.bounce-footer{display:flex;align-items:center;gap:12px;padding:10px;}
+.bounce-footer b{font:bold 11px "Courier New",monospace;color:#fff;background:#41276b;padding:5px 7px;transform:skew(-8deg);}
+.bounce-footer small{font:12px/1.4 Arial,"Malgun Gothic",sans-serif;color:#211b3c;}
+.bounce-timer{height:4px;background:#372451;}.bounce-timer i{display:block;height:100%;background:#ddff3f;transform-origin:left;animation:post-timeout linear forwards;}
+@media(prefers-reduced-motion:reduce){.bounce-timer i{animation:none;}}
+@media(max-width:480px){.bounce-hero{gap:20px;}.bounce-wire{font-size:9px;letter-spacing:0;}.bounce-footer{gap:6px;}.bounce-footer small{font-size:11px;}}
+
+/* Learned skills recede; only further purchasable ranks attract attention. */
+#mail-game #mg-tree .mg-node.owned{background:#55575c!important;color:#e1e1e1!important;border-color:#777 #333 #333 #777!important;box-shadow:inset 1px 1px #333!important;}
+#mail-game #mg-tree .mg-node.owned>b,#mail-game #mg-tree .mg-node.owned>small{background:transparent!important;color:#e1e1e1!important;}
+#mail-game #mg-tree .mg-node.owned>span{background:#696b70!important;color:#ddd!important;border-color:#888 #444 #444 #888!important;text-shadow:none!important;box-shadow:none!important;filter:grayscale(1);}
+#mail-game #mg-tree .mg-node.owned.available{background:#fff4a1!important;color:#000080!important;border-color:#fff8b0!important;}
+#mail-game #mg-tree .mg-node.owned.available>b,#mail-game #mg-tree .mg-node.owned.available>small{color:#000080!important;}
+#mail-game #mg-tree .mg-node.completed,#mail-game #mg-tree .mg-node.completed:hover{cursor:default!important;opacity:1!important;animation:none!important;filter:none!important;outline:none!important;text-shadow:none!important;}
+#mail-game #mg-tree .mg-node.completed::after{display:none!important;}
+
+#mail-game .skill-external{fill:#000080;font:bold 11px Arial,"Malgun Gothic",sans-serif;paint-order:stroke;stroke:white;stroke-width:3px;}
+
+/* The inspector action clearly separates unavailable and purchasable skills. */
+#mail-game #mg-tree #mg-learn{background:#ffec36!important;color:#000080!important;border:3px outset #fff49a!important;font-weight:bold;font-size:15px;line-height:1.5;cursor:pointer;box-shadow:3px 3px #3b2900!important;text-shadow:none!important;}
+#mail-game #mg-tree #mg-learn:hover:not(:disabled){background:#fff680!important;box-shadow:0 0 12px #ffe54b!important;}
+#mail-game #mg-tree #mg-learn:disabled{background:#505258!important;color:#d9d9df!important;border:3px inset #65676c!important;box-shadow:none!important;cursor:not-allowed;opacity:1;text-shadow:none!important;animation:none!important;}
+
+/* Four families follow the supplied progression diagram. */
+#mail-game #mg-tree-map{grid-template-columns:1.1fr 1fr;grid-template-rows:1.15fr 1fr 1.05fr;gap:10px;min-width:1000px;}
+#mail-game #mg-tree .skill-family:nth-child(-n+2){grid-column:1 / -1;}
+#mail-game #mg-tree .mg-node,#mail-game #mg-tree button.mg-node:active:not(:disabled){width:11%;min-width:0;max-width:none;height:44px;min-height:44px;grid-template-rows:20px 16px;}
+#mail-game #mg-tree .skill-family:nth-child(n+3) .mg-node{width:26%;}
+#mail-game #mg-tree .mg-node>b{font-size:12px;white-space:normal;line-height:1.15;}
+#mail-game #mg-tree .mg-tree-scroll{overflow-y:hidden;overflow-x:auto;}
+
+#qa-open{position:fixed;bottom:5px;right:12px;z-index:9000;background:#fff5a3;color:#000080;border:2px outset white;padding:5px 9px;font:bold 12px Arial;}
+#qa-panel{width:min(500px,85vw);background:#c0c0c0;color:#000080;border:4px outset white;font:15px Arial,"Malgun Gothic",sans-serif;}
+#qa-panel h2{background:#000080;color:white;padding:8px;font-size:19px;}#qa-panel textarea{display:block;width:95%;margin-top:8px;}#qa-panel button{padding:8px;background:#fff5a3;color:#000080;}#qa-panel::backdrop{background:#0008;}
+body.mail-mode > #qa-open,body.mail-mode > #qa-panel[open]{display:block!important;}
+#qa-open{z-index:2147483001;}
+
+#mail-game #mg-tree .skill-family{border:3px ridge #e5e5fa;background:linear-gradient(#e7eeff55,#aabbe455);padding:4px;box-shadow:2px 2px #373963;}
+#mail-game #mg-tree-map path.skill-or-edge{stroke-dasharray:5 4;}
+
+/* Preserve node geometry in every pointer state. */
+#mail-game #mg-tree .skill-family:nth-child(n+3) button.mg-node:active:not(:disabled){width:26%;height:44px;min-height:44px;transform:translate(-50%,-50%);}
+#mail-game #mg-tree button.mg-node.chosen{outline:3px solid #ff008c!important;outline-offset:2px;}
+#mail-game #mg-tree button.mg-node.chosen:not(.owned):not(.locked):not(.available){background:#d3d6db!important;}
+#mail-game #mg-tree button.mg-node.available.chosen{background:#fff4a1!important;}
+#mail-game #mg-tree button.mg-node.chosen>span{outline:none!important;}
+#mail-game .mg-script.body-automated{background:#303238!important;border-color:#555!important;}
+#mail-game .mg-script.body-automated p,#mail-game .mg-script.body-automated small{color:#8c9099!important;text-shadow:none!important;}
+body.mail-mode>#qa-pause{display:block!important;position:fixed;bottom:5px;right:170px;z-index:2147483001;padding:5px 9px;background:#c0c0c0;color:#000080;border:2px outset white;font:bold 12px Arial;}
+body.qa-paused #mail-game{pointer-events:none;}
+body.qa-paused #qa-pause{background:#ffff00;color:#800000;}
+body.qa-paused:after{content:'Ⅱ QA 일시정지 — 게임 시간과 업무가 멈춰 있습니다';position:fixed;left:50%;top:8px;transform:translateX(-50%);z-index:2147483002;padding:8px 16px;background:#ffff00;color:#000080;border:3px outset white;font:bold 14px Arial;pointer-events:none;}
+/* Input correction: yellow desktop utility. Delivery: red stamped postal notice. */
+#mail-game .mg-input-warning{background:#c0c0c0!important;border:3px outset white!important;box-shadow:6px 6px #0009!important;}
+.mg-input-warning .error-wire{background:#000080;color:white;letter-spacing:0;}
+.mg-input-warning .error-hero{background:#ffffbb;gap:18px;padding:16px;}
+.mg-input-warning .error-orbit{border-radius:0;background:#ffff00;color:#000;border:3px outset white;box-shadow:3px 3px #808000;font-style:normal;}
+.mg-input-warning .error-orbit:after{display:none;}
+.mg-input-warning .error-code{background:#000080;color:#fff;transform:none;letter-spacing:0;}
+.mg-input-warning .error-word{font:bold 32px 'Batang',serif;color:#000080;text-shadow:none;}
+.mg-input-warning .error-readout{background:#fffef1;border:2px inset white;box-shadow:none;}
+#mail-game .mg-input-warning .error-readout strong,#mail-game .mg-input-warning .error-readout p{color:#000080;}
+.mg-input-warning .error-readout-label{color:#800000;}
+#mail-game .mg-input-warning button{background:#ffff00!important;color:#000080!important;box-shadow:2px 2px #555;}
+.mg-input-warning .error-footer{background:#808080;letter-spacing:0;}
+#mail-game .mg-failure-toast{background:#fff6db!important;border:6px double #a00000!important;box-shadow:8px 8px #0008!important;}
+.mg-failure-toast .bounce-wire{background:#a00000;color:#ffff00;letter-spacing:0;}
+.mg-failure-toast .bounce-symbol{border-radius:0;background:#fff;color:#000080;border:3px dashed #a00000;box-shadow:none;}
+.mg-failure-toast .bounce-symbol:before{display:none;}.mg-failure-toast .bounce-symbol i{background:#a00000;}
+.mg-failure-toast .bounce-word{font:bold 34px 'Batang',serif;color:#a00000;text-shadow:1px 1px white;transform:rotate(-5deg);}.mg-failure-toast .bounce-word span{color:#a00000;letter-spacing:4px;}
+.mg-failure-toast .bounce-sticker{background:#ffff00;color:#800000;}
+.mg-failure-toast .bounce-readout{background:#fffef2;border:1px dashed #a00000;}
+#mail-game .bounce-readout h2,.mg-failure-toast .bounce-readout strong{color:#a00000;}.mg-failure-toast .bounce-readout p{color:#311c12;}
+.mg-failure-toast .bounce-footer b{background:#a00000;}.mg-failure-toast .bounce-timer{background:#dcc9a8;}.mg-failure-toast .bounce-timer i{background:#a00000;}
+
+/* A loud invitation with a stationary hit target. */
+#mail-game #mg-tree-open2{position:relative;isolation:isolate;overflow:visible;}
+#mail-game #mg-tree-open2 .skill-callout{position:relative;z-index:1;pointer-events:none;}
+#mail-game #mg-tree-open2.mg-skill-ready{animation:none;outline:3px solid #ffec00;outline-offset:3px;box-shadow:0 0 20px 6px #ffef00aa;}
+#mail-game #mg-tree-open2.mg-skill-ready::before{content:'';position:absolute;inset:-3px;z-index:0;border:4px ridge #ffff90;background:linear-gradient(135deg,#080080 20%,#7900a7 65%,#000080);box-shadow:0 0 0 3px #ff00a8,0 0 20px #ffff00;pointer-events:none;animation:skill-invite-pump 1.35s ease-in-out infinite;}
+#mail-game #mg-tree-open2.mg-skill-ready::after{content:'✦  ✧  ✦';position:absolute;left:-7px;right:-7px;top:-26px;color:#fff800;font:bold 27px/1 Arial;letter-spacing:12px;text-shadow:2px 2px #a00070,-1px -1px #fff;pointer-events:none;animation:skill-invite-stars 1.35s ease-in-out infinite;}
+#mail-game #mg-tree-open2.mg-skill-ready .skill-callout{animation:skill-invite-tumble 9s ease-in-out infinite;}
+#mail-game #mg-tree-open2.mg-skill-ready span{font-size:16px;line-height:1.4;text-shadow:2px 2px #800060;}
+#mail-game #mg-tree-open2.mg-skill-ready:hover::before{animation-play-state:paused;transform:scale(1.06);background:#a00080;}
+#mail-game #mg-tree-open2.mg-skill-ready:hover .skill-callout,#mail-game #mg-tree-open2.mg-skill-ready:focus-visible .skill-callout{animation:none;transform:none;}
+@keyframes skill-invite-pump{0%,100%{transform:scale(1);filter:brightness(1);}45%{transform:scale(1.09,1.16);filter:brightness(1.5);}65%{transform:scale(1.02);}}
+@keyframes skill-invite-stars{0%,100%{transform:translateY(4px) scale(.85);opacity:.45;}45%{transform:translateY(-5px) scale(1.12);opacity:1;}}
+@keyframes skill-invite-tumble{0%,78%,100%{transform:rotate(0) scale(1);}81%{transform:rotate(-9deg) scale(1.1);}90%{transform:rotate(360deg) scale(1.14);}96%{transform:rotate(360deg) scale(1);}}
+body.qa-paused #mg-tree-open2 *,body.qa-paused #mg-tree-open2::before,body.qa-paused #mg-tree-open2::after{animation-play-state:paused!important;}
+@media(prefers-reduced-motion:reduce){#mail-game #mg-tree-open2.mg-skill-ready .skill-callout,#mail-game #mg-tree-open2.mg-skill-ready::before,#mail-game #mg-tree-open2.mg-skill-ready::after{animation:none!important;}}
+
+/* Late-90s browser ad popups: two distinct, intentionally loud pages. */
+#mail-game .mg-input-warning,#mail-game .mg-failure-toast{width:min(540px,calc(100vw - 28px))!important;padding:3px!important;border:3px outset #eee!important;border-radius:0!important;background:#c0c0c0!important;box-shadow:7px 7px #0008!important;box-sizing:border-box;}
+.ad-window-title{background:linear-gradient(90deg,#000080,#287ec1);color:#fff;padding:5px 7px;font:bold 12px/1.3 Arial,sans-serif;text-align:left;}
+.ad-window-status{background:#c0c0c0;color:#222;border:2px inset #eee;padding:4px 6px;font:11px/1.3 Arial,"Malgun Gothic",sans-serif;text-align:left;}
+.ad-input-page{background:#ffff43;padding:18px 20px 12px;text-align:center;color:#000;}
+.ad-alert-heading{display:flex;align-items:center;justify-content:center;gap:16px;}
+#mail-game .mg-input-warning .ad-alert-heading h2{font:900 clamp(32px,6vw,49px)/.94 Impact,"Arial Narrow",sans-serif;color:#cc0000;margin:0;letter-spacing:-1px;text-shadow:2px 2px white;}
+.ad-alert-heading i{display:grid;place-items:center;background:#d00000;color:#fff;width:58px;height:58px;clip-path:polygon(50% 0,100% 100%,0 100%);font:bold 42px/1 Arial;padding-top:10px;box-sizing:border-box;flex-shrink:0;}
+.ad-input-subtitle{font:bold 21px/1.5 'Batang',serif;margin:16px 0 12px;}
+#mail-game .mg-input-warning .ad-error-reason{display:block;color:#bd0000;background:#fff;border:2px solid #c00000;padding:8px;font:bold 18px/1.4 Arial,"Malgun Gothic",sans-serif;}
+#mail-game .mg-input-warning .ad-error-detail{font:15px/1.7 Arial,"Malgun Gothic",sans-serif;color:#000;margin:12px 0;}
+#mail-game .mg-input-warning .ad-fix-button{display:block;width:75%;margin:16px auto 12px;background:linear-gradient(#fff,#c0c0c0)!important;border:4px outset white!important;box-shadow:4px 4px #606000!important;color:#000080!important;font:bold 20px/1.2 Arial,"Malgun Gothic",sans-serif!important;padding:10px!important;}
+.ad-fix-button span{display:block;font:900 25px/1.1 Impact,sans-serif;color:#b00000;margin-top:3px;}
+#mail-game .mg-input-warning .ad-input-page small{display:block;max-width:none;font:12px Arial,"Malgun Gothic",sans-serif;color:#333;}
+.ad-bottom-slogan{font:900 clamp(22px,5vw,34px)/1 Impact,sans-serif;color:#c00000;margin-top:16px;}
+.ad-failure-page{background:#df0000;color:#fff;text-align:center;padding:12px 18px;border:5px dotted #ffff00;}
+.ad-failure-kicker{font:bold 13px Arial,"Malgun Gothic",sans-serif;color:#ffff00;letter-spacing:3px;}
+#mail-game .ad-failure-page h2{font:900 clamp(36px,7vw,58px)/.94 Impact,"Arial Narrow",sans-serif;letter-spacing:-1px;margin:10px 0;color:#ffff00;text-shadow:3px 3px #730000,-1px -1px white;}
+.ad-failure-page h2 em{font-style:normal;color:#fff;}
+.ad-failure-strip{background:#ffff00;color:#9c0000;font:bold 17px/1.4 Arial,"Malgun Gothic",sans-serif;padding:5px;margin:10px -5px;}
+.ad-delivery-count{display:flex;align-items:center;justify-content:space-around;gap:10px;margin:12px 0;}
+.ad-stop{clip-path:polygon(28% 0,72% 0,100% 28%,100% 72%,72% 100%,28% 100%,0 72%,0 28%);background:#fff;color:#d00000;font:900 20px/1 Arial;padding:12px;transform:rotate(-12deg);}
+.ad-delivery-count strong{font:bold 32px/1.2 Arial,"Malgun Gothic",sans-serif;color:#fff;text-shadow:2px 2px #600000;}
+.ad-delivery-count small{display:block;font:bold 14px Arial,"Malgun Gothic",sans-serif;margin-top:5px;color:#ffff00;}
+.ad-delivery-count img{width:76px;height:76px;object-fit:contain;image-rendering:pixelated;transform:rotate(12deg);}
+.ad-failure-page p{font:bold 14px/1.6 Arial,"Malgun Gothic",sans-serif;margin:8px 0 14px;color:#fff;}
+.ad-failure-banner{background:#000;color:#ffff00;font:900 25px/1.2 Impact,sans-serif;padding:8px;}
+.ad-expiry{height:4px;background:#777;}.ad-expiry i{display:block;height:100%;background:#ffff00;transform-origin:left;animation:post-timeout linear forwards;}
+@media(max-width:480px){.ad-input-page{padding:14px 10px;}.ad-alert-heading{gap:8px;}.ad-alert-heading i{width:42px;height:45px;font-size:32px;}.ad-delivery-count img{width:55px;height:55px;}.ad-failure-strip{font-size:14px;}}
+
+#mail-game .mg-script{padding-right:9px;}
+#mail-game .mg-script-line{display:flex;align-items:center;justify-content:flex-start;gap:10px;flex-wrap:wrap;}
+#mail-game #mg-copy-body{position:static;flex:0 0 auto;margin:0;}
+#mail-game .mg-script-line p{flex:0 1 auto;}
+
+#mail-game .mg-recipient .mg-person-select{position:static!important;display:block;width:fit-content;background:transparent!important;border:0!important;box-shadow:none!important;color:#000080!important;font:bold 14px/1.5 Arial,"Malgun Gothic",sans-serif!important;padding:0!important;text-align:start;cursor:pointer;text-decoration:underline;text-underline-offset:3px;}
+#mail-game .mg-recipient.selected .mg-person-select{color:#fff!important;}
+#mail-game .mg-person-select:focus-visible{outline:2px dashed #ff008c;outline-offset:3px;}
+
+#mail-game .mg-linked-row{cursor:pointer;}
+#mail-game .mg-linked-row:hover:not(.selected){background:#fff7b0;}
+#mail-game #mg-address.mg-address-flash{animation:address-link-flash .65s ease-out;}
+@keyframes address-link-flash{0%,20%{background:#ffff40;box-shadow:inset 0 0 0 3px #ff008c,0 0 15px #ffff00;}100%{background:#f4f4e8;box-shadow:inset 0 0 0 0 transparent;}}
+@media(prefers-reduced-motion:reduce){#mail-game #mg-address.mg-address-flash{animation:none;outline:2px solid #b99700;}}
+
+/* Delivery receipt: partial success is not an input error. */
+#mail-game #mg-delivery-summary{margin:7px 0;padding:9px 12px;border:2px inset #fff;background:#ffffad;color:#000080;font:bold 15px/1.5 Arial,"Malgun Gothic",sans-serif;}
+
+/* Separate angel terminals occupy the lower desktop, even after expansion. */
+#mail-game #mg-angel-dock{flex:0 0 132px;min-height:132px;display:flex;gap:10px;padding:10px;background:url('Resources/HeavenSoft/floating-palace-v2.png') center bottom/100% auto;overflow-x:auto;box-sizing:border-box;}
+#mail-game .angel-terminal{flex:1;min-width:175px;max-width:360px;background:#c0c0c0;border:3px outset white;color:#000080;font:13px Arial,'Malgun Gothic',sans-serif;box-shadow:4px 4px #0006;}
+#mail-game .angel-terminal header{background:linear-gradient(90deg,#000080,#ad00db);color:white;padding:3px;font:bold 12px monospace;}
+#mail-game .angel-terminal img{float:left;width:38px;height:38px;object-fit:contain;margin:7px;image-rendering:pixelated;animation:angel-bob 1.2s ease-in-out infinite alternate;}
+#mail-game .angel-terminal b{display:block;padding-top:6px;}#mail-game .angel-terminal small{display:block;font-size:11px;}
+#mail-game .angel-terminal p{margin:5px;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+#mail-game .angel-meter{height:7px;margin:5px;background:#111;border:1px inset white;}#mail-game .angel-meter i{height:100%;display:block;background:repeating-linear-gradient(90deg,#00ffff 0 7px,#000080 7px 9px);}
+#mail-game .runaway-bonus{position:fixed;z-index:15000;left:38vw;top:28vh;width:175px;border:4px outset white!important;background:#ffff00!important;color:#000080!important;box-shadow:7px 7px #ff00c8;font:bold 15px Arial!important;padding:9px!important;animation:bonus-escape 6s linear forwards;cursor:pointer;}
+#mail-game .runaway-bonus small,#mail-game .runaway-bonus span{display:block;}#mail-game .runaway-bonus b{display:block;font:bold italic 32px Impact,Arial;color:#d00000;}
+#mail-game #mg-bonus-clock{background:#ffff00;color:#900090;text-align:center;font:bold 17px Arial;padding:4px;}
+#mail-game .reward-blast{position:fixed;z-index:14000;left:52%;top:40%;pointer-events:none;text-align:center;color:#ffff00;text-shadow:3px 3px #000080,-2px -2px #ff00c8;animation:reward-explode .9s ease-out forwards;}
+#mail-game .reward-blast b{display:block;font:italic 48px Impact,Arial;}#mail-game .reward-blast strong{font:bold 25px Arial;}#mail-game .reward-blast span{font-size:48px;}
+#mail-game.fever .mg-work{outline:4px solid #ffff00;animation:rush-border .65s ease-in-out infinite alternate;}#mail-game.bonus-active .mg-fever{box-shadow:0 0 20px 5px #ff00cc;}
+@keyframes bonus-escape{0%{transform:translate(-10vw,12vh) rotate(-8deg)}25%{transform:translate(8vw,0) rotate(8deg)}50%{transform:translate(-2vw,18vh) rotate(-6deg)}75%{transform:translate(20vw,8vh) rotate(6deg)}100%{transform:translate(30vw,-12vh) rotate(15deg)}}
+@keyframes reward-explode{0%{transform:translate(-50%,-50%) scale(.25);opacity:0}20%{transform:translate(-50%,-50%) scale(1.15);opacity:1}70%{opacity:1}100%{transform:translate(-50%,-90%) scale(1.3);opacity:0}}
+@keyframes rush-border{from{box-shadow:0 0 15px #ff00cc,inset 0 0 8px #ffff00}to{box-shadow:0 0 35px #00ffff,inset 0 0 18px #ffff00}}
+@keyframes angel-bob{to{transform:translateY(-4px) rotate(8deg)}}
+body.qa-paused #mail-game .runaway-bonus,body.qa-paused #mail-game .angel-terminal img,body.qa-paused #mail-game.fever .mg-work{animation-play-state:paused!important;}
+@media(min-width:901px){#mail-game #mg-panes{min-height:0!important;}#mail-game.expanded-office #mg-list-pane:not([hidden]),#mail-game.expanded-office #mg-mail-pane:not([hidden]){min-height:0!important;height:100%;box-sizing:border-box;overflow:auto;}#mail-game.expanded-office #mg-list{min-height:70px;}}
+@media(prefers-reduced-motion:reduce){#mail-game .runaway-bonus,#mail-game .reward-blast,#mail-game .angel-terminal img,#mail-game.fever .mg-work{animation:none!important;}#mail-game .reward-blast{font-size:20px;}}
+
+/* Rush changes the cloud imagery without tinting the text or controls. */
+#mail-game.fever #mg-panes,#mail-game.fever #mg-angel-dock{background-image:linear-gradient(115deg,#ff39a866,#ffdc5066,#4dffb866,#527aff77,#db52ff66),url('Resources/HeavenSoft/floating-palace-v2.png');background-size:130% 130%,100% 100%;background-blend-mode:color,normal;animation:rush-clouds 2.4s linear infinite;}
+#mail-game.fever{background-image:linear-gradient(120deg,#ff52b866,#fff45655,#4effca66,#7864ff66),var(--heaven-clouds);background-blend-mode:color,normal;background-size:130% 130%,420px;animation:rush-clouds 3.6s linear infinite;}
+#mail-game .runaway-bonus{left:0;top:0;z-index:2147483500;animation:none!important;transform:none!important;background:var(--bonus-bg,#ffff00)!important;will-change:left,top;}
+@keyframes rush-clouds{0%{background-position:0% 50%,center}50%{background-position:100% 50%,center}100%{background-position:0% 50%,center}}
+@media(prefers-reduced-motion:reduce){#mail-game.fever,#mail-game.fever #mg-panes,#mail-game.fever #mg-angel-dock{animation:none!important;}}
+/* Larger oath / employment contract, shared through the transformation. */
+#window-register{max-width:calc(100vw - 28px);max-height:calc(100dvh - 100px);display:flex;flex-direction:column}
+#window-register .title-bar{flex-shrink:0;min-height:30px;padding:5px 7px}#window-register .title-bar-text{font-size:15px}
+#window-register .window-body{overflow:auto;min-height:0;padding:15px 18px;font-size:16px}
+#window-register .window-body>p:first-child{font-size:22px;line-height:1.4;margin:8px 0 18px}
+#window-register .win98-table{width:100%;font-size:16px}#window-register .win98-table td{padding:6px 3px}
+#window-register #reg-name,#window-register #reg-faith{width:100%;min-height:36px;font:16px Arial,'Malgun Gothic',sans-serif;padding:6px}
+#window-register .win98-fieldset{padding:14px 12px;margin-top:10px}#window-register .win98-fieldset legend{font-size:18px;font-weight:bold}#window-register .win98-fieldset label{font:15px/2 Arial,'Malgun Gothic',sans-serif}#window-register input[type=checkbox]{width:17px;height:17px;vertical-align:middle;margin-right:7px}
+#window-register .button-container{margin:16px 0}#window-register button[type=submit]{font-size:19px;min-height:48px;padding:10px 22px;min-width:80%}#window-register .guestbook-log{margin-top:12px}#window-register .guestbook-scroll{max-height:75px}
+.contract-stage #window-register{max-height:calc(100dvh - 32px)}
+@media(max-width:768px){#heaven-windows #window-register{left:auto!important;width:calc(100% - 20px)!important;max-height:none}#window-register .window-body{padding:12px}#window-register .window-body>p:first-child{font-size:19px}.contract-stage #window-register{left:14px!important;top:16px!important;width:calc(100vw - 28px)!important}}
+/* Keep the oath above the actual bottom bar, without the removed QA bar gap. */
+body:not(:has(#test-scene-nav)){padding-bottom:0}
+body:not(:has(#test-scene-nav)) .main-footer{bottom:0!important}
+#window-register{max-height:max(240px,calc(100dvh - 265px))}
+#window-register .window-body{padding:10px 14px;font-size:15px}
+#window-register .window-body>p:first-child{font-size:20px;margin:6px 0 12px}
+#window-register .win98-table td{padding:4px 3px}
+#window-register #reg-name,#window-register #reg-faith{min-height:32px;font-size:15px;padding:4px}
+#window-register .win98-fieldset{padding:10px;margin-top:6px}
+#window-register .win98-fieldset legend{font-size:16px}
+#window-register .win98-fieldset label{font-size:14px;line-height:1.8}
+#window-register .button-container{margin:10px 0}
+#window-register button[type=submit]{font-size:17px;min-height:42px;padding:8px 16px}
+#window-register .guestbook-scroll{max-height:55px}
+.contract-stage #window-register{max-height:calc(100dvh - 70px)}
+@media(max-width:768px){#heaven-windows #window-register{max-height:none}}
+
+/* Keep the work surface usable on laptop viewports; scroll the roster, not the tools. */
+@media(min-width:901px){
+ #mail-game{height:100dvh!important;min-height:0;box-sizing:border-box;grid-template-columns:200px minmax(0,1fr);grid-template-rows:52px minmax(0,1fr) 24px;padding:6px 8px 24px;gap:6px;overflow:auto}
+ #mail-game .mg-layout{max-width:none;grid-template-columns:minmax(0,1fr) 180px;gap:6px}
+ #mail-game .mg-profile{align-self:stretch;height:100%;box-sizing:border-box;padding:5px}
+ #mail-game .profile-heading,#mail-game .profile-motto,#mail-game .profile-stamp{display:none}
+ #mail-game .profile-photo{height:46px;margin:2px auto}.profile-photo span{display:none}
+ #mail-game .profile-photo img{height:42px}#mail-game #mg-worker{font-size:14px;margin:4px 0}
+ #mail-game .profile-rank{font-size:11px}#mail-game .profile-rank small{display:none}
+ #mail-game .profile-meters{gap:4px}#mail-game .profile-meter{grid-template-columns:25px minmax(0,1fr);padding:4px;gap:3px}
+ #mail-game .profile-meter img{width:24px;height:24px}#mail-game .profile-meter small{font-size:11px}
+ #mail-game .profile-meter strong{font-size:19px;padding:2px 4px}#mail-game .profile-meter em{font-size:10px;line-height:1.25}
+ #mail-game .mg-fever{min-width:0;padding:4px;gap:5px}#mail-game .fever-emblem{width:36px;height:36px}
+ #mail-game .fever-slogan{min-width:0}#mail-game .fever-slogan b{font-size:18px}#mail-game .fever-info{min-width:0}
+ #mail-game .fever-seal{display:none}
+ #mail-game #mg-panes,#mail-game.expanded-office #mg-panes{display:flex;align-items:stretch;min-height:320px!important;overflow:visible;padding:5px;gap:6px;flex:1 0 320px}
+ #mail-game #mg-list-pane:not([hidden]),#mail-game #mg-mail-pane:not([hidden]),#mail-game.expanded-office #mg-list-pane:not([hidden]),#mail-game.expanded-office #mg-mail-pane:not([hidden]){display:flex;flex-direction:column;flex:1;min-width:0;min-height:0!important;height:auto;overflow:visible;padding:6px;box-sizing:border-box}
+ #mail-game #mg-list-pane>*{flex-shrink:0}
+ #mail-game #mg-list,#mail-game.expanded-office #mg-list{flex:1 1 130px;min-height:130px;max-height:180px;overflow-y:auto;margin:4px 0}
+ #mail-game.expanded-office #mg-list{max-height:none}
+ #mail-game .mg-recipient{min-height:40px;padding:4px 6px;display:flex;gap:5px}
+ #mail-game .mg-recipient [data-copy]{position:static;margin-left:auto;flex-shrink:0;padding:4px!important;font-size:10px!important}
+ #mail-game .mg-recipient code{font-size:12px;overflow-wrap:anywhere}
+ #mail-game .mg-script{flex:0 0 auto;min-height:0;margin:4px 0 0;padding:6px}
+ #mail-game .mg-script small{font-size:11px;line-height:1.3}#mail-game .mg-script p{font-size:16px;line-height:1.35;margin:4px 0;user-select:text}
+ #mail-game .mg-roster-toolbar{flex-wrap:wrap;gap:4px}#mail-game #mg-address-guide{font-size:11px;line-height:1.3}
+ #mail-game #mg-address{height:48px;min-height:48px;flex:0 0 48px;resize:none}
+ #mail-game #mg-body,#mail-game.expanded-office #mg-body{height:64px;min-height:64px;flex:1 1 64px;resize:none}
+ #mail-game #mg-mail-pane>label{margin:4px 0 2px;flex-shrink:0}
+ #mail-game .mg-send-meta{margin:4px 0;flex-shrink:0}
+ #mail-game #mg-delivery-summary{font-size:12px;line-height:1.2;padding:4px;margin:3px 0;flex-shrink:0}
+ #mail-game #mg-send{min-height:38px;flex-shrink:0;padding:7px!important;font-size:14px!important}
+ #mail-game .mg-progress{height:8px;min-height:8px;flex-shrink:0;margin-top:4px}
+ #mail-game #mg-angel-dock{flex:0 0 66px;min-height:66px;padding:4px;gap:5px}
+ #mail-game .angel-terminal{min-width:140px;font-size:11px}#mail-game .angel-terminal img{width:25px;height:25px;margin:3px}
+ #mail-game .angel-terminal header{font-size:10px;padding:2px}#mail-game .angel-terminal b{padding-top:2px}
+ #mail-game .angel-terminal p{display:none}#mail-game .angel-terminal small{font-size:10px}#mail-game .angel-meter{margin:3px;height:5px}
+ #mail-game .grace-ad{padding:5px}#mail-game .grace-orbit{height:65px}#mail-game .grace-orbit img{max-height:65px}
+ #mail-game .grace-ad h2{font-size:16px;padding:5px;margin:5px 0}#mail-game .grace-ad p,#mail-game .grace-fine{display:none}
+ #mail-game .grace-sticker{margin:5px auto;font-size:11px}#mail-game .grace-sticker strong{font-size:20px}
+ #mail-game .mg-footer{overflow:hidden}#mail-game .mg-footer p{display:none}
+}
+@media(min-width:901px) and (max-height:650px){
+ #mail-game{grid-template-columns:170px minmax(0,1fr);grid-template-rows:40px minmax(0,1fr) 20px}
+ #mail-game .mg-layout{grid-template-columns:minmax(0,1fr) 155px}
+ #mail-game .profile-photo,#mail-game .profile-rank{display:none}
+ #mail-game .profile-meter em{font-size:9px}#mail-game .profile-meter strong{font-size:17px}
+ #mail-game .fever-slogan small,#mail-game .fever-info small{display:none}
+ #mail-game .mg-work{overflow:visible}#mail-game #mg-angel-dock{flex-basis:54px;min-height:54px}
+}
+@media(max-width:900px){
+ #mail-game{height:auto!important;min-height:100dvh;overflow:visible;padding:6px 8px 28px;box-sizing:border-box}
+ #mail-game .mg-layout{display:flex;flex-direction:column;gap:8px}#mail-game .mg-side{order:-1}
+ #mail-game .mg-side .grace-ad>*:not(#mg-tree-open2),#mail-game .mg-side .mg-live,#mail-game .mg-side #mg-build{display:none}
+ #mail-game .grace-ad{padding:4px;margin:0;max-width:none}#mail-game #mg-tree-open2{margin:0;width:100%}
+ #mail-game #mg-panes{min-height:0!important;overflow:visible}#mail-game #mg-list{min-height:150px;max-height:220px;overflow:auto}
+ #mail-game .mg-script{position:sticky;bottom:0;margin-bottom:0}#mail-game #mg-send{position:sticky;bottom:4px;z-index:2}
+ #mail-game .mg-profile{margin:0 0 6px}#mail-game .profile-photo,#mail-game .profile-motto,#mail-game .profile-stamp{display:none}
+ #mail-game .profile-meters{grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}#mail-game .profile-meter{padding:4px;grid-template-columns:1fr}
+ #mail-game .profile-meter img,#mail-game .profile-meter em{display:none}#mail-game .profile-meter strong{font-size:18px}
+}
+@media(min-width:901px){
+ #mail-game .mg-roster-toolbar{padding:4px;margin:4px 0;min-height:32px;flex-wrap:nowrap}
+ #mail-game .mg-roster-toolbar strong{font-size:12px;white-space:nowrap}
+ #mail-game #mg-seek{padding:5px!important;font-size:11px!important;min-height:28px}
+ #mail-game .mg-recipient{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;gap:1px 4px;min-height:40px;padding:3px 5px}
+ #mail-game .mg-recipient>b,#mail-game .mg-recipient>label,#mail-game .mg-recipient>.mg-person-select{grid-column:1;grid-row:1;width:auto;flex-basis:auto;margin:0!important;line-height:15px!important;font-size:12px!important}
+ #mail-game .mg-recipient code{grid-column:1;grid-row:2;width:auto;flex-basis:auto;margin:0!important;font-size:12px;line-height:15px}
+ #mail-game .mg-recipient [data-copy]{grid-column:2;grid-row:1 / 3;align-self:center}
+ #mail-game .grace-ad{display:flex;flex-direction:column}#mail-game #mg-tree-open2{order:-1;margin:0 0 7px;width:100%}
+ #mail-game .mg-script-line{gap:5px}#mail-game .mg-script small{font-size:10px}
+}
+@media(min-width:901px) and (max-height:650px){
+ #mail-game .mg-work{min-height:0}
+ #mail-game #mg-panes,#mail-game.expanded-office #mg-panes{min-height:330px!important;flex-basis:330px}
+ #mail-game #mg-angel-dock{flex-basis:44px;min-height:44px;padding:2px}
+ #mail-game .angel-terminal small,#mail-game .angel-meter{display:none}
+ #mail-game #mg-message{font-size:11px;line-height:1.2;min-height:20px;padding:2px 4px}
+ #mail-game .grace-orbit,#mail-game .grace-ad h2{display:none}
+}

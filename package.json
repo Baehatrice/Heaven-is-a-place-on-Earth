@@ -1,0 +1,15 @@
+{
+  "name": "heaven-office",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node server/server.cjs",
+    "test:multiplayer": "node QA/multiplayer.test.cjs",
+    "test:planning": "node QA/planning.test.cjs",
+    "test:join-race": "node QA/join-race.test.cjs",
+    "test:stability": "node QA/client-stability.test.cjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

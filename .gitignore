@@ -1,0 +1,4 @@
+
+server/private/
+.env
+server/*.log

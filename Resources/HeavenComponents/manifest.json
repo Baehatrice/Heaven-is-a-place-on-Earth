@@ -1,0 +1,578 @@
+[
+  {
+    "id": "angel-wings",
+    "file": "icons/angel-wings.png",
+    "width": 201,
+    "height": 191,
+    "group": "icons",
+    "transparent": true
+  },
+  {
+    "id": "bible",
+    "file": "icons/bible.png",
+    "width": 200,
+    "height": 204,
+    "group": "icons",
+    "transparent": true
+  },
+  {
+    "id": "coins",
+    "file": "icons/coins.png",
+    "width": 215,
+    "height": 197,
+    "group": "icons",
+    "transparent": true
+  },
+  {
+    "id": "compact-disc",
+    "file": "icons/compact-disc.png",
+    "width": 193,
+    "height": 193,
+    "group": "icons",
+    "transparent": true
+  },
+  {
+    "id": "computer",
+    "file": "icons/computer.png",
+    "width": 203,
+    "height": 210,
+    "group": "icons",
+    "transparent": true
+  },
+  {
+    "id": "crown",
+    "file": "icons/crown.png",
+    "width": 200,
+    "height": 192,
+    "group": "icons",
+    "transparent": true
+  },
+  {
+    "id": "documents",
+    "file": "icons/documents.png",
+    "width": 204,
+    "height": 213,
+    "group": "icons",
+    "transparent": true
+  },
+  {
+    "id": "dove",
+    "file": "icons/dove.png",
+    "width": 209,
+    "height": 214,
+    "group": "icons",
+    "transparent": true
+  },
+  {
+    "id": "floppy-disk",
+    "file": "icons/floppy-disk.png",
+    "width": 175,
+    "height": 182,
+    "group": "icons",
+    "transparent": true
+  },
+  {
+    "id": "globe-cross",
+    "file": "icons/globe-cross.png",
+    "width": 213,
+    "height": 209,
+    "group": "icons",
+    "transparent": true
+  },
+  {
+    "id": "heart",
+    "file": "icons/heart.png",
+    "width": 210,
+    "height": 199,
+    "group": "icons",
+    "transparent": true
+  },
+  {
+    "id": "heaven-gate",
+    "file": "icons/heaven-gate.png",
+    "width": 263,
+    "height": 236,
+    "group": "icons",
+    "transparent": true
+  },
+  {
+    "id": "hourglass",
+    "file": "icons/hourglass.png",
+    "width": 139,
+    "height": 213,
+    "group": "icons",
+    "transparent": true
+  },
+  {
+    "id": "key",
+    "file": "icons/key.png",
+    "width": 135,
+    "height": 224,
+    "group": "icons",
+    "transparent": true
+  },
+  {
+    "id": "lightning",
+    "file": "icons/lightning.png",
+    "width": 143,
+    "height": 224,
+    "group": "icons",
+    "transparent": true
+  },
+  {
+    "id": "mailbox",
+    "file": "icons/mailbox.png",
+    "width": 170,
+    "height": 209,
+    "group": "icons",
+    "transparent": true
+  },
+  {
+    "id": "mouse",
+    "file": "icons/mouse.png",
+    "width": 151,
+    "height": 216,
+    "group": "icons",
+    "transparent": true
+  },
+  {
+    "id": "quill",
+    "file": "icons/quill.png",
+    "width": 202,
+    "height": 207,
+    "group": "icons",
+    "transparent": true
+  },
+  {
+    "id": "seal",
+    "file": "icons/seal.png",
+    "width": 174,
+    "height": 213,
+    "group": "icons",
+    "transparent": true
+  },
+  {
+    "id": "shield",
+    "file": "icons/shield.png",
+    "width": 184,
+    "height": 238,
+    "group": "icons",
+    "transparent": true
+  },
+  {
+    "id": "telephone",
+    "file": "icons/telephone.png",
+    "width": 225,
+    "height": 182,
+    "group": "icons",
+    "transparent": true
+  },
+  {
+    "id": "trophy",
+    "file": "icons/trophy.png",
+    "width": 195,
+    "height": 218,
+    "group": "icons",
+    "transparent": true
+  },
+  {
+    "id": "trumpet",
+    "file": "icons/trumpet.png",
+    "width": 227,
+    "height": 217,
+    "group": "icons",
+    "transparent": true
+  },
+  {
+    "id": "winged-mail",
+    "file": "icons/winged-mail.png",
+    "width": 194,
+    "height": 157,
+    "group": "icons",
+    "transparent": true
+  },
+  {
+    "id": "address-book",
+    "file": "office-icons/address-book.png",
+    "width": 164,
+    "height": 175,
+    "group": "office-icons",
+    "transparent": true
+  },
+  {
+    "id": "alarm",
+    "file": "office-icons/alarm.png",
+    "width": 178,
+    "height": 202,
+    "group": "office-icons",
+    "transparent": true
+  },
+  {
+    "id": "calendar",
+    "file": "office-icons/calendar.png",
+    "width": 197,
+    "height": 176,
+    "group": "office-icons",
+    "transparent": true
+  },
+  {
+    "id": "certificate",
+    "file": "office-icons/certificate.png",
+    "width": 182,
+    "height": 189,
+    "group": "office-icons",
+    "transparent": true
+  },
+  {
+    "id": "circuit-board",
+    "file": "office-icons/circuit-board.png",
+    "width": 181,
+    "height": 149,
+    "group": "office-icons",
+    "transparent": true
+  },
+  {
+    "id": "clock",
+    "file": "office-icons/clock.png",
+    "width": 185,
+    "height": 190,
+    "group": "office-icons",
+    "transparent": true
+  },
+  {
+    "id": "construction-barrier",
+    "file": "office-icons/construction-barrier.png",
+    "width": 181,
+    "height": 174,
+    "group": "office-icons",
+    "transparent": true
+  },
+  {
+    "id": "dove-stamp",
+    "file": "office-icons/dove-stamp.png",
+    "width": 159,
+    "height": 170,
+    "group": "office-icons",
+    "transparent": true
+  },
+  {
+    "id": "download-folder",
+    "file": "office-icons/download-folder.png",
+    "width": 175,
+    "height": 162,
+    "group": "office-icons",
+    "transparent": true
+  },
+  {
+    "id": "globe-computer",
+    "file": "office-icons/globe-computer.png",
+    "width": 186,
+    "height": 187,
+    "group": "office-icons",
+    "transparent": true
+  },
+  {
+    "id": "guestbook",
+    "file": "office-icons/guestbook.png",
+    "width": 193,
+    "height": 152,
+    "group": "office-icons",
+    "transparent": true
+  },
+  {
+    "id": "hand-pointer",
+    "file": "office-icons/hand-pointer.png",
+    "width": 179,
+    "height": 125,
+    "group": "office-icons",
+    "transparent": true
+  },
+  {
+    "id": "inbox",
+    "file": "office-icons/inbox.png",
+    "width": 180,
+    "height": 139,
+    "group": "office-icons",
+    "transparent": true
+  },
+  {
+    "id": "mail-stack",
+    "file": "office-icons/mail-stack.png",
+    "width": 165,
+    "height": 149,
+    "group": "office-icons",
+    "transparent": true
+  },
+  {
+    "id": "medal",
+    "file": "office-icons/medal.png",
+    "width": 126,
+    "height": 206,
+    "group": "office-icons",
+    "transparent": true
+  },
+  {
+    "id": "network",
+    "file": "office-icons/network.png",
+    "width": 191,
+    "height": 141,
+    "group": "office-icons",
+    "transparent": true
+  },
+  {
+    "id": "outbox",
+    "file": "office-icons/outbox.png",
+    "width": 174,
+    "height": 159,
+    "group": "office-icons",
+    "transparent": true
+  },
+  {
+    "id": "outgoing-mail",
+    "file": "office-icons/outgoing-mail.png",
+    "width": 159,
+    "height": 165,
+    "group": "office-icons",
+    "transparent": true
+  },
+  {
+    "id": "printer",
+    "file": "office-icons/printer.png",
+    "width": 185,
+    "height": 183,
+    "group": "office-icons",
+    "transparent": true
+  },
+  {
+    "id": "radio",
+    "file": "office-icons/radio.png",
+    "width": 187,
+    "height": 192,
+    "group": "office-icons",
+    "transparent": true
+  },
+  {
+    "id": "save-disk",
+    "file": "office-icons/save-disk.png",
+    "width": 161,
+    "height": 163,
+    "group": "office-icons",
+    "transparent": true
+  },
+  {
+    "id": "search-folder",
+    "file": "office-icons/search-folder.png",
+    "width": 183,
+    "height": 173,
+    "group": "office-icons",
+    "transparent": true
+  },
+  {
+    "id": "service-bell",
+    "file": "office-icons/service-bell.png",
+    "width": 179,
+    "height": 164,
+    "group": "office-icons",
+    "transparent": true
+  },
+  {
+    "id": "speaker",
+    "file": "office-icons/speaker.png",
+    "width": 172,
+    "height": 162,
+    "group": "office-icons",
+    "transparent": true
+  },
+  {
+    "id": "address-book",
+    "file": "web-badges/address-book.png",
+    "width": 131,
+    "height": 28,
+    "group": "web-badges",
+    "transparent": true
+  },
+  {
+    "id": "back",
+    "file": "web-badges/back.png",
+    "width": 110,
+    "height": 28,
+    "group": "web-badges",
+    "transparent": false
+  },
+  {
+    "id": "best-viewed",
+    "file": "web-badges/best-viewed.png",
+    "width": 88,
+    "height": 31,
+    "group": "web-badges",
+    "transparent": false
+  },
+  {
+    "id": "click-here",
+    "file": "web-badges/click-here.png",
+    "width": 260,
+    "height": 54,
+    "group": "web-badges",
+    "transparent": false
+  },
+  {
+    "id": "download",
+    "file": "web-badges/download.png",
+    "width": 260,
+    "height": 54,
+    "group": "web-badges",
+    "transparent": false
+  },
+  {
+    "id": "email-me",
+    "file": "web-badges/email-me.png",
+    "width": 110,
+    "height": 28,
+    "group": "web-badges",
+    "transparent": false
+  },
+  {
+    "id": "grace-bonus",
+    "file": "web-badges/grace-bonus.png",
+    "width": 260,
+    "height": 54,
+    "group": "web-badges",
+    "transparent": false
+  },
+  {
+    "id": "guestbook",
+    "file": "web-badges/guestbook.png",
+    "width": 260,
+    "height": 54,
+    "group": "web-badges",
+    "transparent": false
+  },
+  {
+    "id": "heaven-online",
+    "file": "web-badges/heaven-online.png",
+    "width": 260,
+    "height": 54,
+    "group": "web-badges",
+    "transparent": false
+  },
+  {
+    "id": "help",
+    "file": "web-badges/help.png",
+    "width": 110,
+    "height": 28,
+    "group": "web-badges",
+    "transparent": false
+  },
+  {
+    "id": "home",
+    "file": "web-badges/home.png",
+    "width": 110,
+    "height": 28,
+    "group": "web-badges",
+    "transparent": false
+  },
+  {
+    "id": "hot",
+    "file": "web-badges/hot.png",
+    "width": 100,
+    "height": 58,
+    "group": "web-badges",
+    "transparent": true
+  },
+  {
+    "id": "join-now",
+    "file": "web-badges/join-now.png",
+    "width": 260,
+    "height": 54,
+    "group": "web-badges",
+    "transparent": false
+  },
+  {
+    "id": "made-notepad",
+    "file": "web-badges/made-notepad.png",
+    "width": 88,
+    "height": 31,
+    "group": "web-badges",
+    "transparent": false
+  },
+  {
+    "id": "mail-98",
+    "file": "web-badges/mail-98.png",
+    "width": 88,
+    "height": 31,
+    "group": "web-badges",
+    "transparent": false
+  },
+  {
+    "id": "mail-ready",
+    "file": "web-badges/mail-ready.png",
+    "width": 153,
+    "height": 24,
+    "group": "web-badges",
+    "transparent": true
+  },
+  {
+    "id": "new",
+    "file": "web-badges/new.png",
+    "width": 100,
+    "height": 58,
+    "group": "web-badges",
+    "transparent": true
+  },
+  {
+    "id": "no-real-mail",
+    "file": "web-badges/no-real-mail.png",
+    "width": 88,
+    "height": 31,
+    "group": "web-badges",
+    "transparent": false
+  },
+  {
+    "id": "send-mail",
+    "file": "web-badges/send-mail.png",
+    "width": 110,
+    "height": 28,
+    "group": "web-badges",
+    "transparent": false
+  },
+  {
+    "id": "skill-tree",
+    "file": "web-badges/skill-tree.png",
+    "width": 110,
+    "height": 28,
+    "group": "web-badges",
+    "transparent": false
+  },
+  {
+    "id": "under-construction",
+    "file": "web-badges/under-construction.png",
+    "width": 240,
+    "height": 42,
+    "group": "web-badges",
+    "transparent": false
+  },
+  {
+    "id": "updated",
+    "file": "web-badges/updated.png",
+    "width": 101,
+    "height": 24,
+    "group": "web-badges",
+    "transparent": true
+  },
+  {
+    "id": "welcome",
+    "file": "web-badges/welcome.png",
+    "width": 260,
+    "height": 54,
+    "group": "web-badges",
+    "transparent": false
+  },
+  {
+    "id": "work-in-progress",
+    "file": "web-badges/work-in-progress.png",
+    "width": 240,
+    "height": 42,
+    "group": "web-badges",
+    "transparent": false
+  }
+]

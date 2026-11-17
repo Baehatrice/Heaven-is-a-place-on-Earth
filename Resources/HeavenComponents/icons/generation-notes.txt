@@ -1,0 +1,18 @@
+Built-in image generation. Transparent PNG.
+Prompt style: Authentic Windows 95/98 desktop shell icon, coarse 32x32 pixel grid enlarged with hard nearest-neighbor pixels; black stepped outline, flat 16-color VGA palette, white highlights, gray shadow, sparse checkerboard dithering; centered transparent margin; no gloss, bloom, fine filigree, text or frame.
+Subjects:
+angel-wings: a simple symmetrical pair of white angel wings and a small yellow halo
+bible: a closed dark red Bible with a plain yellow cross
+coins: two short stacks of yellow coins and one single coin
+crown: a simple yellow royal crown with three colored square jewels
+dove: a white dove carrying a small green olive twig
+heaven-gate: a pair of simple yellow open gates on two white clouds
+hourglass: a small beige wooden hourglass with blue glass and yellow sand
+key: one simple brass key with a clover shaped handle
+lightning: one chunky yellow lightning bolt
+quill: a white feather pen in a small blue ink bottle beside a cream scroll
+seal: a red wax seal stamped with a plain yellow cross
+shield: a blue shield with a simple yellow cross
+trophy: a simple gold trophy cup on a brown square base
+trumpet: a yellow trumpet with a little red hanging flag and yellow cross
+winged-mail: a cream envelope with two simple white wings and a tiny red wax seal

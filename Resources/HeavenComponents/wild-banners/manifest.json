@@ -1,0 +1,212 @@
+[
+  {
+    "id": "glory-chrome",
+    "width": 360,
+    "height": 92,
+    "file": "glory-chrome.png",
+    "html": "<div class=\"banner chrome\" style=\"width:360px;height:92px\"><b>GLORY!!</b><small>THE HEAVEN NETWORK</small></div>"
+  },
+  {
+    "id": "soul-news",
+    "width": 230,
+    "height": 108,
+    "file": "soul-news.png",
+    "html": "<div class=\"banner news\" style=\"width:230px;height:108px\"><b>The Soul Times</b><small>천국 전산실 · 오늘의 소식</small></div>"
+  },
+  {
+    "id": "mail-rush",
+    "width": 468,
+    "height": 60,
+    "file": "mail-rush.png",
+    "html": "<div class=\"banner rush\" style=\"width:468px;height:60px\"><b>MAIL RUSH >>></b><small>SEND! SEND! SEND!</small></div>"
+  },
+  {
+    "id": "guestbook",
+    "width": 145,
+    "height": 160,
+    "file": "guestbook.png",
+    "html": "<div class=\"banner guest\" style=\"width:145px;height:160px\"><b>Sign my<br>Guestbook!</b><small>방명록에 흔적을 남겨요</small></div>"
+  },
+  {
+    "id": "heaven-2000",
+    "width": 300,
+    "height": 80,
+    "file": "heaven-2000.png",
+    "html": "<div class=\"banner space\" style=\"width:300px;height:80px\"><b>HEAVEN 2000</b><small>YOUR SOUL IS ONLINE</small></div>"
+  },
+  {
+    "id": "grace-sale",
+    "width": 160,
+    "height": 120,
+    "file": "grace-sale.png",
+    "html": "<div class=\"banner sale\" style=\"width:160px;height:120px\"><b>은총<br>대방출</b><small>지금 바로! ★ HOT</small></div>"
+  },
+  {
+    "id": "holy-radio",
+    "width": 280,
+    "height": 66,
+    "file": "holy-radio.png",
+    "html": "<div class=\"banner radio\" style=\"width:280px;height:66px\"><b>HOLY FM</b><small>24 HOURS / ON AIR</small></div>"
+  },
+  {
+    "id": "click-me",
+    "width": 110,
+    "height": 85,
+    "file": "click-me.png",
+    "html": "<div class=\"banner hand\" style=\"width:110px;height:85px\"><b>click<br>ME!</b><small>여기를 누르세요</small></div>"
+  },
+  {
+    "id": "no-hell",
+    "width": 88,
+    "height": 31,
+    "file": "no-hell.png",
+    "html": "<div class=\"banner tiny\" style=\"width:88px;height:31px\"><b>NO HELL</b><small>JESUS INSIDE</small></div>"
+  },
+  {
+    "id": "blessing-club",
+    "width": 240,
+    "height": 100,
+    "file": "blessing-club.png",
+    "html": "<div class=\"banner club\" style=\"width:240px;height:100px\"><b>Blessing Club</b><small>★ MEMBERS ONLY ★</small></div>"
+  },
+  {
+    "id": "free-download",
+    "width": 320,
+    "height": 48,
+    "file": "free-download.png",
+    "html": "<div class=\"banner download\" style=\"width:320px;height:48px\"><b>FREE DOWNLOAD</b><small>100% HEAVENWARE</small></div>"
+  },
+  {
+    "id": "soul-security",
+    "width": 126,
+    "height": 145,
+    "file": "soul-security.png",
+    "html": "<div class=\"banner security\" style=\"width:126px;height:145px\"><b>SOUL<br>SECURE</b><small>PROTECTED BY HEAVEN</small></div>"
+  },
+  {
+    "id": "new-message",
+    "width": 190,
+    "height": 56,
+    "file": "new-message.png",
+    "html": "<div class=\"banner message\" style=\"width:190px;height:56px\"><b>새 메일 도착!</b><small>YOU HAVE 1 NEW MESSAGE</small></div>"
+  },
+  {
+    "id": "work-warning",
+    "width": 300,
+    "height": 95,
+    "file": "work-warning.png",
+    "html": "<div class=\"banner warning\" style=\"width:300px;height:95px\"><b>DO NOT<br>STOP WORKING</b><small>천국에는 퇴근이 없습니다</small></div>"
+  },
+  {
+    "id": "angel-page",
+    "width": 210,
+    "height": 132,
+    "file": "angel-page.png",
+    "html": "<div class=\"banner angel\" style=\"width:210px;height:132px\"><b>Angel’s<br>Home Page</b><small>~ Welcome, my friend ~</small></div>"
+  },
+  {
+    "id": "prayer-line",
+    "width": 100,
+    "height": 220,
+    "file": "prayer-line.png",
+    "html": "<div class=\"banner vertical\" style=\"width:100px;height:220px\"><b>P R A Y</b><small>천국 직통 회선 / OPEN 24H</small></div>"
+  },
+  {
+    "id": "gold-rush",
+    "width": 250,
+    "height": 80,
+    "file": "gold-rush.png",
+    "html": "<div class=\"banner gold\" style=\"width:250px;height:80px\"><b>GOLD RUSH</b><small>은총을 모으십시오</small></div>"
+  },
+  {
+    "id": "soul-web",
+    "width": 88,
+    "height": 31,
+    "file": "soul-web.png",
+    "html": "<div class=\"banner web\" style=\"width:88px;height:31px\"><b>SOUL WEB</b><small>BEST VIEWED @ 800×600</small></div>"
+  },
+  {
+    "id": "amen",
+    "width": 180,
+    "height": 72,
+    "file": "amen.png",
+    "html": "<div class=\"banner amen\" style=\"width:180px;height:72px\"><b>A M E N</b><small>can you hear me?</small></div>"
+  },
+  {
+    "id": "mail-machine",
+    "width": 410,
+    "height": 88,
+    "file": "mail-machine.png",
+    "html": "<div class=\"banner machine\" style=\"width:410px;height:88px\"><b>MAIL MACHINE</b><small>AUTOMATIC SOUL DELIVERY</small></div>"
+  },
+  {
+    "id": "under-construction",
+    "width": 200,
+    "height": 115,
+    "file": "under-construction.png",
+    "html": "<div class=\"banner build\" style=\"width:200px;height:115px\"><b>공사중</b><small>UNDER CONSTRUCTION</small></div>"
+  },
+  {
+    "id": "heaven-directory",
+    "width": 285,
+    "height": 72,
+    "file": "heaven-directory.png",
+    "html": "<div class=\"banner directory\" style=\"width:285px;height:72px\"><b>Heaven Directory</b><small>[ LINKS ] [ MAIL ] [ HOME ]</small></div>"
+  },
+  {
+    "id": "repent-now",
+    "width": 140,
+    "height": 100,
+    "file": "repent-now.png",
+    "html": "<div class=\"banner repent\" style=\"width:140px;height:100px\"><b>REPENT!</b><small>늦기 전에 CLICK</small></div>"
+  },
+  {
+    "id": "eternal-life",
+    "width": 330,
+    "height": 125,
+    "file": "eternal-life.png",
+    "html": "<div class=\"banner life\" style=\"width:330px;height:125px\"><b>Eternal Life</b><small>영원한 생명 / 지금 접속하세요</small></div>"
+  },
+  {
+    "id": "grace-express",
+    "width": 380,
+    "height": 52,
+    "file": "grace-express.png",
+    "html": "<div class=\"banner express\" style=\"width:380px;height:52px\"><b>GRACE EXPRESS</b><small>초고속 은총 배달 서비스</small></div>"
+  },
+  {
+    "id": "staff-only",
+    "width": 155,
+    "height": 65,
+    "file": "staff-only.png",
+    "html": "<div class=\"banner stamp\" style=\"width:155px;height:65px\"><b>STAFF ONLY</b><small>PRO 신도 전용</small></div>"
+  },
+  {
+    "id": "join-webring",
+    "width": 260,
+    "height": 110,
+    "file": "join-webring.png",
+    "html": "<div class=\"banner ring\" style=\"width:260px;height:110px\"><b>WORLD WIDE<br>HEAVEN</b><small>← PREV · JOIN · NEXT →</small></div>"
+  },
+  {
+    "id": "holy-disk",
+    "width": 120,
+    "height": 120,
+    "file": "holy-disk.png",
+    "html": "<div class=\"banner disk\" style=\"width:120px;height:120px\"><b>HOLY<br>DISK</b><small>천국 자료실 VOL. 98</small></div>"
+  },
+  {
+    "id": "email-today",
+    "width": 220,
+    "height": 48,
+    "file": "email-today.png",
+    "html": "<div class=\"banner email\" style=\"width:220px;height:48px\"><b>E-mail me TODAY!</b><small>답장은 천국에서</small></div>"
+  },
+  {
+    "id": "last-call",
+    "width": 95,
+    "height": 175,
+    "file": "last-call.png",
+    "html": "<div class=\"banner last\" style=\"width:95px;height:175px\"><b>LAST<br>CALL</b><small>마지막 구원 신청</small></div>"
+  }
+]

@@ -1,0 +1,31 @@
+/* Judgment result: Win98 personnel notice / extravagant recruitment advertisement. */
+#net-gate:has(.assignment-paper),#assignment-notice{width:min(620px,calc(100vw - 24px));max-height:calc(100dvh - 24px);padding:4px;border:3px outset #fff;background:silver;box-shadow:8px 8px #0007;overflow:auto;box-sizing:border-box;color:navy;font-family:Arial,'Malgun Gothic',sans-serif;text-align:center}
+#assignment-notice::backdrop{background:#0009}
+.assignment-chrome{display:flex;justify-content:space-between;gap:12px;background:linear-gradient(90deg,navy,#238acb);color:white;padding:6px 8px;font:12px Arial;text-align:left}
+.assignment-paper{position:relative;padding:12px 22px 16px;border:2px inset white;overflow:hidden}
+.assignment-promotion{background:repeating-conic-gradient(from 10deg at 50% 20%,#fffacb 0 15deg,#ffff66 15deg 30deg)}
+.assignment-ticker{padding:5px;background:navy;color:#ffff32;font:bold 11px/1.4 Arial;letter-spacing:1px}
+.assignment-emblem{display:flex;align-items:center;justify-content:center;gap:24px;margin:12px 0 5px}
+.assignment-emblem img{width:60px;height:60px;object-fit:contain;image-rendering:pixelated}
+.assignment-emblem span{display:block;transform:rotate(10deg);border:3px double #d10031;color:#d10031;background:#fffde9;padding:5px 10px;font:900 13px/1.2 Arial}
+.assignment-kicker{font:bold 10px Arial;letter-spacing:2px;margin:8px 0}
+#net-gate .assignment-paper h1,#assignment-notice h1{font:900 clamp(38px,7vw,62px)/.9 Impact,'Arial Black',sans-serif!important;letter-spacing:-1px;color:navy!important;text-shadow:2px 2px white;margin:8px 0 14px!important}
+#net-gate .assignment-paper h1 em,#assignment-notice h1 em{font-style:normal;color:#d60054;text-shadow:2px 2px white,4px 4px navy}
+.assignment-paper h2{font:bold 19px/1.4 Arial,'Malgun Gothic',sans-serif;margin:12px 0}
+.assignment-record{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 10px;background:#fffff4;border:3px double navy;font-size:13px;overflow-wrap:anywhere}
+.assignment-record span{flex-shrink:0}.assignment-record strong{color:#bd0030}
+.assignment-copy{font:15px/1.65 Arial,'Malgun Gothic',sans-serif;margin:12px 0}.assignment-copy strong{font-size:20px}
+.assignment-slogan{background:navy;color:yellow;padding:7px;font:bold 14px Arial;border:2px outset white}
+#net-gate #assignment-continue,#assignment-notice #assignment-continue{width:100%;min-height:44px;margin:12px 0 7px;padding:9px;border:3px outset white;background:linear-gradient(white,#d2d2d2);box-shadow:3px 3px #0005;font:bold 16px/1.4 Arial,'Malgun Gothic',sans-serif;color:navy;cursor:pointer;white-space:normal}
+#assignment-continue:focus-visible{outline:3px solid #f09;outline-offset:2px}
+.assignment-fine{display:block;font:10px/1.4 Arial}.assignment-footer{display:flex;justify-content:space-between;gap:8px;padding:5px 7px;border:2px inset white;font:10px Arial;text-align:left}
+.assignment-hell{background:#240707;color:#fff4bc;border:4px solid #a00000}
+.assignment-hell .assignment-ticker{background:repeating-linear-gradient(125deg,#111 0 20px,#ffe400 20px 40px);color:white;text-shadow:1px 1px black,-1px -1px black}
+.assignment-hell .assignment-emblem>strong{font:900 64px/.9 Arial;color:#ffe400;text-shadow:4px 4px #a00000}
+.assignment-hell .assignment-emblem span{background:#d00000;color:#ffff32;border-color:#ffff32}
+#net-gate .assignment-hell h1,#assignment-notice .assignment-hell h1{color:#ffe400!important;text-shadow:3px 3px #a00000}
+#net-gate .assignment-hell h1 em,#assignment-notice .assignment-hell h1 em{color:#ff432e;text-shadow:2px 2px #fff3a1,4px 4px #a00000}
+.assignment-hell h2{color:#ffff32}.assignment-hell .assignment-record{color:#fff4bc;background:#390606;border-color:#ff5e2c}.assignment-hell .assignment-record strong{color:yellow}
+.assignment-hell .assignment-slogan{background:#b50000;color:yellow;border-color:#ff633b}
+@media(max-height:700px){.assignment-paper{padding:9px 16px}.assignment-emblem{position:absolute;right:20px;top:47px;gap:8px;opacity:.95}.assignment-emblem img{width:38px;height:38px}.assignment-emblem span{font-size:9px;padding:4px}.assignment-hell .assignment-emblem>strong{font-size:38px}.assignment-kicker{font-size:8px;letter-spacing:1px;text-align:left}#net-gate .assignment-paper h1,#assignment-notice h1{font-size:44px!important;margin:10px 0!important}.assignment-paper h2{font-size:17px;margin:8px 0}.assignment-copy{font-size:14px;line-height:1.45;margin:9px 0}.assignment-copy strong{font-size:18px}.assignment-slogan{font-size:12px}.assignment-record{padding:6px;font-size:12px}}
+@media(max-width:420px){.assignment-paper{padding:10px}.assignment-emblem{display:none}.assignment-record{flex-direction:column;gap:4px}.assignment-chrome{font-size:10px}.assignment-chrome span{display:none}#net-gate #assignment-continue,#assignment-notice #assignment-continue{font-size:14px}}

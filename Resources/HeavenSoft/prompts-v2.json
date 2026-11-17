@@ -1,0 +1,11 @@
+{
+  "mode": "built-in image_gen",
+  "date": "2026-11-15",
+  "promptSummary": "Original late-1990s/early-2000s Korean church leaflet and amateur Photoshop 5.5 wallpaper. Stock-photo cut and paste, enlarged blurry JPGs, crude feathered masks, duplicated clouds, mismatched scale, flat compositing. Huge white Screen-blend glow, Zoom Blur radial beams, cheap lens flares. Strong sky blue and overexposed whites. Avoid purple/pink candy colors, gold ornament, polished fantasy illustration, pixel-art texture. No text or watermark.",
+  "variants": [
+    {"file":"ascension-collage-v2.png", "composition":"16:9; enormous light burst at left, rows of white-robed worshippers seen from behind at lower right, oversized dove cutouts above, repeated cloud stamps."},
+    {"file":"floating-palace-v2.png", "composition":"Square; small white palace on cloud clump at lower left, huge cropped dove upper right, exaggerated radial rays, ghosted rectangular cloud photograph."},
+    {"file":"hands-of-light-v2.png", "composition":"4:3; hands from bottom left and top right, cloud double exposure in hands, diagonal white burst, small tilted wings with drop shadow, mismatched cloud photos."},
+    {"file":"heaven-window-collage-v2.png", "composition":"3:4; three overlapping tilted cloud, dove and gate photographs; huge white flare at left; blurred clouds spilling across photo edges."}
+  ]
+}

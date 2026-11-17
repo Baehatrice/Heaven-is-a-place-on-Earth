@@ -1,0 +1,29 @@
+{
+  "method": "Consecutive manual sends, same skills; exclude tree/search/purchase/input-error intervals. Subtract programmed transmission delay. Includes interaction/decision time, not pure typing.",
+  "stages": {
+    "manual": {
+      "n": 9,
+      "medianSeconds": 4.398
+    },
+    "copy": {
+      "n": 4,
+      "medianSeconds": 3.599
+    },
+    "split": {
+      "n": 9,
+      "medianSeconds": 1.25
+    },
+    "template": {
+      "n": 33,
+      "medianSeconds": 1.639
+    },
+    "linked": {
+      "n": 14,
+      "medianSeconds": 1.825
+    }
+  },
+  "reading": {
+    "n": 22,
+    "medianSeconds": 2.502
+  }
+}

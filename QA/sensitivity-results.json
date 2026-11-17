@@ -1,0 +1,56 @@
+[
+  {
+    "readSeconds": 4,
+    "strategy": "batch",
+    "score": 15047,
+    "p10": 12257,
+    "p90": 16723,
+    "completed": "50/50",
+    "errors": 0
+  },
+  {
+    "readSeconds": 4,
+    "strategy": "hybrid",
+    "score": 15901,
+    "p10": 13687,
+    "p90": 17862,
+    "completed": "50/50",
+    "errors": 0
+  },
+  {
+    "readSeconds": 10,
+    "strategy": "batch",
+    "score": 1382,
+    "p10": 962,
+    "p90": 1391,
+    "completed": "0/50",
+    "errors": 0
+  },
+  {
+    "readSeconds": 10,
+    "strategy": "hybrid",
+    "score": 4500,
+    "p10": 2662,
+    "p90": 5869,
+    "completed": "31/50",
+    "errors": 0
+  },
+  {
+    "readSeconds": 15,
+    "strategy": "batch",
+    "score": 111,
+    "p10": 91,
+    "p90": 122,
+    "completed": "0/50",
+    "errors": 0
+  },
+  {
+    "readSeconds": 15,
+    "strategy": "hybrid",
+    "score": 128,
+    "p10": 116,
+    "p90": 298,
+    "completed": "0/50",
+    "errors": 0
+  }
+]

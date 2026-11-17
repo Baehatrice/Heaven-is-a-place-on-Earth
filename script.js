@@ -37,8 +37,9 @@ function makeWindowDraggable(win) {
     const handle = win.querySelector('.handle');
     if (!handle) return;
 
+    win.addEventListener('focusin', () => focusWindow(win));
     // Click to focus window
-    win.addEventListener('mousedown', () => {
+    win.addEventListener('pointerdown', () => {
         focusWindow(win);
     });
 
@@ -69,17 +70,17 @@ function makeWindowDraggable(win) {
 }
 
 function focusWindow(win) {
-    if (win.style.zIndex !== String(maxZIndex)) {
-        maxZIndex++;
-        win.style.zIndex = maxZIndex;
-        
-        // Remove 'focused' visual style from others
-        document.querySelectorAll('.win98-window').forEach(w => w.classList.remove('focused'));
-        win.classList.add('focused');
-    }
+    maxZIndex = Math.max(maxZIndex, ...Array.from(document.querySelectorAll('.win98-window'), w => Number(getComputedStyle(w).zIndex) || 0)) + 1;
+    document.querySelectorAll('.win98-window').forEach(w => w.classList.remove('focused'));
+    win.style.setProperty('z-index', String(maxZIndex), 'important');
+    win.classList.add('focused');
 }
 
 function setupDraggableWindows() {
+    document.querySelectorAll('.win98-window:not(.window-draggable)').forEach(win => {
+        win.addEventListener('pointerdown', () => focusWindow(win));
+        win.addEventListener('focusin', () => focusWindow(win));
+    });
     document.querySelectorAll('.window-draggable').forEach(win => {
         makeWindowDraggable(win);
     });
@@ -124,7 +125,7 @@ document.addEventListener('mousemove', (e) => {
 
 // --- Web Audio Synthesizer (cheesy MIDI-like hymn) ---
 let audioCtx = null;
-let isMuted = false;
+let isMuted = true;
 let isPlaying = false;
 let playbackTimeout = null;
 let currentNoteIndex = 0;
@@ -506,61 +507,153 @@ function renderVisualizer() {
 }
 
 // --- Guestbook Soul Registration Form Logic (Transition to Shamanism Altar) ---
+// Short transition effects have their own bus: quiet entry only mutes music.
+function createContractAudio() {
+    let ctx;
+    try {
+        ctx = new (window.AudioContext || window.webkitAudioContext)();
+        ctx.resume().catch(() => {});
+        const master = ctx.createGain();
+        master.gain.value = 0.22;
+        master.connect(ctx.destination);
+        function tone(freq, end, duration, volume, offset = 0, type = 'triangle') {
+            const t = ctx.currentTime + offset, osc = ctx.createOscillator(), gain = ctx.createGain();
+            osc.type = type;
+            osc.frequency.setValueAtTime(freq, t);
+            osc.frequency.exponentialRampToValueAtTime(end, t + duration);
+            gain.gain.setValueAtTime(0, t);
+            gain.gain.linearRampToValueAtTime(volume, t + Math.min(.04, duration / 4));
+            gain.gain.exponentialRampToValueAtTime(.0001, t + duration);
+            osc.connect(gain); gain.connect(master);
+            osc.onended = () => { osc.disconnect(); gain.disconnect(); };
+            osc.start(t); osc.stop(t + duration + .02);
+        }
+        function staticBurst(duration, volume) {
+            const t = ctx.currentTime, buffer = ctx.createBuffer(1, Math.ceil(ctx.sampleRate * duration), ctx.sampleRate);
+            const data = buffer.getChannelData(0);
+            for (let i = 0; i < data.length; i++) data[i] = (Math.random() * 2 - 1) * (Math.sin(i / ctx.sampleRate * 85) > 0 ? 1 : .16);
+            const source = ctx.createBufferSource(), filter = ctx.createBiquadFilter(), gain = ctx.createGain();
+            source.buffer = buffer; filter.type = 'bandpass'; filter.frequency.value = 1500; filter.Q.value = .6;
+            gain.gain.setValueAtTime(0, t); gain.gain.linearRampToValueAtTime(volume, t + .015); gain.gain.exponentialRampToValueAtTime(.0001, t + duration);
+            source.connect(filter); filter.connect(gain); gain.connect(master);
+            source.onended = () => { source.disconnect(); filter.disconnect(); gain.disconnect(); };
+            source.start();
+        }
+        return {
+            play(phase) {
+                if (ctx.state === 'closed') return;
+                if (phase === 'glitch') staticBurst(.55, .23);
+                if (phase === 'contract') {
+                    staticBurst(.3, .14);
+                    tone(740, 740, .13, .18, 0, 'square');
+                    tone(554, 554, .17, .16, .17, 'square');
+                    tone(277, 230, .36, .2, .38);
+                }
+                if (phase === 'darken') {
+                    tone(130, 42, 1.75, .38);
+                    tone(137, 45, 1.75, .16);
+                    tone(960, 110, 1.6, .1, .12, 'sine');
+                }
+            },
+            stop() { ctx.close().catch(() => {}); }
+        };
+    } catch (_) {
+        if (ctx) ctx.close().catch(() => {});
+        return {play() {}, stop() {}};
+    }
+}
+
+let admissionAudio;
+async function playSoulAdmission(name, fast = false) {
+    const form = document.getElementById('soul-form');
+    document.getElementById('reg-name').value = name;
+        const transitionAudio = admissionAudio || createContractAudio();
+        admissionAudio = null;
+        const win = document.getElementById('window-register');
+        const originalStyle = win.getAttribute('style');
+        const anchor = document.createComment('registration-position');
+        const rect = win.getBoundingClientRect();
+        win.before(anchor);
+        const stage = document.createElement('dialog');
+        stage.className = 'contract-stage';
+        stage.setAttribute('aria-label', '근로계약 체결 중');
+        stage.addEventListener('cancel', event => event.preventDefault());
+        document.body.append(stage);
+        stage.append(win);
+        win.style.setProperty('position', 'fixed', 'important');
+        win.style.setProperty('left', `${rect.left}px`, 'important');
+        win.style.setProperty('top', `${rect.top}px`, 'important');
+        win.style.setProperty('width', `${rect.width}px`, 'important');
+        stage.showModal();
+        const replacements = [];
+        const swap = (el, text) => { if (el) { replacements.push([el, el.textContent]); el.textContent = text; } };
+        const controls = [...win.querySelectorAll('input, select, button')];
+        const disabled = controls.map(el => el.disabled);
+        controls.forEach(el => el.disabled = true);
+        focusWindow(win);
+        stopMusic();
+        const pause = ms => new Promise(resolve => setTimeout(resolve, ms));
+        try {
+            win.classList.add('contract-glitch');
+            transitionAudio.play('glitch');
+            await pause(fast ? 350 : 620);
+            swap(win.querySelector('.title-bar-text'), 'PERMANENT_EMPLOYMENT_CONTRACT.exe');
+            swap(win.querySelector('.window-body > p'), '✍ 무기한 근로계약서 · 영혼 귀속 동의 ✍');
+            swap(form.querySelector('label[for="reg-name"]'), '근로자 성명:');
+            swap(form.querySelector('label[for="reg-faith"]'), '고용 형태:');
+            swap(document.getElementById('reg-faith').selectedOptions[0], '구원 완료 시까지 · 계약 종료일 없음');
+            swap(form.querySelector('legend'), '상급 지급을 위한 의무 근로 조항');
+            const clauses = [
+                ' 업무에 필요한 시간과 자원은 본인이 부담합니다.',
+                ' 보수는 현금 대신 추후 심사될 상급으로 지급됩니다.',
+                ' 이미 제공한 노동의 대가는 소급 청구하지 않습니다.',
+                ' 실적 미달은 개인의 태도 문제로 처리합니다.',
+                ' 휴식 중에도 업무 요청에 즉시 응답하겠습니다.',
+                ' 목적이 사라진 업무도 지시가 끝날 때까지 반복합니다.'
+            ];
+            form.querySelectorAll('input[name="pledge"]').forEach((input, i) => swap(input.nextSibling, clauses[i]));
+            swap(form.querySelector('[type="submit"]'), '계약 체결 완료 · 업무를 시작하십시오');
+            swap(win.querySelector('.guestbook-log > p'), '▣ 최근 배치 완료 근로자 명단:');
+            win.classList.add('contract-reveal');
+            transitionAudio.play('contract');
+            await pause(fast ? 180 : 280);
+            win.classList.remove('contract-glitch');
+            await pause(fast ? 1100 : 1800);
+            stage.classList.add('contract-darkening');
+            transitionAudio.play('darken');
+            await pause(fast ? 1400 : 1900);
+            stage.close();
+
+        } finally {
+            transitionAudio.stop();
+            replacements.reverse().forEach(([el, text]) => el.textContent = text);
+            controls.forEach((el, i) => el.disabled = disabled[i]);
+            win.classList.remove('contract-reveal', 'contract-glitch');
+            anchor.replaceWith(win);
+            if (originalStyle === null) win.removeAttribute('style');
+            else win.setAttribute('style', originalStyle);
+            stage.remove();
+
+        }
+}
+window.HeavenAdmission = { play: name => playSoulAdmission(name, true) };
 function setupSoulForm() {
     const form = document.getElementById('soul-form');
-    if (!form) return;
-
-    form.addEventListener('submit', (e) => {
+    let submitting = false;
+    form.addEventListener('submit', async e => {
         e.preventDefault();
-        
-        const nameInput = document.getElementById('reg-name');
-        const faithSelect = document.getElementById('reg-faith');
-        
-        if (!nameInput.value.trim()) return;
-
-        const name = nameInput.value.trim();
-        const faith = faithSelect.options[faithSelect.selectedIndex].text;
-        const dateStr = new Date().toISOString().slice(0, 10);
-
-        // Add to guestbook list DOM
-        const guestbook = document.getElementById('guestbook-list');
-        const entry = document.createElement('div');
-        entry.className = 'guestbook-entry';
-        entry.innerText = `${name} - [${faith}] 서약 완료 (${dateStr})`;
-        
-        if (guestbook.firstChild) {
-            guestbook.insertBefore(entry, guestbook.firstChild);
-        } else {
-            guestbook.appendChild(entry);
-        }
-
-        alert(`✍️ [하늘 생명책 시스템 알림] ✍️\n\n축하합니다! ${name} 성도의 영혼 서약서가 생명책 데이터베이스에 완전히 등재되었습니다.\n\n당신은 오늘 지옥 대열에서 임시 탈출하여 복음 전도 사업 전도사로 임명되었습니다. 행정실로 이동합니다!`);
-
-        // Navigate to Shamanic Altar / Evangelism Spam Factory page
-        isShamanismMode = true;
-        document.getElementById('heaven-windows').style.display = 'none';
-        document.getElementById('heaven-shamanism-windows').style.display = 'block';
-        document.body.className = '';
-        document.body.classList.add('mode-shamanism');
-        
-        document.getElementById('main-title-text').innerText = 'HEAVEN SPAM FACTORY';
-        document.getElementById('winamp-marquee').innerText = 'Now Playing: OOO 목사의 신비의 안수 기복성회 실황.mid';
-        
-        stopMusic();
-        startMusic();
-        
-        // Start Heaven game loops (Spam system & negligence timer)
-        initHeavenSpamGame();
-
-        // Increment visitor counter
-        let count = localStorage.getItem('visitorCount');
-        if (count) {
-            localStorage.setItem('visitorCount', parseInt(count) + 1);
-            setupVisitorCounter();
-        }
-
-        nameInput.value = '';
-        form.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+        if (submitting || !form.reportValidity()) return;
+        const name = document.getElementById('reg-name').value.trim();
+        if (!name) return;
+        submitting = true;
+        admissionAudio?.stop();
+        admissionAudio = createContractAudio();
+        const button = form.querySelector('[type="submit"]');
+        button.disabled = true;
+        try {
+            if (window.HeavenNet?.active) await window.HeavenNet.join(name);
+            else { await playSoulAdmission(name); window.HeavenMail.start(name, {sound:true}); }
+        } finally { submitting = false; button.disabled = false; }
     });
 }
 
@@ -782,7 +875,7 @@ function setupShamanInteractions() {
             renderEvangelizedList();
             
             // Floating notification alert
-            alert(`📨 [전도 메일 전송 성공] 📨\n\n수신자: ${soul.name}\n\n결과:\n대상자가 전도 메일을 전송받았습니다. 이 순간부터 예수를 믿지 않을 시 지옥으로 떨어지는 '불신 죄인 카르마 타이머'가 영원히 정지하지 않고 구동됩니다!\n\n(나의 행정 태만율이 0%로 초기화되었습니다.)`);
+            alert(`📨 [전도 메일 전송 성공] 📨\n\n수신자: ${soul.name}\n\n결과:\n대상자가 전도 메일을 전송받았습니다. 교주의 잠재 실적 명단에 수신인이 추가되었습니다. 영광회는 동의하지 않은 사람까지 조직의 수치로 계산합니다.\n\n(나의 행정 태만율이 0%로 초기화되었습니다.)`);
         });
     }
 }
@@ -950,6 +1043,7 @@ function triggerHellTransition() {
 }
 
 function enterGatesOfHell() {
+    if(window.HeavenFlow){stopMusic();window.HeavenFlow.go("hell");return;}
     isHellMode = true;
     isShamanismMode = false;
     isHellLaborMode = false;
@@ -1006,7 +1100,7 @@ function repentAndBackToHeaven() {
     
     // Restore Titles
     document.getElementById('main-title-text').innerText = 'Heaven is a place on Earth';
-    document.getElementById('winamp-marquee').innerText = 'Now Playing: OOO 목사의 천국 찬송가 - 내 주를 가까이 하게 함은.mid';
+    document.getElementById('winamp-marquee').innerText = 'Now Playing: OOO 교주의 천국 찬송가 - 내 주를 가까이 하게 함은.mid';
     
     // Play heavenly arpeggio sound and restart normal hymn music loop
     stopMusic();
@@ -1031,12 +1125,14 @@ window.addEventListener('DOMContentLoaded', () => {
     // Splash Buttons click handlers
     document.getElementById('btn-enter').addEventListener('click', () => {
         document.getElementById('splash-overlay').style.display = 'none';
+        isMuted = false;
         startMusic();
     });
 
     document.getElementById('btn-enter-mute').addEventListener('click', () => {
         document.getElementById('splash-overlay').style.display = 'none';
-        triggerHellTransition();
+        isMuted = true;
+        stopMusic();
     });
 
     // Hell transition buttons
@@ -1075,3 +1171,30 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// Test shortcuts reload the scene so old timers and dialogs cannot leak across rooms.
+window.addEventListener('DOMContentLoaded', () => {
+    if(window.HeavenNet?.active)return;
+    const scene = sessionStorage.getItem('heaven-test-scene') || new URLSearchParams(location.search).get('testScene');
+    sessionStorage.removeItem('heaven-test-scene');
+    document.querySelectorAll('#test-scene-nav a').forEach(link => {
+        link.addEventListener('click', event => {
+            event.preventDefault();
+            sessionStorage.removeItem('heaven-test-scene');
+            location.href = link.href;
+        });
+        if (new URL(link.href).searchParams.get('testScene') === (scene || 'heaven')) link.setAttribute('aria-current', 'page');
+    });
+    if (!['heaven', 'office', 'judgment', 'hell', 'planning'].includes(scene)) return;
+    document.getElementById('splash-overlay').style.display = 'none';
+    stopMusic();
+    if (scene === 'office') {
+        window.HeavenMail.start('테스트 사원', {sound:true});
+        document.getElementById('mg-begin').click();
+    } else if (['judgment','hell','planning'].includes(scene)) {
+        window.HeavenFlow.open(scene);
+        isMuted = true;
+    }
+});
+
+window.HeavenMusic={playing:()=>isPlaying&&!isMuted,toggle:()=>{if(isPlaying&&!isMuted){stopMusic();isMuted=true;}else{isMuted=false;startMusic();}}};

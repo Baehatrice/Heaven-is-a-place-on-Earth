@@ -1,0 +1,128 @@
+{
+  "addresscopy": {
+    "prices": [
+      25
+    ],
+    "time": 0
+  },
+  "ledger": {
+    "prices": [
+      24,
+      63,
+      163
+    ],
+    "time": 0
+  },
+  "seek": {
+    "prices": [
+      30,
+      78,
+      203
+    ],
+    "time": 0
+  },
+  "autoseek": {
+    "prices": [
+      120
+    ],
+    "time": 12
+  },
+  "transfer": {
+    "prices": [
+      120
+    ],
+    "time": 0
+  },
+  "expand": {
+    "prices": [
+      45
+    ],
+    "time": 0
+  },
+  "copy": {
+    "prices": [
+      12
+    ],
+    "time": 0
+  },
+  "split": {
+    "prices": [
+      35
+    ],
+    "time": 5
+  },
+  "template": {
+    "prices": [
+      30
+    ],
+    "time": 5
+  },
+  "next": {
+    "prices": [
+      100
+    ],
+    "time": 12
+  },
+  "batch": {
+    "prices": [
+      18,
+      47,
+      122,
+      317
+    ],
+    "time": 0
+  },
+  "echo": {
+    "prices": [
+      200,
+      520,
+      1353
+    ],
+    "time": 18
+  },
+  "speed": {
+    "prices": [
+      15,
+      39,
+      102,
+      264
+    ],
+    "time": 0
+  },
+  "safe": {
+    "prices": [
+      30,
+      78,
+      203
+    ],
+    "time": 0
+  },
+  "retry": {
+    "prices": [
+      50
+    ],
+    "time": 7
+  },
+  "combo": {
+    "prices": [
+      120,
+      312,
+      812
+    ],
+    "time": 12
+  },
+  "auto": {
+    "prices": [
+      90,
+      234,
+      609
+    ],
+    "time": 20
+  },
+  "rapture": {
+    "prices": [
+      350
+    ],
+    "time": 30
+  }
+}
